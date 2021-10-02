@@ -1,12 +1,19 @@
-.formregis {
+body{
+  background-image:url('../images/Register/BackgroundRegister.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.formRegister {
   width: 45%;
   background-color: white;
   padding: 1rem 3rem 2rem 3rem;
   border-radius: 25px;
   box-shadow: -5px 8px #adadad;
   overflow: hidden;
+  margin-top:50px;
 }
-.regis {
+.formRegister h1 {
   color: #0e4f6e;
   text-align: center;
 }
@@ -19,18 +26,18 @@ label {
   color: #0e4f6e;
 }
 
-.namapic {
+.topForm {
   display: flex;
   align-items: center;
   margin-top: 2rem;
 }
-.profpic {
+.profilePicture {
   margin-top: -1.7rem;
   width: 50%;
   text-align: center;
   color: #0e4f6e;
 }
-.namal {
+.formNama {
   width: 100%;
   margin-right: 0.5rem;
 }
@@ -42,17 +49,39 @@ input[type="password"]::placeholder {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="date"] {
   background-color: #60dae5;
   border-color: #60dae5;
   border-radius: 20px;
   background-repeat: no-repeat;
   margin-bottom: 1rem;
+  padding-left: 30px;
 }
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="date"]:focus {
   background-color: #60dae5;
   border-color: #60dae5;
+}
+
+.jenisKelamin{
+  background-color: #60dae5;
+  border-color: #60dae5;
+  border-radius: 20px;
+  color:#0e4f6e;
+  margin-bottom: 1rem;
+  padding-left: 30px;
+}
+
+#konfirmasi{
+  margin-bottom:0;
+}
+
+#error{
+  color:red;
+  height: 4vh;
+  margin:0;
 }
 
 .butt {

@@ -32,6 +32,33 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['login
     }else{
         header("location:./index.php?pesan=gagal");
     }
+}else if(isset($_POST['NamaDepan']) && isset($_POST['NamaBelakang']) && isset($_POST['TanggalLahir']) && 
+    isset($_POST['JenisKelamin']) && isset($_POST['Username']) && isset($_FILES['ProfilePic']) && isset($_POST['Password']) && 
+    $_POST['Konfirmasi'] && isset($_POST['register'])){
+    echo "halo";
+    $NamaDepan = $_POST['NamaDepan'];
+    $NamaBelakang = $_POST['NamaBelakang'];
+    $TanggalLahir = $_POST['TanggalLahir'];
+    $JenisKelamin = $_POST['JenisKelamin'];
+    $Username = $_POST['Username'];
+    $Password = md5($_POST['Password']);
+    $profile = $_FILES['ProfilePic'];
+    $role = "Pengguna";
+    echo $profile['name'];
+    $targetPicture = URL . "/Assets/images/profile/" . basename($profile['name']);
+
+    move_uploaded_file($_FILES['ProfilePic']['tmp_name'], $targetPicture);
+
+    $conn = Database();
+    if($_POST['Password'] != $_POST['Konfirmasi']){
+        header("location:../Views/Register.php?pesan=konfirmasigagal");
+    }
+
+    $sql = "INSERT INTO users VALUES('$Username','$Password','$role')";
+    $sqlPengguna = "INSERT INTO pengguna VALUES ('$Username','$NamaDepan','$NamaBelakang','$JenisKelamin','$TanggalLahir','$targetPicture')";
+    $query = mysqli_query($conn,$sql);
+    $queryPengguna = mysqli_query($conn,$sqlPengguna);
+    header("location:../index.php");
 }
 
 ?>
