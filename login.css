@@ -1,0 +1,63 @@
+.modal-content {
+  color: #0e4f6e;
+  border-radius: 20px;
+  box-shadow: -5px 8px #9e9e9e;
+  width: 90%;
+}
+
+.modal-title {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 0 3rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.labelModal {
+  padding-left: 0.5rem;
+}
+
+.TanyaRegis {
+  text-align: center;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #0e4f6e;
+  opacity: 1;
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: #60dae5;
+  border-color: #60dae5;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  margin-bottom: 1rem;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #60dae5;
+  border-color: #60dae5;
+}
+.btnModal {
+  background-color: #60dae5;
+  border-color: #60dae5;
+  box-shadow: -3px 3px #127a8b;
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin-top: -0.1rem;
+  transition: 0.2s;
+}
+
+.btnModal:hover {
+  background-color: #5cc6cf;
+  transition: 0.2s;
+}
