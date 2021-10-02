@@ -1,0 +1,108 @@
+.navbar{
+    background-color: #FC7F2B;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.login-button{
+    
+}
+
+.navbar-2{
+    background-color: #FCAF3E;
+}
+
+.navigation-tab{
+    margin: 0;
+    display: flex;
+    flex-direction: row!important;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.section-1 .swiper {
+    width: 100%;
+    height: auto;
+}
+
+.section-1 .swiper-slide{
+    display: flex;
+    justify-content: center;
+    background-color: #99A6AC;
+    border-radius: 15px;
+    position: relative;
+}
+
+.section-1 .swiper-slide span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+
+}
+
+.section-1 .swiper-slide .overlay-span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #99A6AC;
+    opacity: 0.4;
+    border-radius: 15px;
+
+}
+
+.section-1 .swiper-container{
+
+}
+
+.section-2 .line{
+    height: 5px;
+    background-color: #0E4F6E;
+}
+
+.section-2 .box {
+    position: relative;
+}
+
+.section-2 .box-tag {
+    padding: 7px 30px;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    background-color: #FC7F2B;
+    color: white;
+}
+
+.section-3 .line{
+    height: 5px;
+    background-color: #0E4F6E;
+}
+
+.section-3 .box{
+    color: white;
+    background-color: #0E4F6E;
+    border-radius: 15px;
+}
+
+.section-3 .img-container{
+    position: relative;
+}
+
+.section-3 .box-tag {
+    padding: 7px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FCAF3E;
+    color: white;
+}
+
+.section-4 .line{
+    height: 5px;
+    background-color: #0E4F6E;
+}
