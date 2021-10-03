@@ -36,7 +36,7 @@
                             <input class="form-control" type="file" placeholder="Profile Picture" id="ProfilePic" name="ProfilePic" required />
                         </div>
                     </div>
-                    <input class="form-control" type="date" placeholder="Tanggal Lahir" name="TanggalLahir" required />
+                    <input class="form-control" type="date" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" name="TanggalLahir" required />
                     <select name="JenisKelamin" class="form-select jenisKelamin" required>
                         <option value="">Jenis Kelamin</option>
                         <option value="L">Laki-Laki</option>
