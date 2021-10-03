@@ -8,15 +8,16 @@ include_once(URL . "./Model/Pengguna.php");
 if(isset($_POST['logout'])){
     session_start();
     session_destroy();
+    header("location:./index.php");
 }
 
 function isLogin(){
     return isset($_SESSION['login']);
 }
 
-if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['login'])){
-    $username = $_POST['username'];
-    $pass = md5($_POST['password']);
+if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login'])){
+    $username = $_POST['Username'];
+    $pass = md5($_POST['Password']);
     $conn = Database();
     $user = new Users();
     $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$pass'";
@@ -25,10 +26,9 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['login
     $result = mysqli_fetch_array($query);
 
     if($cek_login == 1){
-        $user->setData($username,$password,$result['role']);
+        $user->setData($username,$pass,$result['role']);
         $_SESSION['role'] = $user->role;
         $_SESSION['username'] = $user->username;
-        header("location:./index.php?pesan=berhasil");
     }else{
         header("location:./index.php?pesan=gagal");
     }

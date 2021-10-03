@@ -32,47 +32,22 @@
     </button>
 
     <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <!-- <div class="modal-header"> -->
           <div class="titleModal">
             <h1 class="modal-title" id="exampleModalLabel">Log In</h1>
           </div>
-          <!-- <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button> -->
-          <!-- </div> -->
           <form action="" method="POST">
             <div class="modal-body">
               <label for="NamaDepan" class="labelModal">Username</label>
-              <input
-                class="form-control"
-                type="text"
-                name="Username"
-                required
-              />
+              <input class="form-control" type="text" name="Username" required />
               <label for="Password" class="labelModal">Password</label>
-              <input
-                class="form-control"
-                type="password"
-                name="Pass"
-                required
-              />
+              <input class="form-control" type="password" name="Pass" required />
             </div>
             <div class="modal-footer">
-              <button class="btn btnModal" type="submit" name="Login">
-                Sign In
-              </button>
+              <button class="btn btnModal" type="submit" name="Login">Sign In</button>
             </div>
           </form>
           <p class="TanyaRegis">Belum memiliki akun? <a href="">Register</a></p>

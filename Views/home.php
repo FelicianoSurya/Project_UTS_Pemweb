@@ -4,30 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./home.css" rel="stylesheet">
+    <link href="./Assets/css/home.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <title>Document</title>
+    <script src="./Assets/js/home.js"></script>
+    <?php
+    session_start();
+    define('URL', dirname(dirname(__FILE__)));
+    include_once(URL . "/Controllers/Middleware.php");
+    
+    ?>
 
 </head>
 <body>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <!-- <div class="modal-header"> -->
+        <div class="titleModal">
+        <h1 class="modal-title" id="exampleModalLabel">Log In</h1>
+        </div>
+        <form action="" method="POST">
+        <div class="modal-body">
+            <label for="Username" class="labelModal">Username</label>
+            <input class="form-control" type="text" name="Username" required />
+            <label for="Password" class="labelModal">Password</label>
+            <input class="form-control" type="password" name="Password" required />
+            <?php
+                if(isset($_GET['pesan']))
+                {
+                    echo "<p style='color:red'>Username atau Password Salah!</p>";
+                }
+            ?>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btnModal" type="submit" name="login">Sign In</button>
+        </div>
+        </form>
+        <p class="TanyaRegis">Belum memiliki akun? <a href="./Views/Register.php">Register</a></p>
+    </div>
+</div>
+</div>
 <nav class="">
     <div class="navbar navbar-light">
     <div class="container-fluid container">
-        <a class="navbar-brand w-25"><img src="images/logo.png" alt="" class="w-100"></a>
-        <form class="d-flex">
-            <button class="btn login-button" type="submit">Login</button>
+        <a class="navbar-brand w-25"><img src="./Assets/images/home/logo.png" alt="" class="w-100"></a>
+        <form class="d-flex" method="POST" action="">
+            <?php if(!isset($_SESSION['username'])) { ?>
+            <button class="btn btnModal btn-login"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+            <?php }else{ ?>
+            <button class="btn btnModal btn-login"type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="logout">Logout</button>
+            <div class="profile">
+                <?php echo $_SESSION['username']; ?>
+                <img src="./Assets/images/profile/profile1.png" alt="profile">
+            </div>
+            <?php } ?>
         </form>
     </div>
     </div>    

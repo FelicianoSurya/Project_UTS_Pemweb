@@ -7,8 +7,10 @@
     <title>Test Data</title>
     <?php
     session_start();
+    
     define('URL', dirname(dirname(__FILE__)));
     include_once(URL. "/Controllers/Middleware.php");
+    
     if(isset($_GET['pesan']))
     {
         if($_GET['pesan'] == 'berhasil'){

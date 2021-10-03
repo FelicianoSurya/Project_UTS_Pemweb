@@ -47,6 +47,7 @@
                     <input class="form-control" type="password" id="konfirmasi" placeholder="Re-Type Password" name="Konfirmasi" onfocusout="cekKonfirmasi()" required />
                     <p id="error"></p>
                     <div class="butt">
+                        <a href="../"><button class="btn" type="button">Back</button></a>
                         <button class="btn" type="submit" name="regis" >Submit</button>
                     </div>
                     </div>
