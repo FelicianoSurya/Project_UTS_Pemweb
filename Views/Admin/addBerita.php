@@ -11,15 +11,20 @@
     define('URL', dirname(dirname(dirname(__FILE__))));
     include_once(URL . "/include_db/connection.php");
     include_once(URL . "/Controllers/KategoriController.php");
-    include_once(URL . "/Controllers/AddBerita.php");
+    include_once(URL . "/Controllers/BeritaController.php");
 
     $kategories = fetchKategori();
     $news = fetchBerita();
+    $highlights = fetchHighlight();
+    $beritaUtama = fetchBeritaUtama();
+
     ?>
 </head>
 <body>
     <?php if(isset($_GET['pesan']) == 'berhasil'){
         echo "berhasil";
+    }else if(isset($_GET['pesan']) == 'highlight'){
+        echo "highlight berhasi";
     } ?>
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="text" name="judul" required />
@@ -57,5 +62,23 @@
 
         ?>
     </table>
+    <br><br><br><br>
+    <form action="" method="POST">
+        <select name="id_berita" required>
+            <option value="">Berita</option>
+            <?php foreach($highlights as $highlight) echo "<option disabled value='$highlight->id'>$highlight->judul</option>"; ?>
+            <?php foreach($news as $new) echo "<option value='$new->id'>$new->judul </option>"; ?>
+        </select>
+        <input type="submit" name="highlight">
+    </form>
+    <br><br><br><br>
+    <form action="" method="POST">
+        <select name="id_berita" required>
+            <option value="">Berita</option>
+            <?php foreach($beritaUtama as $utama) echo "<option disabled value='$utama->id'>$utama->judul</option>"; ?>
+            <?php foreach($news as $new) echo "<option value='$new->id'>$new->judul </option>"; ?>
+        </select>
+        <input type="submit" name="beritaUtama">
+    </form>
 </body>
 </html>
