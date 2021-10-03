@@ -1,11 +1,11 @@
 <?php
 
 class Admin {
-    public $username, $first_name, $last_name;
-    function setData($username, $first_name, $last_name){
+    public $username, $nama_depan, $nama_belakang;
+    function setData($username, $nama_depan, $nama_belakang){
         $this->username = $username;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
+        $this->nama_depan = $nama_depan;
+        $this->nama_belakang = $nama_belakang;
     }
 }
 

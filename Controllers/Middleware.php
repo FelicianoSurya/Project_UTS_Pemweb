@@ -45,7 +45,8 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
     $profile = $_FILES['ProfilePic'];
     $role = "Pengguna";
     echo $profile['name'];
-    $targetPicture = URL . "/Assets/images/profile/" . basename($profile['name']);
+    $picture = "/Assets/images/profile/" . basename($profile['name']);
+    $targetPicture = URL . $picture;
 
     move_uploaded_file($_FILES['ProfilePic']['tmp_name'], $targetPicture);
 
@@ -55,7 +56,7 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
     }
 
     $sql = "INSERT INTO users VALUES('$Username','$Password','$role')";
-    $sqlPengguna = "INSERT INTO pengguna VALUES ('$Username','$NamaDepan','$NamaBelakang','$JenisKelamin','$TanggalLahir','$targetPicture')";
+    $sqlPengguna = "INSERT INTO pengguna VALUES ('$Username','$NamaDepan','$NamaBelakang','$JenisKelamin','$TanggalLahir','$picture')";
     $query = mysqli_query($conn,$sql);
     $queryPengguna = mysqli_query($conn,$sqlPengguna);
     header("location:../index.php");

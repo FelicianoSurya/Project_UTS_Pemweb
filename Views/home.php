@@ -22,6 +22,10 @@
     session_start();
     define('URL', dirname(dirname(__FILE__)));
     include_once(URL . "/Controllers/Middleware.php");
+    include_once(URL . "/include_db/connection.php");
+    if(isset($_SESSION['role'])){
+        include_once(URL . "/Controllers/UserController.php");
+    }
     
     ?>
 
@@ -60,13 +64,17 @@
     <div class="container-fluid container">
         <a class="navbar-brand w-25"><img src="./Assets/images/home/logo.png" alt="" class="w-100"></a>
         <form class="d-flex" method="POST" action="">
-            <?php if(!isset($_SESSION['username'])) { ?>
+            <?php if(!isset($_SESSION['role'])) { ?>
             <button class="btn btnModal btn-login"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
             <?php }else{ ?>
             <button class="btn btnModal btn-login"type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="logout">Logout</button>
-            <div class="profile">
-                <?php echo $_SESSION['username']; ?>
-                <img src="./Assets/images/profile/profile1.png" alt="profile">
+            <div class="profile d-flex">
+                <p><?php  if($_SESSION['role'] == 'pengguna'){ echo $pengguna->name ?></p>
+                <img src="./<?php echo $pengguna->image ?>" alt="profile">
+                <?php }else{ ?>
+                <p>Admin</p>
+                <img src="./Assets/images/home/blank.png" alt="profileAdmin">
+                <?php } ?>
             </div>
             <?php } ?>
         </form>
