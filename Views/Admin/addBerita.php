@@ -14,13 +14,17 @@
     include_once(URL . "/Controllers/AddBerita.php");
 
     $kategories = fetchKategori();
+    $news = fetchBerita();
     ?>
 </head>
 <body>
+    <?php if(isset($_GET['pesan']) == 'berhasil'){
+        echo "berhasil";
+    } ?>
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="text" name="judul" required />
         <input type="text" name="penulis" required />
-        <textbox name="deskripsi" required></textbox>
+        <textarea name="deskripsi" required></textarea>
         <input type="date" name="tanggal_publikasi" required />
         <input type="file" name="gambar" required />
         <select name="id_kategori" required>
@@ -28,6 +32,30 @@
             <?php 
             foreach($kategories as $kategori) echo "<option value='$kategori->id'>$kategori->name </option>"; ?>
         </select>
+        <input type="submit" name="berita">
     </form>
+    <table border="1">
+        <tr>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Deskripsi</th>
+            <th>Tanggal Publikasi</th>
+            <th>Foto</th>
+            <th>Nama Kategori</th>
+        </tr>
+        <?php
+
+        foreach($news as $new){
+            echo "<tr>
+                    <td>$new->judul</td>
+                    <td>$new->penulis</td>
+                    <td>$new->deskripsi</td>
+                    <td>$new->tanggal_publikasi</td>
+                    <td><img src='./$new->gambar' width='100' /></td>
+                    <td>$new->id_kategori</td>";
+        }
+
+        ?>
+    </table>
 </body>
 </html>
