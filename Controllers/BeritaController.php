@@ -50,7 +50,7 @@ if(isset($_POST['id_berita']) && isset($_POST['beritaUtama'])){
 function fetchBerita(){
     $News = array();
     $conn = Database();
-    $sql = " SELECT id, judul, penulis, deskripsi,
+    $sql = "SELECT id, judul, penulis, deskripsi,
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
             gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' 
             FROM berita WHERE berita.id NOT IN (SELECT id_berita FROM highlight) AND 
@@ -99,6 +99,24 @@ function fetchBeritaUtama(){
         array_push($arrayBeritaUtama, $berita);
     }
     return $arrayBeritaUtama;
+}
+
+function fetchBeritaTerbaru(){
+    $arrayBeritaTerbaru = array();
+    $conn = Database();
+    $sql = "SELECT id, judul, penulis, deskripsi,
+            CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
+            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' 
+            FROM berita WHERE berita.id NOT IN (SELECT id_berita FROM highlight) AND 
+            berita.id NOT IN (SELECT id_berita FROM utama) ORDER BY 5 DESC";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_all($query);
+    foreach($result as $data){
+        $berita = new Berita();
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+        array_push($arrayBeritaTerbaru,$berita);
+    }
+    return $arrayBeritaTerbaru;
 }
 
 ?>
