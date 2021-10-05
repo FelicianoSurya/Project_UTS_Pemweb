@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php
+    session_start();
+    define('URL', dirname(dirname(__FILE__)));
+    include_once(URL . "/Controllers/Middleware.php");
+    include_once(URL . "/include_db/connection.php");
+    if(isset($_SESSION['role'])){
+        include_once(URL . "/Controllers/UserController.php");
+    }
+    include_once(URL . "/Controllers/KategoriController.php");
+    include_once(URL . "/Controllers/BeritaController.php");
+
+    $kategories = fetchKategori();
+    $news = fetchBerita();
+    $highlights = fetchHighlight();
+    $beritaUtama = fetchBeritaUtama();
+    $beritaTerbaru = fetchBeritaTerbaru();
+    
+?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,5 +83,7 @@
             </div>
         </div>
     </div>
+<?php include('Views/base/footer.php') ?>
+
 </body>
 </html>

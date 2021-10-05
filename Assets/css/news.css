@@ -8,6 +8,9 @@ body{
     background-color: white;
     border: black 1pt solid;
     border-radius: 25px;
+    box-shadow: -8px 10px 0px 0px rgba(0,0,0,0.15);
+  -webkit-box-shadow: -8px 10px 0px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: -8px 10px 0px 0px rgba(0,0,0,0.15);
 }
 
 
