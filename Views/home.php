@@ -117,7 +117,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT US</a>
+                    <a class="nav-link" href="./Views/aboutUs.php">ABOUT US</a>
                 </li>
             </ul>
         </div>
