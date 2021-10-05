@@ -5,10 +5,11 @@ include_once(URL . "/Model/Kategori.php");
 
 $conn = Database();
 
-if(isset($_POST['judul']) && isset($_POST['penulis']) && isset($_POST['deskripsi']) && isset($_POST['tanggal_publikasi'])
+if(isset($_POST['judul']) && isset($_POST['subjudul']) && isset($_POST['penulis']) && isset($_POST['deskripsi']) && isset($_POST['tanggal_publikasi'])
     && isset($_FILES['gambar']) && isset($_POST['id_kategori'])){
 
     $judul = $_POST['judul'];
+    $subjudul = $_POST['subjudul'];
     $penulis = $_POST['penulis'];
     $deskripsi = $_POST['deskripsi'];
     $tanggal_publikasi = $_POST['tanggal_publikasi'];
@@ -21,8 +22,8 @@ if(isset($_POST['judul']) && isset($_POST['penulis']) && isset($_POST['deskripsi
 
     move_uploaded_file($image['tmp_name'], $targetImage);
     
-    $sql = "INSERT INTO berita (judul,penulis,deskripsi,tanggal_publikasi,gambar,id_kategori) 
-            VALUES ('$judul','$penulis', '$deskripsi', '$tanggal_publikasi', '$imageLink' , $id_kategori)";
+    $sql = "INSERT INTO berita (judul,subjudul, penulis,deskripsi,tanggal_publikasi,gambar,id_kategori) 
+            VALUES ('$judul','$subjudul','$penulis', '$deskripsi', '$tanggal_publikasi', '$imageLink' , $id_kategori)";
     $query = mysqli_query($conn,$sql);
     header("location:./Admin.php?pesan=berhasil");
 }
@@ -52,14 +53,14 @@ function fetchBerita(){
     $conn = Database();
     $sql = "SELECT id, judul, penulis, deskripsi,
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
-            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' 
+            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul
             FROM berita WHERE berita.id NOT IN (SELECT id_berita FROM highlight) AND 
             berita.id NOT IN (SELECT id_berita FROM utama)";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
         $berita = new Berita();
-        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7]);
         array_push($News,$berita);
     }
     return $News;
@@ -70,14 +71,14 @@ function fetchHighlight(){
     $conn = Database();
     $sql = "SELECT highlight.id, judul, penulis, deskripsi, 
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-            gambar, kategori.nama FROM ((berita
+            gambar, kategori.nama , subjudul FROM ((berita
             INNER JOIN highlight ON berita.id = highlight.id_berita)
             INNER JOIN kategori ON berita.id_kategori = kategori.id)";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
         $berita = new Berita();
-        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7]);
         array_push($arrayHighlight, $berita);
     }
     return $arrayHighlight;
@@ -88,14 +89,14 @@ function fetchBeritaUtama(){
     $conn = Database();
     $sql = "SELECT utama.id, judul, penulis, deskripsi, 
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-            gambar, kategori.nama FROM ((berita
+            gambar, kategori.nama, subjudul FROM ((berita
     INNER JOIN utama ON berita.id = utama.id_berita)
     INNER JOIN kategori ON berita.id_kategori = kategori.id)";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
         $berita = new Berita();
-        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7]);
         array_push($arrayBeritaUtama, $berita);
     }
     return $arrayBeritaUtama;
@@ -106,14 +107,14 @@ function fetchBeritaTerbaru(){
     $conn = Database();
     $sql = "SELECT id, judul, penulis, deskripsi,
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
-            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' 
+            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul
             FROM berita WHERE berita.id NOT IN (SELECT id_berita FROM highlight) AND 
             berita.id NOT IN (SELECT id_berita FROM utama) ORDER BY 5 DESC";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
         $berita = new Berita();
-        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7]);
         array_push($arrayBeritaTerbaru,$berita);
     }
     return $arrayBeritaTerbaru;
@@ -123,12 +124,12 @@ function fetchDetailBerita(){
     $conn = Database();
     $sql = "SELECT berita.id, judul, penulis, deskripsi, 
     CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-    gambar, kategori.nama FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 10";
+    gambar, kategori.nama, subjudul FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 10";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($query);
 
     $berita = new Berita();
-    $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+    $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7]);
 
     return $berita;
 }

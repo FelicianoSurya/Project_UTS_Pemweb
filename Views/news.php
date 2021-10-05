@@ -55,7 +55,7 @@
             <img src="./<?php echo $detail->gambar ?>" alt="" width="100%">
         </div>
         <div class="news-image-sub pb-3">
-            <p>Ekspor barang dari Sumatera Utara (Sumut) ke China mencapai US$166,18 juta pada Agustus 2021. Porsinya merupakan yang terbesar dari total ekspor. Ilustrasi. (ANTARA FOTO/Akbar Nugroho Gumay).</p>
+            <p><?php echo $detail->subjudul ?></p>
         </div>
         <div class="news-writer">
             <h5>Penulis <?php echo $detail->penulis ?> | Editor Yuharrani Aisyah</h5>
