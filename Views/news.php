@@ -76,7 +76,6 @@
                     <div class="col-9">
                     <input type="text" placeholder="Type your comments here...">
                     </div>
-
                 
                     <div class="col-1">
                         <button class="button-send" type="submit" class="btn btn-primary" " >Send</button>

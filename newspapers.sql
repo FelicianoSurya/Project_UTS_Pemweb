@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Okt 2021 pada 15.41
+-- Waktu pembuatan: 05 Okt 2021 pada 15.01
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -49,10 +49,11 @@ INSERT INTO `admin` (`username`, `nama_depan`, `nama_belakang`) VALUES
 CREATE TABLE `berita` (
   `id` int(11) NOT NULL,
   `judul` varchar(50) DEFAULT NULL,
+  `subjudul` varchar(100) NOT NULL,
   `penulis` varchar(50) DEFAULT NULL,
   `deskripsi` longtext DEFAULT NULL,
   `tanggal_publikasi` date DEFAULT NULL,
-  `gambar` varchar(50) DEFAULT NULL,
+  `gambar` longtext DEFAULT NULL,
   `id_kategori` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -60,8 +61,13 @@ CREATE TABLE `berita` (
 -- Dumping data untuk tabel `berita`
 --
 
-INSERT INTO `berita` (`id`, `judul`, `penulis`, `deskripsi`, `tanggal_publikasi`, `gambar`, `id_kategori`) VALUES
-(3, 'ggg', 'gg', 'gg', '2021-10-06', '/Assets/images/berita/3.PNG', 2);
+INSERT INTO `berita` (`id`, `judul`, `subjudul`, `penulis`, `deskripsi`, `tanggal_publikasi`, `gambar`, `id_kategori`) VALUES
+(8, 'Berita 1', 'Andi menjadi pemimpin upacara untuk 17 agustusan', 'Felicanio', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2),
+(9, 'Berita 2', 'Kevin Mati diterkam harimau kemarin jam 10 pagi', 'Fernando', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-03', '/Assets/images/berita/pathum-danthanarayana-t8TOMKe6xZU-unsplash.jpg', 3),
+(10, 'Berita 3', 'Ekspor barang dari Sumatera Utara (Sumut) ke China mencapai US$166,18 juta pada Agustus 2021. Porsin', 'Dea', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-11', '/Assets/images/berita/damian-markutt-IsUFGqxI5Ck-unsplash.jpg', 4),
+(11, 'Berita 4', 'Indahnya berbagi kebahagiaan bersama semua orang yang capek sama uts', 'Lifosmin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-08-31', '/Assets/images/berita/pathum-danthanarayana-7xMpOEQWpno-unsplash.jpg', 3),
+(12, 'Berita 5', 'hadu kok keren banget ini dunia, banyak tugas, banyak project', 'Feliciano', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-03', '/Assets/images/berita/damian-markutt-vaG8rOJLDHo-unsplash.jpg', 3),
+(13, 'Charlie Frederico mati ditelan bumi', 'hey kamu gimana sekarang kabarnya, aku lelah sama kebiasaan sekarang', 'Charlie', 'MAMPUS CHARLIE MATI DITELAN BUMI', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -73,6 +79,14 @@ CREATE TABLE `highlight` (
   `id` int(11) NOT NULL,
   `id_berita` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `highlight`
+--
+
+INSERT INTO `highlight` (`id`, `id_berita`) VALUES
+(4, 8),
+(6, 12);
 
 -- --------------------------------------------------------
 
@@ -93,7 +107,7 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 (1, 'Sport'),
 (2, 'Covid-19'),
 (3, 'Politik'),
-(4, 'bencana alam');
+(4, 'Bencana Alam');
 
 -- --------------------------------------------------------
 
@@ -174,6 +188,14 @@ CREATE TABLE `utama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `utama`
+--
+
+INSERT INTO `utama` (`id`, `id_berita`) VALUES
+(4, 9),
+(5, 10);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -245,7 +267,13 @@ ALTER TABLE `utama`
 -- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `highlight`
+--
+ALTER TABLE `highlight`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
@@ -258,6 +286,12 @@ ALTER TABLE `kategori`
 --
 ALTER TABLE `komentar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `utama`
+--
+ALTER TABLE `utama`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
