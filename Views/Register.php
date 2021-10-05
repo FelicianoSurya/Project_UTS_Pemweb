@@ -17,7 +17,10 @@
 
     define('URL', dirname(dirname(__FILE__)));
     include_once(URL . "/Controllers/Middleware.php");
+    
     ?>
+    <?php include(URL . '/Views/base/includecss.php');?>
+
 </head>
 <body>
         <div class="container d-flex justify-content-center">
@@ -55,7 +58,7 @@
             </div>
         </div>
         
-<?php include('Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/footer.php') ?>
 	
 </body>
 </html>

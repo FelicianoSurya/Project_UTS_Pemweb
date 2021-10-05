@@ -23,14 +23,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <?php include(URL . '/Views/base/includecss.php');?>
 
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
 
     <link href="../Assets/css/aboutUs.css" rel="stylesheet">
 </head>
 <body>
+    <?php include_once(URL . '/Views/base/header.php'); ?>
+
     <div class="d-flex justify-content-center">
         <div class="history">
             <div class="history-title">History</div>
@@ -44,50 +46,75 @@
             </div>
         </div>
     </div>
-    <div class="team">
-        <div class="d-flex header align-items-center">
+    <div class="team ">
+        <div class="d-flex header align-items-center ">
             <div class="line1 flex-grow-1"></div>
             <div class="px-5 team-title">Our Team</div>
             <div class="line1 flex-grow-1"></div>
         </div>
-        <div class="box-container">
-            <div class="box">
-            <img src="../Assets/images/aboutUs/nando.png" alt=""></img>
-                <div class="box-name">
-                    <p>Fernando Khorasani</p>
-                    <p>000 000 43088</p>
+        <div class="box-container row">
+            <div class="col-lg-3 col-md-6 col-12 co p-4">
+                <div class="box">
+                    <div class="img-container m-auto">
+                        <img src="../Assets/images/aboutUs/nando.png" alt=""></img>
+                    </div>
+                    <div class="box-name">
+                        <p>Fernando Khorasani</p>
+                        <p>000 000 43088</p>
+                    </div>
                 </div>
             </div>
-            <div class="box">
-            <img src="../Assets/images/aboutUs/lifos.png" alt=""></img>
-                <div class="box-name">
+            <div class="col-lg-3 col-md-6 col-12  p-4">
+                <div class="box">
+                <div class="img-container m-auto">
+                    <img src="../Assets/images/aboutUs/lifos.png" alt=""></img> 
+                </div>    
                     <div class="box-name">
                         <p>Lifosmin Simon</p>
                         <p>000 000 45574</p>
                     </div>
                 </div>
             </div>
-            <div class="box">
-            <img src="../Assets/images/aboutUs/ano.png" alt=""></img>
-                <div class="box-name">
+            <div class="col-lg-3 col-md-6 col-12 p-4">
+                <div class="box">
+                <div class="img-container m-auto">
+                    <img src="../Assets/images/aboutUs/ano.png" alt=""></img>
+                </div>    
                     <div class="box-name">
                         <p>Feliciano Surya Marcelo</p>
                         <p>000 000 43255</p>
                     </div>
                 </div>
             </div>
-            <div class="box">
-            <img src="../Assets/images/aboutUs/dea.png" alt=""></img>
-                <div class="box-name">
+
+            <div class="col-lg-3 col-md-6 col-12 p-4">
+                <div class="box">
+                <div class="img-container m-auto">
+                    <img src="../Assets/images/aboutUs/dea.png" alt=""></img>    
+                </div>    
                     <div class="box-name">
                         <p>Dea Noveriyanti</p>
                         <p>000 000 42550</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-<?php include('Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/footer.php') ?>
 
 </body>
+
+<script>
+    var maxHeight = 0;
+
+    var divs = jQuery(".box");
+    jQuery.each(divs, function(){
+        var height = jQuery(this).height();
+        if(maxHeight<height)
+            maxHeight = height;
+
+    });
+    divs.height(maxHeight);
+</script>
 </html>

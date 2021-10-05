@@ -23,16 +23,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Assets/css/home.css" rel="stylesheet">
-
-    <?php include('Views/base/includecss.php');?>
-    <title>Document</title>
     <script src="./Assets/js/home.js"></script>
+    <title>Document</title>
+    
+    <?php include(URL . '/Views/base/includecss.php');?>
     
 
 </head>
 <body>
 
-<?php include_once('Views/base/header.php'); ?>
+<?php include_once(URL . '/Views/base/header.php'); ?>
 
 <div class="section-1 py-5" data-aos="zoom-in">
     <div class="swiper-container container py-5" >
@@ -138,8 +138,8 @@
 
         <div class="row">
             <?php foreach($beritaTerbaru as $baru){ ?>
-            <div class="col-lg-3  col-md-6 col-12 p-2 news">
-                <div class="box py-4">
+            <div class="col-lg-3  col-md-6 col-12 p-2 ">
+                <div class="box py-4 news">
                     <div class="img-container">
                         <div class="box-tag">
                             <h5><?php echo $baru->id_kategori ?></h3>
@@ -225,31 +225,34 @@
 
 </div>
 
-<?php include('Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/footer.php'); ?>
+
 
 </body>
 
 <script>
 
-function myFunction(x){
-        if(x.matches){
-            var maxHeight = 0;
+var maxHeight = 0;
 
-            var divs = jQuery(".section-3 .news");
-            jQuery.each(divs, function(){
-                var height = jQuery(this).height();
-                if(maxHeight<height)
-                    maxHeight = height;
+var divs = jQuery(".section-3 .news");
+jQuery.each(divs, function(){
+    var height = jQuery(this).height();
+    if(maxHeight<height)
+        maxHeight = height;
 
-            });
-            divs.height(maxHeight);
-        }
+});
+divs.height(maxHeight);
+
+// function myFunction(x){
+//         if(x.matches){
+            
+//         }
         
         
-    }
-    var x = window.matchMedia("(min-width: 1200px)");
+//     }
+//     var x = window.matchMedia("(min-width: 1200px)");
     
-    myFunction(x);
+//     myFunction(x);
 
 
 

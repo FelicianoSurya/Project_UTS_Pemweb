@@ -23,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Assets/css/news.css" rel="stylesheet">
-    <?php include('Views/base/includecss.php');?>
+    <?php include(URL . 'Views/base/includecss.php');?>
     <script src="./Assets/js/news.js"></script>
 
     <?php
@@ -47,7 +47,7 @@
 </head>
 <body>
 
-    <?php include_once('Views/base/header.php'); ?>
+    <?php include_once(URL . 'Views/base/header.php'); ?>
 
     <div class="container py-5">
         <div class="navigation">
@@ -157,7 +157,7 @@
         </div>
         </div>
     </div>
-<?php include('Views/base/footer.php') ?>
+<?php include(URL . 'Views/base/footer.php') ?>
 
 </body>
 </html>
