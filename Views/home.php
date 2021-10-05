@@ -30,10 +30,10 @@
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <title>Document</title>
     <?php
-    session_start();
     define('URL', dirname(dirname(__FILE__)));
-    include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
+    include(URL . '/Views/base/includecss.php');
+    include_once(URL . "/Controllers/Middleware.php");
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
@@ -54,9 +54,16 @@
     <script src="./Assets/js/home.js"></script>
     <title>Document</title>
     
-    <?php include(URL . '/Views/base/includecss.php');
+    <?php 
         if(isset($_GET['pesan'])){
             echo 
+            "<script>
+                $(window).on('load', function(){
+                    $('#exampleModal').modal('show');
+                });
+            </script>";
+        }else if(isset($_GET['logindulu'])) {
+            echo
             "<script>
                 $(window).on('load', function(){
                     $('#exampleModal').modal('show');

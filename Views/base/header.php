@@ -1,5 +1,3 @@
-
-
 <nav class="">
     <div class="navbar navbar-light">
     <div class="container-fluid container">

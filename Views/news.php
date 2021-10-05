@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./Assets/css/news.css" rel="stylesheet">
+    <link href="Assets/css/detailNews.css" rel="stylesheet">
+    <script src="Assets/js/detailNews.js"></script>
     <?php
     define('URL', dirname(dirname(__FILE__)));
+    include_once(URL . "/include_db/connection.php");   
     include(URL . '/Views/base/includecss.php');?>
 
     <?php
     include_once(URL . "/Controllers/Middleware.php");
-    include_once(URL . "/include_db/connection.php");
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
     include_once(URL . "/Controllers/KomentarController.php");
+    include_once(URL . "/Controllers/LikeController.php");
 
     $detail = fetchDetailBerita();
     $kategories = fetchKategori();
@@ -61,21 +63,31 @@
         <div class="comment-section p-4">
             <h3>Komentar</h1>
             <hr>
-            <form class=""action="">
+            <form class=""action="" method="POST">
                 <div class="row addComment py-3 justify-content-around">
+                    <?php
+                    $username = $_SESSION['username'];
+                    $sql = "SELECT * FROM pengguna WHERE username = '$username'";
+                    $query = mysqli_query($conn,$sql);
+                    $data = mysqli_fetch_array($query);
+                    ?>
                     <div class="profile-comment col-1">
-
+                        <img src="./<?php echo $data['image'] ?>" alt="">
                     </div>
                     
                     <div class="col-9">
-                    <input type="text" placeholder="Type your comments here...">
+                    <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
+                    <input type="hidden" name="id_berita" value="<?php echo $detail->id ?>">
+                    <input type="text" name="komentar" placeholder="Type your comments here...">
                     </div>
                 
                     <div class="col-1">
-                        <button class="button-send" type="submit" class="btn btn-primary" " >Send</button>
+                        <?php if(isset($_SESSION['username'])){?>
+                        <button class="button-send" type="submit" class="btn btn-primary">Send</button>
+                        <?php }else{ ?> <button class="button-send" type="button" onclick="redirectLogin()" class="btn btn-primary">Send</button> <?php } ?>
                     </div>
                 </div>
-
+            </form>
                 <!-- ini yang bakal repetitif -->
                 <?php foreach($komentars as $komentar){ 
                     $sql = "SELECT CONCAT(first_name , ' ' , COALESCE(last_name,'')) 'nama' , image FROM pengguna WHERE username = '$komentar->username'";
@@ -86,7 +98,7 @@
                     
                 <div class="row comments py-3 justify-content-around">
                     <div class="profile-comment col-1">
-                        <img src="<?php echo URL .  $user[1] ?>" alt="">
+                        <img src="./<?php echo $user[1] ?>" alt="">
                     </div>
 
                     <div class="col-9">
@@ -95,14 +107,29 @@
                     </div>
 
                     <div class="col-1 justify-content-around align-items-center d-flex">
-                        <form action="">
-                            <button class="like-button w-100" type="submit" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                        <form action="" method="POST">
+                            <input type="hidden" name="username" value="<?php echo $username ?>">
+                            <input type="hidden" name="id_komentar" value="<?php echo $komentar->id ?>">
+                            <?php 
+                            $sql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id' AND username = '$username'";
+                            $query = mysqli_query($conn,$sql);
+                            $row = mysqli_num_rows($query);
+
+                            $countsql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id'";
+                            $querycount = mysqli_query($conn,$countsql);
+                            $count = mysqli_num_rows($querycount);
+                            echo $count;
+                            if($row == 0){
+                            ?>
+                                <button class="like-button w-100" type="submit" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                            <?php }else{ ?>
+                                <button class="like-button w-100" type="submit" name="sudahLike"><img src="./Assets/images/news/redlove.png" alt=""></button>
+                                <?php } ?>
                         </form>
                     </div>
                 </div>
                 <?php } ?>
                 <!--  -->
-            </form>
         </div>
 
         <div class="recommended-news py-5">
