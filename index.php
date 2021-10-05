@@ -1,3 +1,3 @@
 <?php 
-include "Views/home.php";
+    include "Views/news.php";
 ?>

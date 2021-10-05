@@ -119,4 +119,18 @@ function fetchBeritaTerbaru(){
     return $arrayBeritaTerbaru;
 }
 
+function fetchDetailBerita(){
+    $conn = Database();
+    $sql = "SELECT berita.id, judul, penulis, deskripsi, 
+    CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
+    gambar, kategori.nama FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 10";
+    $query = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_array($query);
+
+    $berita = new Berita();
+    $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6]);
+
+    return $berita;
+}
+
 ?>

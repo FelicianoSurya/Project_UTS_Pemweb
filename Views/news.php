@@ -19,36 +19,49 @@
     <title>Document</title>
     <script src="./Assets/js/news.js"></script>
 
-    <title>Document</title>
+    <?php
+    define('URL', dirname(dirname(__FILE__)));
+    include_once(URL . "/Controllers/Middleware.php");
+    include_once(URL . "/include_db/connection.php");
+    if(isset($_SESSION['role'])){
+        include_once(URL . "/Controllers/UserController.php");
+    }
+    include_once(URL . "/Controllers/KategoriController.php");
+    include_once(URL . "/Controllers/BeritaController.php");
+
+    $detail = fetchDetailBerita();
+    $kategories = fetchKategori();
+    $news = fetchBerita();
+    $highlights = fetchHighlight();
+    $beritaUtama = fetchBeritaUtama();
+    $beritaTerbaru = fetchBeritaTerbaru();
+    ?>
+    
 </head>
 <body>
     <div class="container py-5">
         <div class="navigation">
-            <a href="">lala</a>
+            <a href="">Category</a>
             >
-            <a href="">lala</a>
+            <a href=""><?php echo $detail->id_kategori ?></a>
         </div>
         <div class="news-title">
-            <h1>Ekspor Sumut ke China Capai US$166,18 Juta pada Agustus 2021</h1>
+            <h1><?php echo $detail->judul ?></h1>
         </div>
         <div class="news-sub pb-2">
-            <p>NewsPaper.com  |  Sabtu, 02/10/2021 21:23 WIB</p>
+            <p>NewsPaper.com  |  <?php echo $detail->tanggal_publikasi ?></p>
         </div>
         <div class="news-image pb-2">
-            <img src="https://images.unsplash.com/photo-1633245091570-cd62f7f116a3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="" width="100%">
+            <img src="./<?php echo $detail->gambar ?>" alt="" width="100%">
         </div>
         <div class="news-image-sub pb-3">
             <p>Ekspor barang dari Sumatera Utara (Sumut) ke China mencapai US$166,18 juta pada Agustus 2021. Porsinya merupakan yang terbesar dari total ekspor. Ilustrasi. (ANTARA FOTO/Akbar Nugroho Gumay).</p>
         </div>
         <div class="news-writer">
-            <h5>Penulis Krisda Tiofani | Editor Yuharrani Aisyah</h5>
+            <h5>Penulis <?php echo $detail->penulis ?> | Editor Yuharrani Aisyah</h5>
         </div>
         <div class="news-body pb-4">
-            <h6>JAKARTA, NEWSPAPER.com - Epidemiolog dari Griffith University Dicky Budiman menyebut kebijakan pembatasan sosial berskala besar (PSBB) transisi merupakan strategi yang bersifat tambahan atau pelengkap dalam penanganan pandemi Covid-19. Pemerintah Provinsi DKI Jakarta, menurut dia, harus melakukan tes dan pelacakan, lalu dilanjutkan dengan isolasi dan karantina mandiri. "Itu (tes dan pelacakan) adalah strategi utama," ucap Dicky kepada Kompas.com, Selasa (8/12/2020). 
-
-                Strategi tersebut harus dioptimalkan. Sebab jika tidak, maka akan ada PSBB berulang-ulang yang tidak diketahui kapan berakhirnya. Dicky menyebut pandemi di Jakarta juga dipengaruhi oleh daerah penyangga, yakni Jawa Barat dan Banten. Pengendalian pandemi di kedua wilayah itu juga disebut belum optimal. Tentunya, kondisi pandemi di daerah penyangga akan memengaruhi situasi pengendalian Covid-19 di Ibu Kota apabila tidak ada pengendalian di perbatasan. "Dan ini akan terus terjadi selama pengendalian ini tidak dilakukan secara setara dan merata di berbagai wilayah terutama yang ada dalam satu pulau," ucap Dicky. Pada akhirnya, Dicky mengatakan, pengendalian pandemi harus dilakukan dengan sinergi dan kerja sama antar daerah baik tingkat provinsi maupun kabupatan atau kota. Kerja sama ini harus difasilitas pula oleh Pemerintah Pusat. "Ini yang harus dilakukan perubahan dan sampai saat ini belum ada perubahan itu," tutur Dicky. Kepala Bidang Pencegahan dan Pengendalian Penyakit, Dinas Kesehatan Provinsi DKI Jakarta Dwi Oktavia mengatakan, penambahan kasus positif di Jakarta per Selasa (8/12/2020) sebanyak 1.174 kasus. 
-
-                Dengan demikian, kumulatif kasus positif Covid-19 di Ibu Kota yang terkonfirmasi sampai hari ini menjadi 146.601 kasus. Dari jumlah tersebut, diketahui 132.248 orang telah dinyatakan sembuh dengan tingkat kesembuhan mencapai 90,2 persen. Sementara sebanyak 2.842 orang meninggal dunia dengan tingkat kematian sebesar 1,9 persen. Dwi mengatakan, persentase ini lebih rendah dibanding dengan tingkat kematian nasional yang mencapai 3,1 persen. Adapun jumlah kasus aktif di Ibu Kota kini turun sebanyak 22, sehingga jumlah orang yang masih dirawat atau menjalani isolasi mandiri kini menjadi 11.511 orang. </h5>
+            <h6>JAKARTA, NEWSPAPER.com - <?php echo $detail->deskripsi ?></h5>
         </div>
 
         <div class="comment-section p-4">
