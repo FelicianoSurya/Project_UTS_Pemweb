@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php
-    session_start();
-    define('URL', dirname(dirname(__FILE__)));
-    include_once(URL . "/Controllers/Middleware.php");
-    include_once(URL . "/include_db/connection.php");
-    if(isset($_SESSION['role'])){
-        include_once(URL . "/Controllers/UserController.php");
-    }
-    include_once(URL . "/Controllers/KategoriController.php");
-    include_once(URL . "/Controllers/BeritaController.php");
-
-    $kategories = fetchKategori();
-    $news = fetchBerita();
-    $highlights = fetchHighlight();
-    $beritaUtama = fetchBeritaUtama();
-    $beritaTerbaru = fetchBeritaTerbaru();
-    
-?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Assets/css/news.css" rel="stylesheet">
-    <?php include(URL . 'Views/base/includecss.php');?>
-    <script src="./Assets/js/news.js"></script>
-
     <?php
     define('URL', dirname(dirname(__FILE__)));
+    include(URL . '/Views/base/includecss.php');?>
+
+    <?php
     include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
     if(isset($_SESSION['role'])){
@@ -35,6 +17,7 @@
     }
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
+    include_once(URL . "/Controllers/KomentarController.php");
 
     $detail = fetchDetailBerita();
     $kategories = fetchKategori();
@@ -42,12 +25,13 @@
     $highlights = fetchHighlight();
     $beritaUtama = fetchBeritaUtama();
     $beritaTerbaru = fetchBeritaTerbaru();
+    $komentars = fetchKomentar();
     ?>
     
 </head>
 <body>
 
-    <?php include_once(URL . 'Views/base/header.php'); ?>
+    <?php include_once(URL . '/Views/base/header.php'); ?>
 
     <div class="container py-5">
         <div class="navigation">
@@ -93,16 +77,22 @@
                 </div>
 
                 <!-- ini yang bakal repetitif -->
+                <?php foreach($komentars as $komentar){ 
+                    $sql = "SELECT CONCAT(first_name , ' ' , COALESCE(last_name,'')) 'nama' , image FROM pengguna WHERE username = '$komentar->username'";
+                    $query = mysqli_query($conn,$sql);
+                    $user = mysqli_fetch_array($query); 
+                    
+                ?>
+                    
                 <div class="row comments py-3 justify-content-around">
                     <div class="profile-comment col-1">
-
+                        <img src="<?php echo URL .  $user[1] ?>" alt="">
                     </div>
 
                     <div class="col-9">
-                    <p class="m-0"><b>Fenina Sihombing</b></p>
-                    <p>Baik sekali, 100 sih</p>
+                    <p class="m-0"><b><?php echo $user[0] ?></b></p>
+                    <p><?php echo $komentar->komentar ?></p>
                     </div>
-
 
                     <div class="col-1 justify-content-around align-items-center d-flex">
                         <form action="">
@@ -110,6 +100,7 @@
                         </form>
                     </div>
                 </div>
+                <?php } ?>
                 <!--  -->
             </form>
         </div>
@@ -157,7 +148,7 @@
         </div>
         </div>
     </div>
-<?php include(URL . 'Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/footer.php') ?>
 
 </body>
 </html>

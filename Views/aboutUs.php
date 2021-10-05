@@ -28,17 +28,16 @@
     <!-- bootstrap -->
     
 
-    <link href="../Assets/css/aboutUs.css" rel="stylesheet">
+    <link href="Assets/css/aboutUs.css" rel="stylesheet">
 </head>
 <body>
-    <?php include_once(URL . '/Views/base/header.php'); ?>
-
+    <?php include_once(URL . "/Views/base/header.php") ?>
     <div class="d-flex justify-content-center">
         <div class="history">
             <div class="history-title">History</div>
             <div class="line"></div>
             <div class="history-image">
-                <img src="../Assets/images/home/logo.png" alt=""></img>
+                <img src="Assets/images/home/logo.png" alt=""></img>
             </div>
             <div class="history-teks">
                 <p>News Paper, disingkat NP, adalah perusahaan Indonesia yang bergerak di bidang media massa yang didirikan pada tanggal 2 Oktober 2021, oleh 4 orang yang bernama Feliciano Surya Marcelo, Lifosmin Simon, Fernando Khorasani, dan Dea Noveriyanti. Kehadiran News Paper tidak terlepas dari sejarah panjang demi mencapai cita-cita mulia dalam rangka mencerdaskan bangsa.</p></br>
@@ -56,7 +55,7 @@
             <div class="col-lg-3 col-md-6 col-12 co p-4">
                 <div class="box">
                     <div class="img-container m-auto">
-                        <img src="../Assets/images/aboutUs/nando.png" alt=""></img>
+                        <img src="Assets/images/aboutUs/nando.png" alt=""></img>
                     </div>
                     <div class="box-name">
                         <p>Fernando Khorasani</p>
@@ -67,7 +66,7 @@
             <div class="col-lg-3 col-md-6 col-12  p-4">
                 <div class="box">
                 <div class="img-container m-auto">
-                    <img src="../Assets/images/aboutUs/lifos.png" alt=""></img> 
+                    <img src="Assets/images/aboutUs/lifos.png" alt=""></img> 
                 </div>    
                     <div class="box-name">
                         <p>Lifosmin Simon</p>
@@ -78,7 +77,7 @@
             <div class="col-lg-3 col-md-6 col-12 p-4">
                 <div class="box">
                 <div class="img-container m-auto">
-                    <img src="../Assets/images/aboutUs/ano.png" alt=""></img>
+                    <img src="Assets/images/aboutUs/ano.png" alt=""></img>
                 </div>    
                     <div class="box-name">
                         <p>Feliciano Surya Marcelo</p>
@@ -90,7 +89,7 @@
             <div class="col-lg-3 col-md-6 col-12 p-4">
                 <div class="box">
                 <div class="img-container m-auto">
-                    <img src="../Assets/images/aboutUs/dea.png" alt=""></img>    
+                    <img src="Assets/images/aboutUs/dea.png" alt=""></img>    
                 </div>    
                     <div class="box-name">
                         <p>Dea Noveriyanti</p>

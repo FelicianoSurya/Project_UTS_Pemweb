@@ -27,10 +27,10 @@
         <div class="container-fluid container collapse navbar-collapse">
             <ul class="navigation-tab navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item category ">
-                    <a class="nav-link " href="#">CATEGORY</a>
+                    <a class="nav-link " href="News.php">CATEGORY</a>
                     <ul class="dropdown-category ">
                         <?php foreach($kategories as $kategorie){ ?>
                         <li class="nav-item">
@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./Views/aboutUs.php">ABOUT US</a>
+                    <a class="nav-link" href="AboutUs.php">ABOUT US</a>
                 </li>
             </ul>
         </div>
