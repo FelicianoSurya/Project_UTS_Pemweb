@@ -52,12 +52,14 @@
         </div>
         <div class="box-container">
             <div class="box">
+            <img src="../Assets/images/aboutUs/nando.png" alt=""></img>
                 <div class="box-name">
                     <p>Fernando Khorasani</p>
                     <p>000 000 43088</p>
                 </div>
             </div>
             <div class="box">
+            <img src="../Assets/images/aboutUs/lifos.png" alt=""></img>
                 <div class="box-name">
                     <div class="box-name">
                         <p>Lifosmin Simon</p>
@@ -66,6 +68,7 @@
                 </div>
             </div>
             <div class="box">
+            <img src="../Assets/images/aboutUs/ano.png" alt=""></img>
                 <div class="box-name">
                     <div class="box-name">
                         <p>Feliciano Surya Marcelo</p>
@@ -74,6 +77,7 @@
                 </div>
             </div>
             <div class="box">
+            <img src="../Assets/images/aboutUs/dea.png" alt=""></img>
                 <div class="box-name">
                     <div class="box-name">
                         <p>Dea Noveriyanti</p>
