@@ -43,7 +43,7 @@
         <div class="lineheading flex-grow-1"></div>
       </div>
       <div class="ataskategori">
-        <div class="section-swiper py-5 col-6" data-aos="zoom-in">
+        <div class="section-swiper py-5 col-6">
           <div class="swiper-container container">
             <!-- Slider main container -->
             <div class="swiper">
