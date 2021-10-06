@@ -37,36 +37,27 @@
     <?php include_once(URL . '/Views/base/header.php'); ?>
 
     <div class="container">
-      <div class="d-flex header align-items-center">
+      <div class="d-flex header align-items-center py-5">
         <div class="lineheading flex-grow-1"></div>
         <h1 class="px-5">All News</h1>
         <div class="lineheading flex-grow-1"></div>
       </div>
-      <div class="ataskategori">
-        <div class="section-swiper py-5 col-6">
-          <div class="swiper-container container">
-            <!-- Slider main container -->
-            <div class="swiper">
-              <!-- Additional required wrapper -->
-              <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                  <div class="overlay-span"></div>
-                  <span>
-                    <h2>Iyaaaaaaaa Deaaa Anoooo</h2>
-                    <h6>11 Agustus 2021</h6>
-                  </span>
-                  <img
-                    width="100%"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
+      <div class="section-1 row">
+        <div class="col-lg-6 col-12 headline">
+          <div class="img-container">
+            <span>
+              <h2>Iyaaaaaaaa Deaaa Anoooo</h2>
+              <h6>11 Agustus 2021</h6>
+            </span>
+            <img
+              width="100%"
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+              alt=""
+            />
           </div>
         </div>
-        <div class="sampingswiper m-auto col-6">
+
+        <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0">
           <div class="beritakecil pb-3">
             <img
               width="23%"
@@ -115,16 +106,18 @@
               <p>13 Agustus 2021</p>
             </div>
           </div>
-        </div>
+        </div>    
       </div>
-      <div class="beritabawah ps-5">
+
+
+      <div class="section-2 beritabawah">
         <div class="beritakecil py-1">
           <img
             width="21%"
             src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
             alt=""
           />
-          <div class="isibawah ps-2 py-2">
+          <div class="isibawah ps-2 ">
             <div class="linekecil flex-grow-1"></div>
             <div class="isiberitakecil ps-2 py-2">
               <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
@@ -140,7 +133,7 @@
             src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
             alt=""
           />
-          <div class="isibawah ps-2 py-2">
+          <div class="isibawah ps-2 ">
             <div class="linekecil"></div>
             <div class="isiberitakecil ps-2 py-2">
               <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
@@ -156,7 +149,7 @@
             src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
             alt=""
           />
-          <div class="isibawah ps-2 py-2">
+          <div class="isibawah ps-2 ">
             <div class="linekecil flex-grow-1"></div>
             <div class="isiberitakecil ps-2 py-2">
               <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
