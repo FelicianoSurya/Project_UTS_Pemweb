@@ -62,87 +62,57 @@
                     alt=""
                   />
                 </div>
-                <div class="swiper-slide">
-                  <div class="overlay-span"></div>
-                  <span>
-                    <h2>Gempa Bumi di Surabaya</h2>
-                    <h6>12 Agustus 2021</h6>
-                  </span>
-                  <img
-                    width="100%"
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-                    alt=""
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <div class="overlay-span"></div>
-                  <span>
-                    <h2>Gempa Bumi di Surabaya</h2>
-                    <h6>12 Agustus 2021</h6>
-                  </span>
-                  <img
-                    width="100%"
-                    src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-                    alt=""
-                  />
-                </div>
               </div>
-              <!-- If we need pagination -->
-              <div class="swiper-pagination"></div>
-
-              <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
             </div>
           </div>
         </div>
         <div class="sampingswiper m-auto col-6">
-          <div class="beritakecil pb-2">
+          <div class="beritakecil pb-3">
             <img
-              width="21%"
+              width="23%"
               src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt=""
             />
             <div class="isiberitakecil ps-2">
-              <h4>Hakim Lupa Pake Baju</h4>
-              <h5>Sosial</h5>
-              <h6>13 Agustus 2021</h6>
+              <h5>Hakim Lupa Pake Baju</h5>
+              <h6>Sosial</h6>
+              <p>13 Agustus 2021</p>
             </div>
           </div>
-          <div class="beritakecil pb-2">
+          <div class="beritakecil pb-3">
             <img
-              width="21%"
+              width="23%"
               src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt=""
             />
             <div class="isiberitakecil ps-2">
-              <h4>Hakim Lupa Pake Baju</h4>
-              <h5>Sosial</h5>
-              <h6>13 Agustus 2021</h6>
+              <h5>Hakim Lupa Pake Baju</h5>
+              <h6>Sosial</h6>
+              <p>13 Agustus 2021</p>
             </div>
           </div>
-          <div class="beritakecil pb-2">
+          <div class="beritakecil pb-3">
             <img
-              width="21%"
+              width="23%"
               src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt=""
             />
             <div class="isiberitakecil ps-2">
-              <h4>Hakim Lupa Pake Baju</h4>
-              <h5>Sosial</h5>
-              <h6>13 Agustus 2021</h6>
+              <h5>Hakim Lupa Pake Baju</h5>
+              <h6>Sosial</h6>
+              <p>13 Agustus 2021</p>
             </div>
           </div>
-          <div class="beritakecil pb-2">
+          <div class="beritakecil pb-3">
             <img
-              width="21%"
+              width="23%"
               src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
               alt=""
             />
             <div class="isiberitakecil ps-2">
-              <h4>Hakim Lupa Pake Baju</h4>
-              <h5>Sosial</h5>
-              <h6>13 Agustus 2021</h6>
+              <h5>Hakim Lupa Pake Baju</h5>
+              <h6>Sosial</h6>
+              <p>13 Agustus 2021</p>
             </div>
           </div>
         </div>
@@ -157,7 +127,7 @@
           <div class="isibawah ps-2 py-2">
             <div class="linekecil flex-grow-1"></div>
             <div class="isiberitakecil ps-2 py-2">
-              <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
+              <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
               <h5 class="pb-5">Sosial</h5>
               <h6>13 Agustus 2021</h6>
             </div>
@@ -171,7 +141,7 @@
             alt=""
           />
           <div class="isibawah ps-2 py-2">
-            <div class="linekecil flex-grow-1"></div>
+            <div class="linekecil"></div>
             <div class="isiberitakecil ps-2 py-2">
               <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
               <h5 class="pb-5">Sosial</h5>
@@ -204,8 +174,8 @@
     <script>
       const swiper = new Swiper(".swiper", {
         // Optional parameters
-        direction: "horizontal",
-        loop: true,
+        // direction: "horizontal",
+        // loop: true,
 
         // If we need pagination
         pagination: {

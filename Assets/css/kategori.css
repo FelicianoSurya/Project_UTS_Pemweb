@@ -5,8 +5,12 @@
   z-index: 100;
 }
 .section-swiper .swiper {
-  width: 90%;
+  width: 100%;
   height: auto;
+}
+
+.section-swiper .swiper-container{
+  padding:0 !important;
 }
 
 .section-swiper .swiper-slide {
@@ -46,7 +50,7 @@
 .linekecil {
   height: 0.5px;
   background-color: black;
-  width: 130%;
+  width: 100%;
 }
 
 .ataskategori {
@@ -60,16 +64,26 @@
   flex-direction: column;
   justify-content: space-around;
   right: 40%;
+  padding-left: 40px;
   align-items: center;
 }
+
+.isibawah{
+  width: 100%;
+}
+
 .beritakecil {
   display: flex;
 }
 .isiberitakecil {
-  display: flex;
+  width: 100%;
   flex-direction: column;
-
   /* align-items: center; */
+}
+
+.isiberitakecil p{
+  font-size: 13px;
+  margin:0;
 }
 
 @media (max-width: 991px) {
