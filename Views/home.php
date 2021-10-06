@@ -40,7 +40,7 @@
 
 <?php include_once(URL . '/Views/base/header.php'); ?>
 
-<div class="section-1 py-5" data-aos="zoom-in">
+<div class="section-1 py-2" data-aos="zoom-in">
     <div class="swiper-container container py-5" >
         <!-- Slider main container -->
         <div class="swiper">
@@ -48,14 +48,17 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php foreach($highlights as $highlight){ ?>
-                <div class="swiper-slide">
-                    <div class="overlay-span"></div>
-                    <span>
-                        <h2><?php echo $highlight->judul ?></h2>
-                        <h6><?php echo $highlight->tanggal_publikasi ?></h6>
-                        <h6><?php echo $highlight->deskripsi ?></h6>
-                    </span>
-                    <img width="100%" src="./<?php echo $highlight->gambar ?>" alt="">
+                <div class="swiper-slide m-auto px-3">
+                        <div class="img-container m-auto" style="background-image:url('./<?php echo $highlight->gambar ?>')">
+                            <div class="overlay-span"></div>
+                            <span>
+                                <h2><?php echo $highlight->judul ?></h2>
+                                <h6><?php echo $highlight->tanggal_publikasi ?></h6>
+                                <div class="description-wrapper">
+                                    <h6 class="description"><?php echo $highlight->deskripsi ?></h6>
+                                </div>
+                            </span>
+                        </div>
                 </div>
                 <?php } ?>
                 <!-- <div  class="swiper-slide">
@@ -79,10 +82,10 @@
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
-
+            
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"><div class="container-navi-swipe"> </div></div>                                                                  
+            <div class="swiper-button-next"><div class="container-navi-swipe"> </div></div>
         </div>
     </div>
 </div>
@@ -101,7 +104,13 @@
                     <div class="box-tag">
                         <h5><?php echo $utama->id_kategori ?></h3>
                     </div>
-                    <img src="./<?php echo $utama->gambar ?>" width="100%" alt="">
+                    <div class="img-container m-auto">
+                        <img src="./<?php echo $utama->gambar ?>" width="100%" alt="">
+                    </div>
+                    <span>
+                        <h4><?php echo $utama->judul ?></h3>
+                        <h6><?php echo $utama->tanggal_publikasi ?></h5>
+                    </span>
                 </div>
             </div>
             <?php } ?>
@@ -146,29 +155,35 @@
             <?php foreach($beritaTerbaru as $baru){ ?>
             <div class="col-lg-3  col-md-6 col-12 p-2 ">
                 <div class="box py-4 news">
-                    <div class="img-container">
+                    <div class="img-container" >
                         <div class="box-tag">
                             <h5><?php echo $baru->id_kategori ?></h3>
                         </div>
                         <img src="./<?php echo $baru->gambar ?>" width="100%" alt="">
                     </div>
                     
-                    <div class="p-4">
+                    <div class="p-4 flex-grow-1">
                         <h3 class="text-start"><?php echo $baru->judul ?></h3>
-                        <p class="text-start"><?php echo $baru->deskripsi ?></p>
+                        <div class="description-wrapper">
+                            <p class="text-start description"><?php echo $baru->subjudul ?></p>
+                        </div>
+                        
+                    </div>
+                    <div class="px-4">
                         <h6 class="text-end"><?php echo $baru->tanggal_publikasi ?></h6>
                     </div>
                     
                 </div>
             </div>     
             <?php } ?>
-            <!-- <div class="col-lg-3  col-md-6 col-12 p-2 news">
-                <div class="box py-4">
-                    <div class="img-container">
+            
+             <!-- <div class="col-lg-3  col-md-6 col-12 p-2 news">
+                <div class="box py-4 news">
+                    <div class="img-container m-auto">
                         <div class="box-tag">
                             <h5>Politics</h3>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
+                        <img src="https://images.unsplash.com/photo-1633377933392-46d4911bea9a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=388&q=80" width="100%" alt="">
                     </div>
                     
                     <div class="p-4">
@@ -177,7 +192,7 @@
                         <h6 class="text-end">1996-09-12</h6>
                     </div>
                     
-                </div>
+                </div> 
             </div>
             <div class="col-lg-3  col-md-6 col-12 p-2 news">
                 <div class="box py-4">
@@ -237,6 +252,30 @@
 </body>
 
 <script>
+
+
+
+var maxHeight2 = 0;
+
+var divs = jQuery(".section-2 img");
+jQuery.each(divs, function(){
+    var height = jQuery(this).height();
+    if(maxHeight2<height)
+        maxHeight2 = height;
+
+});
+divs.height(maxHeight2);
+
+var maxHeight2 = 0;
+
+var divs = jQuery(".section-3 img");
+jQuery.each(divs, function(){
+    var height = jQuery(this).height();
+    if(maxHeight2<height)
+        maxHeight2 = height;
+
+});
+divs.height(maxHeight2);
 
 var maxHeight = 0;
 
