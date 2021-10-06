@@ -9,8 +9,12 @@
     <?php
     define('URL', dirname(dirname(__FILE__)));
     include_once(URL . "/include_db/connection.php");   
-    include(URL . '/Views/base/includecss.php');?>
-
+    include(URL . '/Views/base/includecss.php');
+    if(!isset($_SESSION['username'])){
+        error_reporting(0);
+    }
+    ?>
+    
     <?php
     include_once(URL . "/Controllers/Middleware.php");
     if(isset($_SESSION['role'])){
@@ -20,6 +24,7 @@
     include_once(URL . "/Controllers/BeritaController.php");
     include_once(URL . "/Controllers/KomentarController.php");
     include_once(URL . "/Controllers/LikeController.php");
+    include_once(URL . "/Controllers/RedirectController.php");
 
     $detail = fetchDetailBerita();
     $kategories = fetchKategori();
@@ -28,6 +33,8 @@
     $beritaUtama = fetchBeritaUtama();
     $beritaTerbaru = fetchBeritaTerbaru();
     $komentars = fetchKomentar();
+    $login = redirectLogin();
+
     ?>
     
 </head>
@@ -66,13 +73,17 @@
             <form class=""action="" method="POST">
                 <div class="row addComment py-3 justify-content-around">
                     <?php
-                    $username = $_SESSION['username'];
-                    $sql = "SELECT * FROM pengguna WHERE username = '$username'";
-                    $query = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_array($query);
+                    if(isset($_SESSION['username'])){
+                        $username = $_SESSION['username'];
+                        $sql = "SELECT * FROM pengguna WHERE username = '$username'";
+                        $query = mysqli_query($conn,$sql);
+                        $data = mysqli_fetch_array($query);
+                    }
                     ?>
                     <div class="profile-comment col-1">
+                        <?php if(isset($_SESSION['username'])){ ?>
                         <img src="./<?php echo $data['image'] ?>" alt="">
+                        <?php } ?>
                     </div>
                     
                     <div class="col-9">
@@ -84,7 +95,7 @@
                     <div class="col-1">
                         <?php if(isset($_SESSION['username'])){?>
                         <button class="button-send" type="submit" class="btn btn-primary">Send</button>
-                        <?php }else{ ?> <button class="button-send" type="button" onclick="redirectLogin()" class="btn btn-primary">Send</button> <?php } ?>
+                        <?php }else{ ?> <button class="button-send" type="submit" name="redirectLogin" class="btn btn-primary">Send</button> <?php } ?>
                     </div>
                 </div>
             </form>
@@ -120,8 +131,12 @@
                             $count = mysqli_num_rows($querycount);
                             echo $count;
                             if($row == 0){
+                                if(isset($_SESSION['username'])){
                             ?>
-                                <button class="like-button w-100" type="submit" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                                    <button class="like-button w-100" type="submit" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                                <?php }else{ ?>
+                                <button class="like-button w-100" type="submit" name="redirectLogin" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                                <?php } ?>
                             <?php }else{ ?>
                                 <button class="like-button w-100" type="submit" name="sudahLike"><img src="./Assets/images/news/redlove.png" alt=""></button>
                                 <?php } ?>

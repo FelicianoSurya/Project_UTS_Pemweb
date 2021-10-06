@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2021 pada 15.01
+-- Waktu pembuatan: 06 Okt 2021 pada 15.50
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -67,7 +67,10 @@ INSERT INTO `berita` (`id`, `judul`, `subjudul`, `penulis`, `deskripsi`, `tangga
 (10, 'Berita 3', 'Ekspor barang dari Sumatera Utara (Sumut) ke China mencapai US$166,18 juta pada Agustus 2021. Porsin', 'Dea', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-11', '/Assets/images/berita/damian-markutt-IsUFGqxI5Ck-unsplash.jpg', 4),
 (11, 'Berita 4', 'Indahnya berbagi kebahagiaan bersama semua orang yang capek sama uts', 'Lifosmin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-08-31', '/Assets/images/berita/pathum-danthanarayana-7xMpOEQWpno-unsplash.jpg', 3),
 (12, 'Berita 5', 'hadu kok keren banget ini dunia, banyak tugas, banyak project', 'Feliciano', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-03', '/Assets/images/berita/damian-markutt-vaG8rOJLDHo-unsplash.jpg', 3),
-(13, 'Charlie Frederico mati ditelan bumi', 'hey kamu gimana sekarang kabarnya, aku lelah sama kebiasaan sekarang', 'Charlie', 'MAMPUS CHARLIE MATI DITELAN BUMI', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2);
+(13, 'Charlie Frederico mati ditelan bumi', 'hey kamu gimana sekarang kabarnya, aku lelah sama kebiasaan sekarang', 'Charlie', 'MAMPUS CHARLIE MATI DITELAN BUMI', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2),
+(14, 'Test Summernote', 'Feliciano', 'Test Summernote gaes', '<p>halo <u><i>gaes mau coba test summernote</i></u></p><p><br></p><p>keren banget</p>', '2021-10-01', '/Assets/images/berita/846502.jpg', 2),
+(15, 'lala', 'test', 'test', '<p>ffff</p>', '2021-10-01', '/Assets/images/berita/846482.jpg', 3),
+(16, 'highlight test', 'lla', 'laala', '<p>sss</p>', '2021-10-12', '/Assets/images/berita/846467.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,8 @@ CREATE TABLE `highlight` (
 
 INSERT INTO `highlight` (`id`, `id_berita`) VALUES
 (4, 8),
-(6, 12);
+(6, 12),
+(7, 16);
 
 -- --------------------------------------------------------
 
@@ -123,6 +127,15 @@ CREATE TABLE `komentar` (
   `id_berita` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `komentar`
+--
+
+INSERT INTO `komentar` (`id`, `komentar`, `tanggal_komentar`, `username`, `id_berita`) VALUES
+(1, 'bagus sekali websitenya, saya kasih nilai 100', '2021-10-03', 'feliciano', 10),
+(7, 'keren banget beritanya. sangat inspiratif', '2021-10-05', 'feliciano', 10),
+(11, 'haloo feliciano', '2021-10-05', 'nando', 10);
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +146,15 @@ CREATE TABLE `likes` (
   `username` varchar(50) NOT NULL,
   `id_komentar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `likes`
+--
+
+INSERT INTO `likes` (`username`, `id_komentar`) VALUES
+('feliciano', 1),
+('feliciano', 11),
+('nando', 1);
 
 -- --------------------------------------------------------
 
@@ -154,7 +176,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`username`, `first_name`, `last_name`, `jenis_kelamin`, `birth_date`, `image`) VALUES
-('feliciano', 'Feliciano', 'Surya', 'L', '2021-10-12', '/Assets/images/profile/1599665802234.jpg');
+('feliciano', 'Feliciano', 'Surya', 'L', '2021-10-12', '/Assets/images/profile/1599665802234.jpg'),
+('nando', 'Fernando', 'Khorasani', 'L', '2021-10-14', '/Assets/images/profile/activity diagram-Page-3.drawio.png');
 
 -- --------------------------------------------------------
 
@@ -174,7 +197,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `role`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-('feliciano', '202cb962ac59075b964b07152d234b70', 'pengguna');
+('feliciano', '202cb962ac59075b964b07152d234b70', 'pengguna'),
+('nando', '45a9a31e5f1ff59621b681a5edbffe85', 'pengguna');
 
 -- --------------------------------------------------------
 
@@ -193,7 +217,8 @@ CREATE TABLE `utama` (
 
 INSERT INTO `utama` (`id`, `id_berita`) VALUES
 (4, 9),
-(5, 10);
+(5, 10),
+(6, 15);
 
 --
 -- Indexes for dumped tables
@@ -267,13 +292,13 @@ ALTER TABLE `utama`
 -- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `highlight`
 --
 ALTER TABLE `highlight`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
@@ -285,13 +310,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `utama`
 --
 ALTER TABLE `utama`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

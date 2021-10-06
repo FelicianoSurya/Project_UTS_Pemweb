@@ -15,6 +15,14 @@ function isLogin(){
     return isset($_SESSION['login']);
 }
 
+function errorLogin(){
+    $loginUlang = 0;
+    if(isset($_POST['login'])){
+        $loginUlang = 1;
+    }
+    return $loginUlang;
+}
+
 if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login'])){
     $username = $_POST['Username'];
     $pass = md5($_POST['Password']);
@@ -30,7 +38,7 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
         $_SESSION['role'] = $user->role;
         $_SESSION['username'] = $user->username;
     }else{
-        header("location:./index.php?pesan=gagal");
+        errorLogin();
     }
 }else if(isset($_POST['NamaDepan']) && isset($_POST['NamaBelakang']) && isset($_POST['TanggalLahir']) && 
     isset($_POST['JenisKelamin']) && isset($_POST['Username']) && isset($_FILES['ProfilePic']) && isset($_POST['Password']) && 

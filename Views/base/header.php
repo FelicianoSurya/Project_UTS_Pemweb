@@ -1,3 +1,17 @@
+<?php 
+
+$errorLogin = errorLogin();
+
+if($login == 1 || $errorLogin == 1) {
+    echo
+    "<script>
+        $(window).on('load', function(){
+            $('#exampleModal').modal('show');
+        });
+    </script>";
+}
+?>
+
 <nav class="">
     <div class="navbar navbar-light">
     <div class="container-fluid container">
@@ -59,7 +73,7 @@
             <label for="Password" class="labelModal">Password</label>
             <input class="form-control" type="password" name="Password" required />
             <?php
-                if(isset($_GET['pesan']))
+                if($errorLogin == 1)
                 {
                     echo "<p style='color:red'>Username atau Password Salah!</p>";
                 }

@@ -124,7 +124,7 @@ function fetchDetailBerita(){
     $conn = Database();
     $sql = "SELECT berita.id, judul, penulis, deskripsi, 
     CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-    gambar, kategori.nama, subjudul FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 10";
+    gambar, kategori.nama, subjudul FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 14";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($query);
 

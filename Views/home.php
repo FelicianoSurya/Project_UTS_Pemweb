@@ -39,12 +39,14 @@
     }
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
+    include_once(URL . "/Controllers/RedirectController.php");
 
     $kategories = fetchKategori();
     $news = fetchBerita();
     $highlights = fetchHighlight();
     $beritaUtama = fetchBeritaUtama();
     $beritaTerbaru = fetchBeritaTerbaru();
+    $login = redirectLogin();
     
 ?>
     <meta charset="UTF-8">
@@ -53,26 +55,6 @@
     <link href="./Assets/css/home.css" rel="stylesheet">
     <script src="./Assets/js/home.js"></script>
     <title>Document</title>
-    
-    <?php 
-        if(isset($_GET['pesan'])){
-            echo 
-            "<script>
-                $(window).on('load', function(){
-                    $('#exampleModal').modal('show');
-                });
-            </script>";
-        }else if(isset($_GET['logindulu'])) {
-            echo
-            "<script>
-                $(window).on('load', function(){
-                    $('#exampleModal').modal('show');
-                });
-            </script>";
-        }
-    ?>
-    
-
 </head>
 <body>
 

@@ -10,6 +10,7 @@
     
     define('URL', dirname(dirname(dirname(__FILE__))));
     include_once(URL . "/include_db/connection.php");
+    include_once(URL . "/Views/base/includecss.php");
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
 
@@ -28,8 +29,9 @@
     } ?>
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="text" name="judul" required />
+        <input type="text" name="subjudul" required />
         <input type="text" name="penulis" required />
-        <textarea name="deskripsi" required></textarea>
+        <textarea name="deskripsi" id="summernote" required></textarea>
         <input type="date" name="tanggal_publikasi" required />
         <input type="file" name="gambar" required />
         <select name="id_kategori" required>
@@ -80,5 +82,13 @@
         </select>
         <input type="submit" name="beritaUtama">
     </form>
+
+<script>
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+</script>
 </body>
 </html>
