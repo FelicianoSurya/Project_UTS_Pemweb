@@ -11,7 +11,6 @@ if($login == 1 || $errorLogin == 1) {
     </script>";
 }
 ?>
-
 <nav class="">
     <div class="navbar navbar-light">
     <div class="container-fluid container">
@@ -47,7 +46,7 @@ if($login == 1 || $errorLogin == 1) {
                         <ul class="dropdown-category p-1">
                             <?php foreach($kategories as $kategorie){ ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><?php echo $kategorie->name ?></a>
+                                <a class="nav-link" onclick="redirectKategori(<?php echo $kategorie->id ?>)"><?php echo $kategorie->name ?></a>
                             </li>
                             <?php } ?>
                         </ul>

@@ -61,24 +61,6 @@
                         </div>
                 </div>
                 <?php } ?>
-                <!-- <div  class="swiper-slide">
-                    <div class="overlay-span"></div>
-                    <span>
-                        <h2>Gempa Bumi di Surabaya</h2>
-                        <h6>12 Agustus 2021</h6>
-                        <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
-                    </span>
-                    <img width="100%" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <div class="overlay-span"></div>
-                    <span>
-                        <h2>Gempa Bumi di Surabaya</h2>
-                        <h6>12 Agustus 2021</h6>
-                        <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
-                    </span>
-                    <img width="100%" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="">
-                </div> -->
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>

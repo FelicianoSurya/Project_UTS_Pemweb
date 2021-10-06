@@ -17,19 +17,23 @@
     }
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
-    include_once(URL . "/Controllers/KomentarController.php");
-    include_once(URL . "/Controllers/LikeController.php");
+    // include_once(URL . "/Controllers/KomentarController.php");
+    // include_once(URL . "/Controllers/LikeController.php");
     include_once(URL . "/Controllers/RedirectController.php");
 
     $detail = fetchDetailBerita();
     $kategories = fetchKategori();
     $news = fetchBerita();
-    $highlights = fetchHighlight();
-    $beritaUtama = fetchBeritaUtama();
-    $beritaTerbaru = fetchBeritaTerbaru();
-    $komentars = fetchKomentar();
+    // $highlights = fetchHighlight();
+    // $beritaUtama = fetchBeritaUtama();
+    // $beritaTerbaru = fetchBeritaTerbaru();
+    // $komentars = fetchKomentar();
     $login = redirectLogin();
-    
+    $newskategori = fetchBeritaKategori();
+    $newskategoriHighlight = fetchKategoriBeritaHighlight();
+    $beritaSamping = fetchKategoriBeritaSamping();
+    $allBerita = fetchKategoriAllBerita();
+
     ?>
   </head>
   <body>
@@ -46,119 +50,55 @@
         <div class="col-lg-6 col-12 headline">
           <div class="img-container">
             <span>
-              <h2>Iyaaaaaaaa Deaaa Anoooo</h2>
-              <h6>11 Agustus 2021</h6>
+              <h2><?php echo $newskategoriHighlight->judul ?></h2>
+              <h6><?php echo $newskategoriHighlight->tanggal_publikasi ?></h6>
             </span>
             <img
               width="100%"
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+              src="./<?php echo $newskategoriHighlight->gambar ?>"
               alt=""
             />
           </div>
         </div>
 
         <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0">
+          <?php foreach($beritaSamping as $samping){ ?>
           <div class="beritakecil pb-3">
             <img
               width="23%"
-              src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+              src="./<?php echo $samping->gambar ?>"
               alt=""
             />
             <div class="isiberitakecil ps-2">
-              <h5>Hakim Lupa Pake Baju</h5>
-              <h6>Sosial</h6>
-              <p>13 Agustus 2021</p>
+              <h5><?php echo $samping->judul ?></h5>
+              <h6><?php echo $samping->id_kategori ?></h6>
+              <p><?php echo $samping->tanggal_publikasi ?></p>
             </div>
           </div>
-          <div class="beritakecil pb-3">
-            <img
-              width="23%"
-              src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-              alt=""
-            />
-            <div class="isiberitakecil ps-2">
-              <h5>Hakim Lupa Pake Baju</h5>
-              <h6>Sosial</h6>
-              <p>13 Agustus 2021</p>
-            </div>
-          </div>
-          <div class="beritakecil pb-3">
-            <img
-              width="23%"
-              src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-              alt=""
-            />
-            <div class="isiberitakecil ps-2">
-              <h5>Hakim Lupa Pake Baju</h5>
-              <h6>Sosial</h6>
-              <p>13 Agustus 2021</p>
-            </div>
-          </div>
-          <div class="beritakecil pb-3">
-            <img
-              width="23%"
-              src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-              alt=""
-            />
-            <div class="isiberitakecil ps-2">
-              <h5>Hakim Lupa Pake Baju</h5>
-              <h6>Sosial</h6>
-              <p>13 Agustus 2021</p>
-            </div>
-          </div>
+            <?php } ?>
         </div>    
       </div>
 
 
       <div class="section-2 beritabawah">
+        <?php foreach($allBerita as $all){ ?>
         <div class="beritakecil py-1">
           <img
             width="21%"
-            src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+            src="./<?php echo $all->gambar ?>"
             alt=""
           />
           <div class="isibawah ps-2 ">
             <div class="linekecil flex-grow-1"></div>
             <div class="isiberitakecil ps-2 py-2">
-              <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
-              <h5 class="pb-5">Sosial</h5>
-              <h6>13 Agustus 2021</h6>
+              <h4><?php echo $all->judul ?></h4>
+              <h5 class="pb-5"><?php echo $all->id_kategori ?></h5>
+              <h6><?php echo $all->tanggal_publikasi ?></h6>
             </div>
             <div class="linekecil flex-grow-1"></div>
           </div>
         </div>
-        <div class="beritakecil py-1">
-          <img
-            width="21%"
-            src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-            alt=""
-          />
-          <div class="isibawah ps-2 ">
-            <div class="linekecil"></div>
-            <div class="isiberitakecil ps-2 py-2">
-              <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
-              <h5 class="pb-5">Sosial</h5>
-              <h6>13 Agustus 2021</h6>
-            </div>
-            <div class="linekecil flex-grow-1"></div>
-          </div>
-        </div>
-        <div class="beritakecil py-1">
-          <img
-            width="21%"
-            src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-            alt=""
-          />
-          <div class="isibawah ps-2 ">
-            <div class="linekecil flex-grow-1"></div>
-            <div class="isiberitakecil ps-2 py-2">
-              <h4>Hakim Lupa Pake Baju aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h4>
-              <h5 class="pb-5">Sosial</h5>
-              <h6>13 Agustus 2021</h6>
-            </div>
-            <div class="linekecil flex-grow-1"></div>
-          </div>
-        </div>
+        <?php } ?>
       </div>
     </div>
     
