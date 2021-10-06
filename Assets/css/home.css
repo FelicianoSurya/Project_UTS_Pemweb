@@ -110,7 +110,7 @@ html{
     left: 0;
     padding: 10px 20px;
     color: white;
-    background-color: rgba(153, 166, 172, 0.4);
+    background-color: rgba(153, 166, 172, 0.6);
     width: 100%;
 }
 
@@ -124,9 +124,35 @@ html{
     z-index: 100;
 }
 
+.section-2 .img-container{
+    overflow: hidden;
+    /* transition: .3s ease-in-out; */
+}
+
+.section-2 .img-container img{
+    overflow: hidden;
+    transition: .3s ease-in-out;
+}
+
+.section-2 .img-container:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.section-3>.beritabaru{
+    border-radius: 30px;
+    background-color: #FCAF3E;
+    box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
+}
+
 .section-3 .line{
     height: 5px;
-    background-color: #0E4F6E;
+    background-color: white;
 }
 
 .section-3 .box{

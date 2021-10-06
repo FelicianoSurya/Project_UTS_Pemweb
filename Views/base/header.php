@@ -39,20 +39,23 @@ if($login == 1 || $errorLogin == 1) {
         <div class="container-fluid container collapse navbar-collapse">
             <ul class="navigation-tab navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
+                    <a class="nav-link navbar-head active" aria-current="page" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item category ">
-                    <a class="nav-link " href="News.php">NEWS</a>
-                    <ul class="dropdown-category ">
-                        <?php foreach($kategories as $kategorie){ ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><?php echo $kategorie->name ?></a>
-                        </li>
-                        <?php } ?>
-                    </ul>
+                    <a class="nav-link navbar-head" href="News.php"><span class="news-header">NEWS</span></a>
+                    <div class="dropdown-container">
+                        <ul class="dropdown-category p-1">
+                            <?php foreach($kategories as $kategorie){ ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><?php echo $kategorie->name ?></a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="AboutUs.php">ABOUT US</a>
+                <li class="nav-item ">
+                    <a class="nav-link navbar-head" href="AboutUs.php">ABOUT US</a>
                 </li>
             </ul>
         </div>

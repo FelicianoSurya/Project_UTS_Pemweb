@@ -143,9 +143,9 @@
     </div>
 </div>
 
-<div class="section-3">
-    <div class="container py-4">
-        <div class="d-flex header align-items-center">
+<div class="section-3 py-3">
+    <div class="container beritabaru p-5">
+        <div class="d-flex header align-items-center pb-4">
             <div class="line flex-grow-1"></div>
             <h1 class="px-5 ">Berita Terbaru</h1>
             <div class="line flex-grow-1"></div>
@@ -238,10 +238,16 @@
     <div class="container py-4">
         <div class="d-flex header align-items-center">
             <div class="line flex-grow-1"></div>
-            <h1 class="px-5 ">Halo Gais</h1>
+            <h1 class="px-5 text-center">Update Berita </br> Covid</h1>
             <div class="line flex-grow-1"></div>
         </div>
-        <div class="elfsight-app-63e421e2-f252-4279-b5a8-f66fbc3ddc07"></div>
+        <div class="d-flex justify-content-center align-items-center">
+            <iframe src="https://covid-19.dataflowkit.com/assets/widget/c19-widget-light.html" 
+            frameborder="0" scrolling="no"
+            width="450" height="250">
+            </iframe>
+        </div>
+        
     </div>
 
 </div>
