@@ -42,7 +42,7 @@ if($login == 1 || $errorLogin == 1) {
                     <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item category ">
-                    <a class="nav-link " href="News.php">CATEGORY</a>
+                    <a class="nav-link " href="News.php">NEWS</a>
                     <ul class="dropdown-category ">
                         <?php foreach($kategories as $kategorie){ ?>
                         <li class="nav-item">

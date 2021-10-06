@@ -4,31 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Assets/css/kategori.css" />
-    <!-- bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- swiper -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="Assets/css/kategori.css" />
     <title>Kategori</title>
+
+    <?php 
+    define('URL', dirname(dirname(__FILE__)));
+    include_once(URL . "/include_db/connection.php");   
+    include(URL . '/Views/base/includecss.php');
+    include_once(URL . "/Controllers/Middleware.php");
+    if(isset($_SESSION['role'])){
+        include_once(URL . "/Controllers/UserController.php");
+    }
+    include_once(URL . "/Controllers/KategoriController.php");
+    include_once(URL . "/Controllers/BeritaController.php");
+    include_once(URL . "/Controllers/KomentarController.php");
+    include_once(URL . "/Controllers/LikeController.php");
+    include_once(URL . "/Controllers/RedirectController.php");
+
+    $detail = fetchDetailBerita();
+    $kategories = fetchKategori();
+    $news = fetchBerita();
+    $highlights = fetchHighlight();
+    $beritaUtama = fetchBeritaUtama();
+    $beritaTerbaru = fetchBeritaTerbaru();
+    $komentars = fetchKomentar();
+    $login = redirectLogin();
+    
+    ?>
   </head>
   <body>
+    
+    <?php include_once(URL . '/Views/base/header.php'); ?>
+
     <div class="container">
       <div class="d-flex header align-items-center">
         <div class="lineheading flex-grow-1"></div>
@@ -36,7 +43,7 @@
         <div class="lineheading flex-grow-1"></div>
       </div>
       <div class="ataskategori">
-        <div class="section-1 py-5 col-6" data-aos="zoom-in">
+        <div class="section-swiper py-5 col-6" data-aos="zoom-in">
           <div class="swiper-container container">
             <!-- Slider main container -->
             <div class="swiper">
@@ -191,6 +198,8 @@
         </div>
       </div>
     </div>
+    
+    <?php include_once(URL . '/Views/base/header.php'); ?>
 
     <script>
       const swiper = new Swiper(".swiper", {
