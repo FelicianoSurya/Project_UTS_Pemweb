@@ -71,6 +71,10 @@
   margin:0;
 }
 
+.section-2{
+  margin-bottom:20px;
+}
+
 @media (max-width: 991px) {
   .section-swiper .swiper {
     width: 100%;

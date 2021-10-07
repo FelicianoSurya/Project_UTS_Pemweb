@@ -232,6 +232,11 @@
     font-size: 0.9rem;
   }
 
+  .katafooter a:hover{
+    cursor: pointer;
+    color:black !important;
+  }
+
   /* footer  */
   
   

@@ -26,4 +26,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
+    include_once(URL . "/Controllers/KategoriController.php");
+    $kategories = fetchKategori();
 ?>

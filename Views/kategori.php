@@ -56,7 +56,7 @@
         <div class="lineheading flex-grow-1"></div>
       </div>
       <div class="section-1 row">
-        <div class="col-lg-6 col-12 headline">
+        <div onclick="detailBerita(<?php echo $newskategoriHighlight->id ?>)" class="col-lg-6 col-12 headline">
           <div class="img-container">
             <span>
               <h2><?php echo $newskategoriHighlight->judul ?></h2>
@@ -72,7 +72,7 @@
 
         <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0">
           <?php foreach($beritaSamping as $samping){ ?>
-          <div class="beritakecil pb-3">
+          <div onclick="detailBerita(<?php echo $samping->id ?>)" class="beritakecil pb-3">
             <img
               width="23%"
               src="./<?php echo $samping->gambar ?>"
@@ -91,7 +91,7 @@
 
       <div class="section-2 beritabawah container pt-5">
         <?php foreach($allBerita as $all){ ?>
-        <div class="beritakecil py-1">
+        <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1">
           <img
             width="21%"
             src="./<?php echo $all->gambar ?>"
@@ -111,7 +111,7 @@
       </div>
     
     
-    <?php include_once(URL . '/Views/base/header.php'); ?>
+    <?php include_once(URL . '/Views/base/footer.php'); ?>
 
     <script>
 
