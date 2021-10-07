@@ -28,8 +28,10 @@ if(!isset($_SESSION['role'])){
                     <img class="rounded-circle"src="./<?php echo $pengguna->image ?>" alt="profile">
                 </div>
                 <?php }else{ ?>
-                <p>Admin</p>
-                <img src="./Assets/images/home/blank.png" alt="profileAdmin">
+                <p class="p-2 m-auto d-none d-lg-block">Admin</p>
+                <div class="p-2 m-auto profile">
+                    <img src="./Assets/images/home/blank.png" alt="profileAdmin">
+                </div>
                 <?php } ?>
             </div>
             <?php } ?>
