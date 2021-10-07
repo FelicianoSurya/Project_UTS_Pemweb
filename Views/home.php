@@ -41,7 +41,7 @@
 <?php include_once(URL . '/Views/base/header.php'); ?>
 
 <div class="section-1 py-2" data-aos="zoom-in">
-    <div class="swiper-container container py-5" >
+    <div class="swiper-container container py-4" >
         <!-- Slider main container -->
         <div class="swiper">
             <!-- Additional required wrapper -->
@@ -76,7 +76,7 @@
     <div class="container">
         <div class="d-flex header align-items-center">
             <div class="line flex-grow-1"></div>
-            <h1 class="px-5 ">Berita Utama</h1>
+            <h2 class="px-5 py-2">Berita Utama</h2>
             <div class="line flex-grow-1"></div>
         </div>
         <div class="row">
@@ -84,7 +84,7 @@
             <div onclick="detailBerita(<?php echo $utama->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="0" data-aos-duration="1500">
                 <div class="box ">
                     <div class="box-tag">
-                        <h5><?php echo $utama->id_kategori ?></h3>
+                        <h5><?php echo $utama->id_kategori ?></h5>
                     </div>
                     <div class="img-container m-auto">
                         <img src="./<?php echo $utama->gambar ?>" width="100%" alt="">
@@ -104,7 +104,7 @@
     <div class="container beritabaru p-5">
         <div class="d-flex header align-items-center pb-4">
             <div class="line flex-grow-1"></div>
-            <h1 class="px-5 ">Berita Terbaru</h1>
+            <h2 class="px-5 ">Berita Terbaru</h2>
             <div class="line flex-grow-1"></div>
         </div>
 
@@ -114,7 +114,7 @@
                 <div class="box py-4 news">
                     <div class="img-container" >
                         <div class="box-tag">
-                            <h5><?php echo $baru->id_kategori ?></h3>
+                            <h5><?php echo $baru->id_kategori ?></h5>
                         </div>
                         <img src="./<?php echo $baru->gambar ?>" width="100%" alt="">
                     </div>
@@ -195,7 +195,7 @@
     <div class="container py-4">
         <div class="d-flex header align-items-center">
             <div class="line flex-grow-1"></div>
-            <h1 class="px-5 text-center">Update Berita </br> Covid</h1>
+            <h2 class="px-5 text-center">Update Berita </br> Covid</h1>
             <div class="line flex-grow-1"></div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
