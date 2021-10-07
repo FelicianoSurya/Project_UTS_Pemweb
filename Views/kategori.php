@@ -72,13 +72,13 @@
 
         <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0">
           <?php foreach($beritaSamping as $samping){ ?>
-          <div onclick="detailBerita(<?php echo $samping->id ?>)" class="beritakecil pb-3">
+          <div onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1">
             <img
               width="23%"
               src="./<?php echo $samping->gambar ?>"
               alt=""
             />
-            <div class="isiberitakecil ps-2">
+            <div class="isiberitasamping ps-2">
               <h5><?php echo $samping->judul ?></h5>
               <h6><?php echo $samping->id_kategori ?></h6>
               <p><?php echo $samping->tanggal_publikasi ?></p>
