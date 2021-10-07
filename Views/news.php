@@ -34,6 +34,7 @@
     $beritaTerbaru = fetchBeritaTerbaru();
     $komentars = fetchKomentar();
     $login = redirectLogin();
+    $rekomendasi = fetchRekomendasi();
     
     ?>
     
@@ -159,14 +160,16 @@
                 <div class="line flex-grow-1"></div>
             </div>
             <div class="row">
+            <?php foreach($rekomendasi as $rekom){  ?>
             <div class="col-lg-3 col-6  p-2 news"  >
                 <div class="box ">
                     <div class="box-tag">
-                        <h5>Politics</h3>
+                        <h5><?php echo $rekom->id_kategori ?></h3>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
+                    <img src="./<?php echo $rekom->gambar ?>" width="100%" alt="">
                 </div>
             </div>
+            <?php } ?>
         </div>
         </div>
     </div>

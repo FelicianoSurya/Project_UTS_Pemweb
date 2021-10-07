@@ -33,6 +33,7 @@
     
     define('URL', dirname(dirname(dirname(__FILE__))));
     include_once(URL . "/include_db/connection.php");
+    include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
     include(URL . '/Views/base/includecss.php');
@@ -44,7 +45,7 @@
     ?>
 </head>
 <body>
-
+    <?php include URL . "/Views/base/header.php"; ?>
     
     <?php if(isset($_GET['pesan']) == 'berhasil'){
         echo "berhasil";
