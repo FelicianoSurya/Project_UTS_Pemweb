@@ -1,19 +1,18 @@
 <?php
 
-include_once(URL . "/Model/Admin.php");
+include_once(URL . "/Model/Employees.php");
 include_once(URL . "/Model/Pengguna.php");
 
 $username = $_SESSION['username'];
-
-if($_SESSION['role'] == 'admin'){
+if($_SESSION['role'] == 'karyawan'){
     $conn = Database();
-    $sql = "SELECT * FROM admin WHERE username = '$username'";
+    $sql = "SELECT * FROM employees WHERE username = '$username'";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_array($query);
-    $admin = new Admin();
-    $admin->setData($result['username'],$result['nama_depan'],$result['nama_belakang']);
+    $employees = new Employee();
+    $employees->setData($result['username'],$result['nama_depan'],$result['nama_belakang']);
     
-    return $admin;
+    return $employees;
     
 }else if($_SESSION['role'] == 'pengguna'){
     $conn = Database();

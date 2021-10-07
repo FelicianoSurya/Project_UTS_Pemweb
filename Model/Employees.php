@@ -1,6 +1,6 @@
 <?php
 
-class Admin {
+class Employee {
     public $username, $nama_depan, $nama_belakang;
     function setData($username, $nama_depan, $nama_belakang){
         $this->username = $username;
