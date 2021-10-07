@@ -30,12 +30,15 @@
 
     <?php
     
-    
     define('URL', dirname(dirname(dirname(__FILE__))));
+
+
+    include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
     include(URL . '/Views/base/includecss.php');
+
     $kategories = fetchKategori();
     $news = fetchBerita();
     $highlights = fetchHighlight();
@@ -44,7 +47,7 @@
     ?>
 </head>
 <body>
-
+    <?php include_once(URL . '/Views/base/header.php'); ?>
     
     <?php if(isset($_GET['pesan']) == 'berhasil'){
         echo "berhasil";
@@ -57,7 +60,7 @@
             <hr>
             <form class="d-flex flex-column px-2"action="" method="POST" enctype="multipart/form-data">
                 <div class="d-flex">
-                
+                    
                     <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
                 </div>
                 <div class="row justify-content-between py-2">
@@ -99,7 +102,7 @@
                 <div class="row justify-content-between py-2">
                     <label class="col-md-2 col-12 rounded-pill" for="desc">Description </label>
 
-                    <textarea class="col-md-9 col-12 rounded-pill" name="desc" id="summernote" required></textarea>
+                    <textarea class="col-md-9 col-12" name="desc" id="summernote" required></textarea>
                 </div>
                 <div class="row py-2 justify-content-end">
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
@@ -113,7 +116,6 @@
            
         </div>
     </div>
-<?php include(URL . '/Views/base/footer.php') ?>
     
 
 <script>

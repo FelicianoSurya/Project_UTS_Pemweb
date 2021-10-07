@@ -66,7 +66,7 @@
     margin-bottom: 1rem;
   }
   .modal input[type="text"]:focus,
-  input[type="password"]:focus {
+  .modal input[type="password"]:focus {
     background-color: #60dae5;
     border-color: #60dae5;
   }
