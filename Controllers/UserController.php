@@ -4,6 +4,7 @@ include_once(URL . "/Model/Employees.php");
 include_once(URL . "/Model/Pengguna.php");
 
 $username = $_SESSION['username'];
+
 if($_SESSION['role'] == 'karyawan'){
     $conn = Database();
     $sql = "SELECT * FROM employees WHERE username = '$username'";

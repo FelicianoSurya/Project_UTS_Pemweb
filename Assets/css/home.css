@@ -131,7 +131,7 @@ html{
     position: absolute;
     top: 5%;
     right: 0;
-    background-color: #FC7F2B;
+    background-color: #FDBF65;
     color: white;
     z-index: 100;
 }
@@ -156,7 +156,7 @@ html{
 
 .section-3>.beritabaru{
     border-radius: 30px;
-    background-color: #FCAF3E;
+    background-color: #F9E3B4;
     box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
     -webkit-box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 9px 10px -4px rgba(0,0,0,0.75);
@@ -213,7 +213,7 @@ html{
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #FCAF3E;
+    background-color: #FDBF65;
     color: white;
     z-index: 100;
 }

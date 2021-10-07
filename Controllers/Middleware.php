@@ -2,7 +2,7 @@
 
 include_once(URL . "/include_db/connection.php");
 include_once(URL . "./Model/Users.php");
-include_once(URL . "./Model/Admin.php");
+include_once(URL . "./Model/Employees.php");
 include_once(URL . "./Model/Pengguna.php");
 
 if(isset($_POST['logout'])){
