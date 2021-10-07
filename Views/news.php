@@ -155,7 +155,7 @@
         <div class="recommended-news py-5">
             <div class="d-flex header align-items-center">
                 <div class="line flex-grow-1"></div>
-                <h1 class="px-5 ">Halo Gais</h1>
+                <h1 class="px-5 ">Rekomendasi Berita</h1>
                 <div class="line flex-grow-1"></div>
             </div>
             <div class="row">
@@ -167,31 +167,6 @@
                     <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
                 </div>
             </div>
-            <div class="col-lg-3 col-6 p-2 news"  >
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 p-2 news" >
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 p-2 news" >
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div>
-
         </div>
         </div>
     </div>

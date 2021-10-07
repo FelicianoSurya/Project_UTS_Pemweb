@@ -149,4 +149,9 @@ function fetchDetailBerita(){
     return $berita;
 }
 
+function fetchRekomendasi(){
+    $conn = Database();
+    $recomendations = array();
+}
+
 ?>
