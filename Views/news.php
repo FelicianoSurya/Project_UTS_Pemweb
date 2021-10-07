@@ -80,7 +80,7 @@
                         $data = mysqli_fetch_array($query);
                     }
                     ?>
-                    <div class="profile-comment col-1">
+                    <div class="profile-comment col-1 d-flex justify-content-center align-items-start">
                         <?php if(isset($_SESSION['username'])){ ?>
                         <img src="./<?php echo $data['image'] ?>" alt="">
                         <?php } ?>
@@ -89,10 +89,10 @@
                     <div class="col-9">
                     <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
                     <input type="hidden" name="id_berita" value="<?php echo $detail->id ?>">
-                    <input type="text" name="komentar" placeholder="Type your comments here...">
+                    <input class="comment-text"type="text" name="komentar" placeholder="Type your comments here...">
                     </div>
                 
-                    <div class="col-1">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
                         <?php if(isset($_SESSION['username'])){?>
                         <button class="button-send" type="submit" class="btn btn-primary">Send</button>
                         <?php }else{ ?> <button class="button-send" type="submit" name="redirectLogin" class="btn btn-primary">Send</button> <?php } ?>
@@ -108,16 +108,24 @@
                 ?>
                     
                 <div class="row comments py-3 justify-content-around">
-                    <div class="profile-comment col-1">
+                    <div class="profile-comment col-1 d-flex justify-content-center align-items-start pt-2">
                         <img src="./<?php echo $user[1] ?>" alt="">
                     </div>
 
                     <div class="col-9">
-                    <p class="m-0"><b><?php echo $user[0] ?></b></p>
-                    <p><?php echo $komentar->komentar ?></p>
+                        <p class="m-0 comment-text"><b><?php echo $user[0] ?></b></p>
+                        <p class="m-0 comment-text"><?php echo $komentar->komentar ?></p>
+                        <p class="comment-desc pt-2">
+                            <?php
+                                $countsql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id'";
+                                $querycount = mysqli_query($conn,$countsql);
+                                $count = mysqli_num_rows($querycount);
+                                echo $count;
+                            ?> like
+                        </p>
                     </div>
 
-                    <div class="col-1 justify-content-around align-items-center d-flex">
+                    <div class="col-2 justify-content-around align-items-center d-flex">
                         <form action="" method="POST">
                             <input type="hidden" name="username" value="<?php echo $username ?>">
                             <input type="hidden" name="id_komentar" value="<?php echo $komentar->id ?>">
@@ -126,19 +134,16 @@
                             $query = mysqli_query($conn,$sql);
                             $row = mysqli_num_rows($query);
 
-                            $countsql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id'";
-                            $querycount = mysqli_query($conn,$countsql);
-                            $count = mysqli_num_rows($querycount);
-                            echo $count;
+                            
                             if($row == 0){
                                 if(isset($_SESSION['username'])){
                             ?>
-                                    <button class="like-button w-100" type="submit" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                                <button class="like-button" type="submit" name="belumLike" ><img class="w-100" src="./Assets/images/news/graylove.png" alt=""></button>
                                 <?php }else{ ?>
-                                <button class="like-button w-100" type="submit" name="redirectLogin" name="belumLike" ><img src="./Assets/images/news/graylove.png" alt=""></button>
+                                <button class="like-button " type="submit" name="redirectLogin" name="belumLike" ><img class="w-100" src="./Assets/images/news/graylove.png" alt=""></button>
                                 <?php } ?>
                             <?php }else{ ?>
-                                <button class="like-button w-100" type="submit" name="sudahLike"><img src="./Assets/images/news/redlove.png" alt=""></button>
+                                <button class="like-button" type="submit" name="sudahLike"><img class="w-100" src="./Assets/images/news/redlove.png" alt=""></button>
                                 <?php } ?>
                         </form>
                     </div>
@@ -154,7 +159,7 @@
                 <div class="line flex-grow-1"></div>
             </div>
             <div class="row">
-            <div class="col-3 p-2 news"  >
+            <div class="col-lg-3 col-6  p-2 news"  >
                 <div class="box ">
                     <div class="box-tag">
                         <h5>Politics</h3>
@@ -162,7 +167,7 @@
                     <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
                 </div>
             </div>
-            <div class="col-3 p-2 news"  >
+            <div class="col-lg-3 col-6 p-2 news"  >
                 <div class="box ">
                     <div class="box-tag">
                         <h5>Politics</h3>
@@ -170,7 +175,7 @@
                     <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
                 </div>
             </div>
-            <div class="col-3 p-2 news" >
+            <div class="col-lg-3 p-2 news" >
                 <div class="box ">
                     <div class="box-tag">
                         <h5>Politics</h3>
@@ -178,7 +183,7 @@
                     <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
                 </div>
             </div>
-            <div class="col-3 p-2 news" >
+            <div class="col-lg-3 p-2 news" >
                 <div class="box ">
                     <div class="box-tag">
                         <h5>Politics</h3>

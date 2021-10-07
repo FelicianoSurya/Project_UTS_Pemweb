@@ -2,15 +2,13 @@
 
 $errorLogin = errorLogin();
 
-if(!isset($_SESSION['role'])){
-    if($login == 1 || $errorLogin == 1) {
-        echo
-        "<script>
-            $(window).on('load', function(){
-                $('#exampleModal').modal('show');
-            });
-        </script>";
-    }
+if($login == 1 || $errorLogin == 1) {
+    echo
+    "<script>
+        $(window).on('load', function(){
+            $('#exampleModal').modal('show');
+        });
+    </script>";
 }
 ?>
 <nav class="">
@@ -22,8 +20,8 @@ if(!isset($_SESSION['role'])){
             <button class="btn btnModal btn-login"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
             <?php }else{ ?>
             <button class="m-auto btn btnModal btn-login"type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="logout">Logout</button>
-            <div class="d-flex justify-content-end">
-                <p class="p-2 m-auto"><?php  if($_SESSION['role'] == 'pengguna'){ echo $pengguna->name ?></p>
+            <div class="d-flex justify-content-end ">
+                <p class="p-2 m-auto d-none d-lg-block"><?php  if($_SESSION['role'] == 'pengguna'){ echo $pengguna->name ?></p>
                 <div class="p-2 m-auto profile">
                     <img class="rounded-circle"src="./<?php echo $pengguna->image ?>" alt="profile">
                 </div>

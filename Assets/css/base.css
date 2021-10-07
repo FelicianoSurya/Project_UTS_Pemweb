@@ -156,7 +156,7 @@
     width: 15%;
   }
   
-  
+
   
   .navbar-2{
       background-color: #FCAF3E;
@@ -238,5 +238,19 @@
   }
 
   /* footer  */
-  
+  @media (max-width: 900px){
+    .navbar-2 .nav-link{
+      font-size: 15px!important;
+    }
+  }
+  @media (max-width: 600px){
+    .navbar-2 .nav-link{
+      font-size: 12px!important;
+    }
+  }
+  @media (max-width: 340px){
+    .navbar-2 .nav-link{
+      font-size: 8px!important;
+    }
+  }
   
