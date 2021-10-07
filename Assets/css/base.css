@@ -238,6 +238,7 @@
   
   .katafooter p {
     font-size: 0.9rem;
+    font-family:RobotoRegular !important;
   }
 
   .katafooter a:hover{
