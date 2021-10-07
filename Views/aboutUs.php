@@ -33,13 +33,13 @@
 <body>
     <?php include_once(URL . "/Views/base/header.php") ?>
     <div class="d-flex justify-content-center">
-        <div class="history">
+        <div class="history container py-4">
             <div class="history-title">History</div>
             <div class="line"></div>
             <div class="history-image">
                 <img src="Assets/images/home/logo.png" alt=""></img>
             </div>
-            <div class="history-teks">
+            <div class="history-teks container">
                 <p>News Paper, disingkat NP, adalah perusahaan Indonesia yang bergerak di bidang media massa yang didirikan pada tanggal 2 Oktober 2021, oleh 4 orang yang bernama Feliciano Surya Marcelo, Lifosmin Simon, Fernando Khorasani, dan Dea Noveriyanti. Kehadiran News Paper tidak terlepas dari sejarah panjang demi mencapai cita-cita mulia dalam rangka mencerdaskan bangsa.</p></br>
                 <p>Pada tahun 2021 perusahaan ini mulai berkembang pesat, terutama dalam bidang komunikasi. Saat ini, Kompas Gramedia memiliki beberapa anak perusahaan/bisnis unit yang bervariatif dari media massa cetak maupun daring, toko buku, percetakan, penerbitan, radio, hotel, lembaga pendidikan, bentara budaya, penyelenggara acara, stasiun televisi, hingga universitas.</p>
             </div>
@@ -54,7 +54,7 @@
         <div class="box-container row">
             <div class="col-lg-3 col-md-6 col-12 co p-4">
                 <div class="box">
-                    <div class="img-container m-auto">
+                    <div class="img-container m-auto d-flex justify-content-center w-100">
                         <img src="Assets/images/aboutUs/nando.png" alt=""></img>
                     </div>
                     <div class="box-name">
@@ -65,7 +65,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-12  p-4">
                 <div class="box">
-                <div class="img-container m-auto">
+                <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/lifos.png" alt=""></img> 
                 </div>    
                     <div class="box-name">
@@ -76,7 +76,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-12 p-4">
                 <div class="box">
-                <div class="img-container m-auto">
+                <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/ano.png" alt=""></img>
                 </div>    
                     <div class="box-name">
@@ -88,7 +88,7 @@
 
             <div class="col-lg-3 col-md-6 col-12 p-4">
                 <div class="box">
-                <div class="img-container m-auto">
+                <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/dea.png" alt=""></img>    
                 </div>    
                     <div class="box-name">

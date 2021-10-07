@@ -1,3 +1,3 @@
 <?php
 
-include "Views/Admin/addBerita.php";
+include "Views/Admin/adminTable.php";

@@ -195,7 +195,15 @@
         </div>
         </div>
     </div>
+
+    
 <?php include(URL . '/Views/base/footer.php') ?>
 
 </body>
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+    } );
+</script>
 </html>
