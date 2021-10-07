@@ -87,9 +87,9 @@
             <?php } ?>
         </div>    
       </div>
+    </div>
 
-
-      <div class="section-2 beritabawah">
+      <div class="section-2 beritabawah container pt-5">
         <?php foreach($allBerita as $all){ ?>
         <div class="beritakecil py-1">
           <img
@@ -97,41 +97,47 @@
             src="./<?php echo $all->gambar ?>"
             alt=""
           />
-          <div class="isibawah ps-2 ">
-            <div class="linekecil flex-grow-1"></div>
-            <div class="isiberitakecil ps-2 py-2">
+          <div class="isibawah ps-2 d-flex flex-column">
+            <div class="linekecil w-100"></div>
+            <div class="isiberitakecil ps-2 py-2 flex-grow-1">
               <h4><?php echo $all->judul ?></h4>
               <h5 class="pb-5"><?php echo $all->id_kategori ?></h5>
               <h6><?php echo $all->tanggal_publikasi ?></h6>
             </div>
-            <div class="linekecil flex-grow-1"></div>
+            <div class="linekecil w-100"></div>
           </div>
         </div>
         <?php } ?>
       </div>
-    </div>
+    
     
     <?php include_once(URL . '/Views/base/header.php'); ?>
 
     <script>
-      const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        // direction: "horizontal",
-        // loop: true,
 
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-        },
+      // top 
+      // var maxHeight = 0;
 
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+      // var divs = jQuery(".section-1 .col-lg-6");
+      // jQuery.each(divs, function(){
+      //     var height = jQuery(this).height();
+      //     if(maxHeight<height)
+      //         maxHeight = height;
 
-        // And if we need scrollbar
+      // });
+      // divs.height(maxHeight);
+
+      // bot 
+      var maxHeight = 0;
+
+      var divs = jQuery(".section-2 img");
+      jQuery.each(divs, function(){
+          var height = jQuery(this).height();
+          if(maxHeight<height)
+              maxHeight = height;
+
       });
+      divs.height(maxHeight);
     </script>
   </body>
 </html>
