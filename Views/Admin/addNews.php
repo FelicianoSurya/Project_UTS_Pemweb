@@ -44,6 +44,9 @@
     $news = fetchBerita();
     $highlights = fetchHighlight();
     $beritaUtama = fetchBeritaUtama();
+    if(isset($_POST['button'])){
+        $detailEdit = editData();
+    }
 
     ?>
 </head>
@@ -61,33 +64,35 @@
             <hr>
             <form class="d-flex flex-column px-2"action="" method="POST" enctype="multipart/form-data">
                 <div class="d-flex">
-                    
+                    <?php if(isset($_POST['button'])){ ?>
+                    <input type="hidden" name="id" value="<?php echo $detailEdit->id ?>">
+                    <?php } ?>
                     <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
                 </div>
                 <div class="row justify-content-between py-2">
-                    <label class="col-md-2 col-12" for="judul">Judul </label>
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="judul" required />
+                    <label class="col-md-2 col-12" for="judul">Title </label>
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="judul" value="<?php if(isset($_POST['button'])) echo $detailEdit->judul ?>" required />
                 </div>
                 <div class="row justify-content-between py-2">
                     <label class="col-md-2 col-12 rounded-pill" for="subtitle">Subtitle </label>
 
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="subtitle" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="subjudul" value="<?php if(isset($_POST['button'])) echo $detailEdit->subjudul ?>" required />
                 </div>
                 <div class="row justify-content-between py-2">
                 <label class="col-md-2 col-12 rounded-pill" for="writer">Writer </label>
 
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="writer" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" value="<?php if(isset($_POST['button'])) echo $detailEdit->penulis ?>" name="penulis" required />
                 </div>
                 
                 <div class="row justify-content-between py-2">
                 <label class="col-md-2 col-12 rounded-pill" for="date">Date </label>
 
-                    <input class="col-md-9 col-12 rounded-pill" type="date" name="tanggal_publikasi" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="date" name="tanggal_publikasi" value="<?php if(isset($_POST['button'])) echo $detailEdit->tanggal_publikasi ?>" required />
                 </div>
                 <div class="row justify-content-between py-2">
-                <label class="col-md-2 col-12 " for="gambar">Gambar </label>
+                <label class="col-md-2 col-12 " for="gambar">Image </label>
 
-                    <input class="col-md-9 col-12  ps-0" type="file" name="gambar" required />
+                    <input class="col-md-9 col-12  ps-0" type="file" name="gambar" <?php if(!isset($_POST['button'])) echo 'required' ?> />
                 </div>
 
 
@@ -95,22 +100,25 @@
                     <label class="col-md-2 col-12 rounded-pill" for="category">Category </label>
 
                     <select class="col-md-9 col-12 rounded-pill" name="id_kategori" required>
-                        <option value="">Kategori</option>
+                        <option value="">Catogory</option>
                         <?php 
-                        foreach($kategories as $kategori) echo "<option value='$kategori->id'>$kategori->name </option>"; ?>
+                        foreach($kategories as $kategori){ ?>
+                        <option id="<?php echo $kategori->id ?>" value="<?php echo $kategori->id ?>" <?php if($detailEdit->id_kategori == $kategori->id) echo 'selected' ?>><?php echo $kategori->name ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="row justify-content-between py-2">
                     <label class="col-md-2 col-12 rounded-pill" for="desc">Description </label>
 
-                    <textarea class="col-md-9 col-12" name="desc" id="summernote" required></textarea>
+                    <textarea class="col-md-9 col-12" name="deskripsi" id="summernote" required><?php if(isset($_POST['button'])) echo $detailEdit->deskripsi ?></textarea>
                 </div>
                 <div class="row py-2 justify-content-end">
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
-                        <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
+                        <button class="button-add" type="button" name="cancel" class="btn btn-primary">Cancel</button>
                     </div>
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
-                        <button class="button-add" type="submit" name="addBerita" class="btn btn-primary">Submit</button>
+                        
+                        <input class="button-add" type="submit" <?php if(!isset($_POST['button'])){ ?> name="addBerita" value="Submit" <?php }else{ ?> name="editBerita" value="Update" <?php } ?> class="btn btn-primary"></input>
                     </div>
                 </div>
             </form>
@@ -125,6 +133,7 @@
         $('#summernote').summernote();
         $( ".note-editor" ).addClass("col-md-9 col-12");
     });
+
 
 </script>
 </body>

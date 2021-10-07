@@ -6,7 +6,7 @@ include_once(URL . "/Model/Kategori.php");
 $conn = Database();
 
 if(isset($_POST['judul']) && isset($_POST['subjudul']) && isset($_POST['penulis']) && isset($_POST['deskripsi']) && isset($_POST['tanggal_publikasi'])
-    && isset($_FILES['gambar']) && isset($_POST['id_kategori']) && isset($_POST['username']) && isset($_POST['addBerita'])){
+    && isset($_FILES['gambar']) && isset($_POST['id_kategori']) && isset($_POST['username']) && isset($_POST['addBerita']) && $_FILES['gambar'] != ""){
 
     $judul = $_POST['judul'];
     $subjudul = $_POST['subjudul'];
@@ -17,7 +17,6 @@ if(isset($_POST['judul']) && isset($_POST['subjudul']) && isset($_POST['penulis'
     $id_kategori = $_POST['id_kategori'];
     $image = $_FILES['gambar'];
 
-    echo $id_kategori;
     $imageLink = '/Assets/images/berita/' . basename($image['name']);
     $targetImage = URL . $imageLink;
 
@@ -26,20 +25,54 @@ if(isset($_POST['judul']) && isset($_POST['subjudul']) && isset($_POST['penulis'
     $sql = "INSERT INTO berita (judul,subjudul, penulis,deskripsi,tanggal_publikasi,gambar,id_kategori,username) 
             VALUES ('$judul','$subjudul','$penulis', '$deskripsi', '$tanggal_publikasi', '$imageLink' , $id_kategori, '$editor')";
     $query = mysqli_query($conn,$sql);
-    header("location:./Admin.php?pesan=berhasil");
+    header("location:NewsAdmin.php");
+}
+
+if(isset($_POST['editBerita'])){
+    $id = $_POST['id'];
+    $judul = $_POST['judul'];
+    $subjudul = $_POST['subjudul'];
+    $editor = $_POST['username'];
+    $penulis = $_POST['penulis'];
+    $deskripsi = $_POST['deskripsi'];
+    $tanggal_publikasi = $_POST['tanggal_publikasi'];
+    $id_kategori = $_POST['id_kategori'];
+    $image = $_FILES['gambar'];
+
+    $imageLink = '/Assets/images/berita/' . basename($image['name']);
+    $targetImage = URL . $imageLink;
+
+    move_uploaded_file($image['tmp_name'], $targetImage);
+
+    if(basename($image['name']) != ""){
+        $sql = "UPDATE berita SET judul = '$judul' , subjudul = '$subjudul', username = '$editor' , 
+        penulis = '$penulis' , deskripsi = '$deskripsi', tanggal_publikasi = '$tanggal_publikasi' , id_kategori = '$id_kategori' , gambar = '$imageLink' WHERE id = '$id'";
+    }else{
+        $sql = "UPDATE berita SET judul = '$judul' , subjudul = '$subjudul', username = '$editor' , 
+        penulis = '$penulis' , deskripsi = '$deskripsi', tanggal_publikasi = '$tanggal_publikasi' , id_kategori = '$id_kategori' WHERE id = '$id'";
+    }
+    $query = mysqli_query($conn,$sql);
+    header("location:NewsAdmin.php");
 }
 
 if(isset($_POST['id']) && isset($_POST['button'])){
     $id = $_POST['id'];
     $button = $_POST['button'];
-    if($button == 'Edit'){
-        $sql = "SELECT * FROM berita WHERE id = '$id'";
-        $query = mysqli_query($conn,$sql);
-    }else if($button == 'Delete'){
+    if($button == 'Delete'){
         $sql = "DELETE FROM berita WHERE id = '$id'";
         $query = mysqli_query($conn,$sql);
     }
-    
+}
+
+function editData(){
+    $conn = Database();
+    $id = $_POST['id'];
+    $sql = "SELECT * FROM berita WHERE id = '$id'";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_array($query);
+    $berita = new Berita();
+    $berita->setData($result[0],$result[1],$result[3],$result[4],$result[5],$result[6],$result[7],$result[2], $result[8]);
+    return $berita;
 }
 
 if(isset($_POST['id_berita']) && isset($_POST['highlight'])){
@@ -169,6 +202,23 @@ function fetchRekomendasi(){
         array_push($recomendations , $berita);
     }
     return $recomendations;
+}
+
+function fetchBeritaAdmin(){
+    $News = array();
+    $conn = Database();
+    $sql = "SELECT id, judul, penulis, deskripsi,
+            CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
+            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul , username
+            FROM berita";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_all($query);
+    foreach($result as $data){
+        $berita = new Berita();
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7], $data[8]);
+        array_push($News,$berita);
+    }
+    return $News;
 }
 
 ?>

@@ -25,6 +25,8 @@
     include_once(URL . "/Controllers/KomentarController.php");
     include_once(URL . "/Controllers/LikeController.php");
     include_once(URL . "/Controllers/RedirectController.php");
+
+    $news = fetchBeritaAdmin();
     ?>
     
 </head>
@@ -40,7 +42,7 @@
                 <p>BU = Berita Utama</p>
             </div>
             <div class="d-flex col-2 my-auto justify-content-end flex-column">
-                <button class="button-add" type="submit" class="btn btn-primary">+ Add News</button>
+                <a href="AddNews.php"><button class="button-add" class="btn btn-primary">+ Add News</button></a>
                 <p class="pt-4 m-0">total news :</p>
             </div>
         </div>
@@ -57,14 +59,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009/09/15</td>
-                <td>$205,500</td>
-            </tr>
+            <?php foreach($news as $new){ ?>
+                <tr>
+                    <td><?php echo $new->judul ?></td>
+                    <td><?php echo $new->penulis ?></td>
+                    <td><?php echo $new->username ?></td>
+                    <td><?php echo $new->tanggal_publikasi ?></td>
+                    <td><?php echo $new->id_kategori ?></td>
+                    <td>
+                        <form action="AddNews.php" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                            <input type="hidden" name="button" value="Edit">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                            <input type="hidden" name="button" value="Delete">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
     </div>
