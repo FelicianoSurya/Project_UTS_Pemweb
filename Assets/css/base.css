@@ -176,6 +176,7 @@
   .navbar-2 .nav-link{
     padding: 5px 30px!important;
     border-radius: 25px;
+    cursor: pointer;
   }
 
   .navbar-2 .navbar-head:hover{

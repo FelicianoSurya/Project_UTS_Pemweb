@@ -13,10 +13,11 @@ if(isset($_POST['username']) && isset($_POST['id_berita']) && isset($_POST['kome
 }
 
 function fetchKomentar(){
+    $detail = $_GET['detail'];
     $komentarArray = array();
     $conn = Database();
     $sql = "SELECT komentar.id, komentar, CONCAT(DAY(tanggal_komentar), ' ', MONTHNAME(tanggal_komentar), ' ' , YEAR(tanggal_komentar)) 
-    'tanggal', username, id_berita FROM komentar INNER JOIN berita ON komentar.id_berita = berita.id ORDER BY komentar.id DESC";
+    'tanggal', username, id_berita FROM komentar INNER JOIN berita ON komentar.id_berita = berita.id WHERE berita.id = '$detail' ORDER BY komentar.id DESC";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
 

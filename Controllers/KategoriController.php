@@ -21,6 +21,20 @@ function fetchKategori(){
     return $kategories;
 }
 
+function getNameKategori(){
+    $conn = Database();
+    if($_GET['kategori']){
+        $nama = $_GET['kategori'];
+        $sql = "SELECT * FROM kategori WHERE id = '$nama'";
+        $query = mysqli_query($conn,$sql);
+        $result = mysqli_fetch_array($query);
+
+        $kategori = new Kategori();
+        $kategori->setData($result[0],$result[1]);
+        return $kategori;
+    }
+}
+
 function fetchBeritaKategori(){
     $conn = Database();
 

@@ -15,6 +15,10 @@
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
+    if(isset($_GET['kategori'])){
+      error_reporting(0);
+      $null = "KAMI TIDAK PUNYA BERITA UNTUK KATEGORI INI";
+    }
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
     // include_once(URL . "/Controllers/KomentarController.php");
@@ -23,6 +27,7 @@
 
     $detail = fetchDetailBerita();
     $kategories = fetchKategori();
+    $namaKategori = getNameKategori();
     $news = fetchBerita();
     // $highlights = fetchHighlight();
     // $beritaUtama = fetchBeritaUtama();
@@ -43,7 +48,11 @@
     <div class="container">
       <div class="d-flex header align-items-center py-5">
         <div class="lineheading flex-grow-1"></div>
-        <h1 class="px-5">All News</h1>
+        <?php if(isset($_GET['kategori'])){ ?>
+          <h1 class="px-5"><?php echo $namaKategori->name ?></h1>
+        <?php }else{ ?>
+          <h1 class="px-5">All News</h1>
+        <?php } ?>
         <div class="lineheading flex-grow-1"></div>
       </div>
       <div class="section-1 row">

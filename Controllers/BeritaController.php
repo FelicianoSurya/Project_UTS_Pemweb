@@ -69,7 +69,7 @@ function fetchBerita(){
 function fetchHighlight(){
     $arrayHighlight = array();
     $conn = Database();
-    $sql = "SELECT highlight.id, judul, penulis, deskripsi, 
+    $sql = "SELECT berita.id, judul, penulis, deskripsi, 
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
             gambar, kategori.nama , subjudul FROM ((berita
             INNER JOIN highlight ON berita.id = highlight.id_berita)
@@ -87,7 +87,7 @@ function fetchHighlight(){
 function fetchBeritaUtama(){
     $arrayBeritaUtama = array();
     $conn = Database();
-    $sql = "SELECT utama.id, judul, penulis, deskripsi, 
+    $sql = "SELECT berita.id, judul, penulis, deskripsi, 
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
             gambar, kategori.nama, subjudul FROM ((berita
     INNER JOIN utama ON berita.id = utama.id_berita)
@@ -122,9 +122,10 @@ function fetchBeritaTerbaru(){
 
 function fetchDetailBerita(){
     $conn = Database();
+    $detail = $_GET['detail'];
     $sql = "SELECT berita.id, judul, penulis, deskripsi, 
     CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-    gambar, kategori.nama, subjudul FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = 14";
+    gambar, kategori.nama, subjudul FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = '$detail'";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($query);
 

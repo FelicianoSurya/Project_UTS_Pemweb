@@ -2,13 +2,15 @@
 
 $errorLogin = errorLogin();
 
-if($login == 1 || $errorLogin == 1) {
-    echo
-    "<script>
-        $(window).on('load', function(){
-            $('#exampleModal').modal('show');
-        });
-    </script>";
+if(!isset($_SESSION['role'])){
+    if($login == 1 || $errorLogin == 1) {
+        echo
+        "<script>
+            $(window).on('load', function(){
+                $('#exampleModal').modal('show');
+            });
+        </script>";
+    }
 }
 ?>
 <nav class="">

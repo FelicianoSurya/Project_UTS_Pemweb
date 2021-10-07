@@ -34,7 +34,7 @@
     $beritaTerbaru = fetchBeritaTerbaru();
     $komentars = fetchKomentar();
     $login = redirectLogin();
-
+    
     ?>
     
 </head>

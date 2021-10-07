@@ -48,7 +48,7 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php foreach($highlights as $highlight){ ?>
-                <div class="swiper-slide m-auto px-3">
+                <div onclick="detailBerita(<?php echo $highlight->id ?>)" class="swiper-slide m-auto px-3">
                         <div class="img-container m-auto" style="background-image:url('./<?php echo $highlight->gambar ?>')">
                             <div class="overlay-span"></div>
                             <span>
@@ -81,7 +81,7 @@
         </div>
         <div class="row">
             <?php foreach($beritaUtama as $utama){ ?>
-            <div class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="0" data-aos-duration="1500">
+            <div onclick="detailBerita(<?php echo $utama->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="0" data-aos-duration="1500">
                 <div class="box ">
                     <div class="box-tag">
                         <h5><?php echo $utama->id_kategori ?></h3>
@@ -96,31 +96,6 @@
                 </div>
             </div>
             <?php } ?>
-            <!-- <div class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="1000" data-aos-duration="1500">
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="1500" data-aos-duration="1500">
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5>Politics</h3>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
-                </div>
-            </div> -->
-
         </div>
     </div>
 </div>
@@ -135,7 +110,7 @@
 
         <div class="row">
             <?php foreach($beritaTerbaru as $baru){ ?>
-            <div class="col-lg-3  col-md-6 col-12 p-2 ">
+            <div onclick="detailBerita(<?php echo $baru->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 ">
                 <div class="box py-4 news">
                     <div class="img-container" >
                         <div class="box-tag">
