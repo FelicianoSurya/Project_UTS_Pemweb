@@ -108,12 +108,13 @@ html{
 }
 
 .section-2 .line{
-    height: 5px;
+    height: 4px;
     background-color: #0E4F6E;
 }
 
 .section-2 .box {
     position: relative;
+    border-radius: 5px;
 }
 
 .section-2 .box span{
@@ -122,18 +123,19 @@ html{
     left: 0;
     padding: 10px 20px;
     color: white;
-    background-color: rgba(153, 166, 172, 0.6);
+    background-color: rgba(153, 166, 172, 0.822);
     width: 100%;
 }
 
 .section-2 .box-tag {
-    padding: 7px 30px;
+    padding: 8px 10px 1px 10px;
     position: absolute;
     top: 5%;
     right: 0;
     background-color: #FDBF65;
     color: white;
     z-index: 100;
+    border-radius: 2px;
 }
 
 .section-2 .img-container{
@@ -163,18 +165,18 @@ html{
 }
 
 .section-3 .line{
-    height: 5px;
-    background-color: white;
+    height: 4px;
+    background-color: #0E4F6E;
 }
 
 .section-3 .box{
-    color: white;
-    background-color: #0E4F6E;
+    color: #0E4F6E;
+    background-color: #DAF0F2;
     border-radius: 15px;
     flex-direction: column;
     justify-content: space-between;
     display: flex;
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
     transition: .2s ease-in-out;
 
 }
@@ -209,17 +211,18 @@ html{
 
 
 .section-3 .box-tag {
-    padding: 7px 30px;
+    padding: 8px 10px 1px 10px;
     position: absolute;
     top: 0;
     right: 0;
     background-color: #FDBF65;
     color: white;
     z-index: 100;
+    border-radius: 2px;
 }
 
 .section-4 .line{
-    height: 5px;
+    height: 4px;
     background-color: #0E4F6E;
 }
 

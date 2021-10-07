@@ -150,8 +150,25 @@ function fetchDetailBerita(){
 }
 
 function fetchRekomendasi(){
+    $id = $_GET['detail'];
     $conn = Database();
+    $sqlBerita = "SELECT * FROM berita WHERE id = '$id'";
+    $queryBerita = mysqli_query($conn,$sqlBerita);
+    $resultBerita = mysqli_fetch_array($queryBerita);
+    $id_kategori = $resultBerita['id_kategori'];
     $recomendations = array();
+    $sql = "SELECT berita.id, judul, penulis, deskripsi, 
+    CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
+    gambar, kategori.nama, subjudul , username FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id_kategori = '$id_kategori' AND berita.id <> '$id' LIMIT 4";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_all($query);
+
+    foreach($result as $data){
+        $berita = new Berita();
+        $berita->setData($data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8]);
+        array_push($recomendations , $berita);
+    }
+    return $recomendations;
 }
 
 ?>

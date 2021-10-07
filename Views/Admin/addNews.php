@@ -35,6 +35,7 @@
 
     include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
+    include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/Controllers/KategoriController.php");
     include_once(URL . "/Controllers/BeritaController.php");
     include(URL . '/Views/base/includecss.php');
