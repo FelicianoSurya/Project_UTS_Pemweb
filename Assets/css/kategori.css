@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+.headline img{
+  max-height: 500px;
+  object-fit: cover;
+}
 .headline span{
   position: absolute;
   left: 0;
@@ -47,6 +51,15 @@
 .beritakecil {
   display: flex;
 }
+
+.beritakecil img{
+  box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.3);
+  max-height: 300px;
+  object-fit: cover;
+}
+
 .isiberitakecil {
   width: 100%;
   flex-direction: column;
