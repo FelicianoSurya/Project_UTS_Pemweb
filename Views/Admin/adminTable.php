@@ -32,7 +32,19 @@
 
     <?php include_once(URL . '/Views/base/header.php'); ?>
 
-    <div class="pt-5 mt-5 container">
+    <div class="py-5 mt-5 container">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <h1>News</h1>
+                <p>HI = Highlight</p>
+                <p>BU = Berita Utama</p>
+            </div>
+            <div class="d-flex col-2 my-auto justify-content-end flex-column">
+                <button class="button-add" type="submit" class="btn btn-primary">+ Add News</button>
+                <p class="pt-4 m-0">total news :</p>
+            </div>
+        </div>
+    
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
