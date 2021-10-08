@@ -55,6 +55,8 @@
                 <th>Editor</th>
                 <th>Date</th>
                 <th>Category</th>
+                <th>HI</th>
+                <th>BU</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -66,16 +68,21 @@
                     <td><?php echo $new->username ?></td>
                     <td><?php echo $new->tanggal_publikasi ?></td>
                     <td><?php echo $new->id_kategori ?></td>
-                    <td>
+
+                    <!-- ini indikator hi dan bu, kalau lagi on, div nya kasih class active yeee -->
+                    <td><div class="circle"></div></td>
+                    <td><div class="circle active"></div></td>
+                     <!--    -->
+                    <td class="d-flex">
                         <form action="AddNews.php" method="POST">
                             <input type="hidden" name="id" value="<?php echo $new->id ?>">
                             <input type="hidden" name="button" value="Edit">
-                            <button type="submit">Edit</button>
+                            <button type="submit"><i class="fas fa-wrench"></i></button>
                         </form>
                         <form action="" method="POST">
                             <input type="hidden" name="id" value="<?php echo $new->id ?>">
                             <input type="hidden" name="button" value="Delete">
-                            <button type="submit">Delete</button>
+                            <button type="submit"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

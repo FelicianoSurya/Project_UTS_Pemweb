@@ -48,3 +48,37 @@ table.dataTable{
     transition: 0.4s;
     color: white;
   }
+
+  td button{
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  td button:focus{
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .fa-wrench, .fa-trash{
+    color: #127a8b;
+    transition: 0.2s;
+  }
+
+  .fa-wrench:hover, .fa-trash:hover{
+    color: #60dae5;
+    transition: 0.2s;
+  }
+
+  td .circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background-color:white ;
+  }
+
+  td .active{
+    background-color:rgb(122, 252, 144)!important ;
+  }

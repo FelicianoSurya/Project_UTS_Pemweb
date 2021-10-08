@@ -45,4 +45,7 @@ error_reporting(0);
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 
+<!-- font-awesome  -->
+<script src="https://kit.fontawesome.com/81e7ad54ab.js" crossorigin="anonymous"></script>
+
 
