@@ -32,7 +32,6 @@
     
     define('URL', dirname(dirname(dirname(__FILE__))));
 
-
     include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
     include_once(URL . "/Controllers/EmployeeController.php");

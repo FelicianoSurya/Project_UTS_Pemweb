@@ -23,7 +23,8 @@ rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 />
 <?php 
-session_start();
+error_reporting(0);
+    session_start();
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }

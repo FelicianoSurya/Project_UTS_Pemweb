@@ -62,7 +62,7 @@
             <p><?php echo $detail->subjudul ?></p>
         </div>
         <div class="news-writer">
-            <h5>Penulis <?php echo $detail->penulis ?> | Editor Yuharrani Aisyah</h5>
+            <h5>Penulis <?php echo $detail->penulis ?> | Editor <?php echo $detail->editor ?></h5>
         </div>
         <div class="news-body pb-4">
             <h6>JAKARTA, NEWSPAPER.com - <?php echo $detail->deskripsi ?></h5>
