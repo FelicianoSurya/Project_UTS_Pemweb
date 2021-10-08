@@ -27,7 +27,7 @@
     ?>
     
 
-    <link rel="stylesheet" href="Assets/css/admin/dashboard.css" />
+    <link rel="stylesheet" href="Assets/css/admin/dashboard.css"/>
     <title>Home Admin</title>
   </head>
   <body>
@@ -39,7 +39,7 @@
         <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
             <a href="NewsAdmin.php"><div class="maincard">
               <div class="logo-card">
-                <img src="https://img.icons8.com/ios/50/000000/news.png" />
+                <img src="https://img.icons8.com/bubbles/150/000000/news.png"/>
               </div>
               <div class="card-name">
                 <p>News</p>
@@ -49,9 +49,7 @@
           <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
           <a href="CategoryTable.php"><div class="maincard">
               <div class="logo-card">
-                <img
-                  src="https://img.icons8.com/dotty/50/000000/category.png"
-                />
+                <img src="https://img.icons8.com/bubbles/150/000000/transaction-list.png"/>
               </div>
               <div class="card-name">
                 <p>Category</p>
@@ -62,9 +60,7 @@
           <div class="col-lg-4 col-12 p-4 d-flex justify-content-center">
           <a href="Employee.php"><div class="maincard">
               <div class="logo-card">
-                <img
-                  src="https://img.icons8.com/dotty/80/000000/men-age-group-5.png"
-                />
+                <img src="https://img.icons8.com/bubbles/150/000000/crowd--v1.png"/>
               </div>
               <div class="card-name">
                 <p>Employee</p>
