@@ -24,22 +24,22 @@ function errorLogin(){
 }
 
 if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login']) && isset($_POST['captcha'])){
-    // session_start();
-    // $captcha = $_POST["captcha"];
-    // $captchaUser = filter_var($_POST["captcha"], FILTER_SANITIZE_STRING);
-    // if(empty($captchaUser)) {
-    //   $captchaError = "Please enter the captcha.";
-    //   return $captchaError;
-    // }
+    session_start();
+    $captcha = $_POST["captcha"];
+    $captchaUser = filter_var($_POST["captcha"], FILTER_SANITIZE_STRING);
+    if(empty($captchaUser)) {
+      $captchaError = "Please enter the captcha.";
+      return $captchaError;
+    }
 
-    // if($_SESSION['CAPTCHA_CODE'] == $captchaUser){
-    //   $captchaError = "success";
-    // }else{
-    //   $captchaError = "Captcha is invalid.";
-    //   return $captchaError;
-    // }
+    if($_SESSION['CAPTCHA_CODE'] == $captchaUser){
+      $captchaError = "success";
+    }else{
+      $captchaError = "Captcha is invalid.";
+      return $captchaError;
+    }
 
-// if($captchaError == 'success'){
+if($captchaError == 'success'){
     $username = $_POST['Username'];
     $pass = md5($_POST['Password']);
     $conn = Database();
@@ -56,7 +56,7 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
     }else if($cek_login == 0){
         errorLogin();
     }
-  // }
+  }
   }else if(isset($_POST['NamaDepan']) && isset($_POST['NamaBelakang']) && isset($_POST['TanggalLahir']) && 
     isset($_POST['JenisKelamin']) && isset($_POST['Username']) && isset($_FILES['ProfilePic']) && isset($_POST['Password']) && 
     $_POST['Konfirmasi'] && isset($_POST['register'])){

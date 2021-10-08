@@ -138,7 +138,7 @@ function fetchBeritaUtama(){
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
             gambar, kategori.nama, subjudul , username FROM ((berita
     INNER JOIN utama ON berita.id = utama.id_berita)
-    INNER JOIN kategori ON berita.id_kategori = kategori.id)";
+    INNER JOIN kategori ON berita.id_kategori = kategori.id) ORDER BY tanggal_publikasi DESC";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
@@ -156,7 +156,7 @@ function fetchBeritaTerbaru(){
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
             gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul , username
             FROM berita WHERE berita.id NOT IN (SELECT id_berita FROM highlight) AND 
-            berita.id NOT IN (SELECT id_berita FROM utama) ORDER BY 5 DESC";
+            berita.id NOT IN (SELECT id_berita FROM utama) ORDER BY tanggal_publikasi DESC";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
@@ -222,6 +222,47 @@ function fetchBeritaAdmin(){
         array_push($News,$berita);
     }
     return $News;
+}
+
+if(isset($_POST['utama'])){
+    $errorUtama = 0;
+    $id = $_POST['id'];
+    $sql = "SELECT * FROM utama";
+    $query = mysqli_query($conn,$sql);
+    $row = mysqli_num_rows($query);
+    if($row < 4){
+        $sqlInsert = "INSERT INTO utama (id_berita) VALUES ('$id')";
+        $queryInsert = mysqli_query($conn,$sqlInsert);
+    }else{
+        $errorUtama = 1;
+    }
+}
+
+if(isset($_POST['highlight'])){
+    $errorHighlight = 0;
+    $id = $_POST['id'];
+    $sql = "SELECT * FROM highlight";
+    $query = mysqli_query($conn,$sql);
+    $row = mysqli_num_rows($query);
+    if($row < 3){
+        $sqlInsert = "INSERT INTO highlight (id_berita) VALUES ('$id')";
+        $queryInsert = mysqli_query($conn,$sqlInsert);
+    }else{
+        $errorHighlight = 1;
+        
+    }
+}
+
+if(isset($_POST['utamaDelete'])){
+    $id = $_POST['id'];
+    $sql = "DELETE FROM utama WHERE id_berita = '$id'";
+    $query = mysqli_query($conn,$sql);
+}
+
+if(isset($_POST['highlightDelete'])){
+    $id = $_POST['id'];
+    $sql = "DELETE FROM highlight WHERE id_berita = '$id'";
+    $query = mysqli_query($conn,$sql);
 }
 
 ?>

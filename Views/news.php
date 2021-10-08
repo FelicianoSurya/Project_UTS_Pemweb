@@ -45,7 +45,7 @@
 
     <div class="container py-5">
         <div class="navigation">
-            <a href="">Category</a>
+            <a href="News.php">Category</a>
             >
             <a href=""><?php echo $detail->id_kategori ?></a>
         </div>
@@ -82,9 +82,13 @@
                     }
                     ?>
                     <div class="profile-comment col-1 d-flex justify-content-center align-items-start">
-                        <?php if(isset($_SESSION['username'])){ ?>
+                        <?php if(isset($_SESSION['username'])){
+                            if($_SESSION['role'] == 'pengguna'){    
+                        ?>
                         <img src="./<?php echo $data['image'] ?>" alt="">
-                        <?php } ?>
+                        <?php }else{ ?>
+                            <img src="./Assets/images/home/blank.png" alt="">
+                        <?php } } ?>
                     </div>
                     
                     <div class="col-9">
@@ -102,19 +106,35 @@
             </form>
                 <!-- ini yang bakal repetitif -->
                 <?php foreach($komentars as $komentar){ 
-                    $sql = "SELECT CONCAT(first_name , ' ' , COALESCE(last_name,'')) 'nama' , image FROM pengguna WHERE username = '$komentar->username'";
+                    $sql = "SELECT CONCAT(first_name , ' ' , COALESCE(last_name,'')) 'nama' ,  image  FROM pengguna
+                    WHERE username = '$komentar->username'";
                     $query = mysqli_query($conn,$sql);
-                    $user = mysqli_fetch_array($query); 
+                    $rowUser = mysqli_num_rows($query); 
+                    $user = mysqli_fetch_array($query);
+
+                    $sqlEmployee = "SELECT CONCAT(nama_depan , ' ' , COALESCE(nama_belakang,'')) 'nama' FROM employees
+                    WHERE username = '$komentar->username'";
+                    $queryEmployee = mysqli_query($conn,$sqlEmployee);
+                    $employee = mysqli_fetch_array($queryEmployee); 
+                    $rowEmployee = mysqli_num_rows($queryEmployee); 
                     
                 ?>
                     
                 <div class="row comments py-3 justify-content-around">
                     <div class="profile-comment col-1 d-flex justify-content-center align-items-start pt-2">
-                        <img src="./<?php echo $user[1] ?>" alt="">
+                        <?php if($rowUser > 0){ ?>
+                            <img src="./<?php echo $user[1] ?>" alt="">
+                        <?php }else if($rowEmployee > 0){ ?>
+                            <img src="./Assets/images/home/blank.png" alt="">
+                        <?php } ?>
                     </div>
 
                     <div class="col-9">
-                        <p class="m-0 comment-text"><b><?php echo $user[0] ?></b></p>
+                        <?php if($rowUser > 0){ ?>
+                            <p class="m-0 comment-text"><b><?php echo $user[0] ?></b></p>
+                        <?php }else if($rowEmployee > 0){ ?>
+                            <p class="m-0 comment-text" style="color:grey;"><b><?php echo $employee[0] . " " ?><i style="color:#FDBF65;" class="fas fa-check"></i></b></p>
+                        <?php } ?>   
                         <p class="m-0 comment-text"><?php echo $komentar->komentar ?></p>
                         <p class="comment-desc pt-2">
                             <?php

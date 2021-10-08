@@ -27,6 +27,7 @@
     include_once(URL . "/Controllers/RedirectController.php");
 
     $news = fetchBeritaAdmin();
+
     ?>
     
 </head>
@@ -39,7 +40,17 @@
             <div class="col-4">
                 <h1>News</h1>
                 <p>HI = Highlight</p>
-                <p>BU = Berita Utama</p>
+                <p>BU = Berita Utama</p>    
+                <div class="d-flex info-color">
+                    <div class="d-flex">
+                        <p class="active circle"></p>
+                        <p class="ps-2">Active</p>
+                    </div>
+                    <div class="d-flex px-2">
+                        <p style="background-color:grey;" class="circle"></p>
+                        <p class="ps-2">Disable</p>
+                    </div>
+                </div>
             </div>
             <div class="d-flex col-2 my-auto justify-content-end flex-column">
                 <a href="AddNews.php"><button class="button-add" class="btn btn-primary">+ Add News</button></a>
@@ -55,8 +66,13 @@
                 <th>Editor</th>
                 <th>Date</th>
                 <th>Category</th>
-                <th>HI</th>
-                <th>BU</th>
+                <th>
+                HI
+                <?php if(isset($_POST['highlight'])){ if($errorHighlight == 1){ echo "<p style='color:red;margin:0;font-size:10px;'>Sudah mencapai Maximum</p>"; } } ?>
+                </th>
+                <th>BU
+                <?php if(isset($_POST['utama'])){ if($errorUtama == 1){ echo "<p style='color:red;margin:0;font-size:10px;'>Sudah mencapai Maximum</p>"; } } ?>
+                </th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -69,9 +85,46 @@
                     <td><?php echo $new->tanggal_publikasi ?></td>
                     <td><?php echo $new->id_kategori ?></td>
 
-                    <!-- ini indikator hi dan bu, kalau lagi on, div nya kasih class active yeee -->
-                    <td><div class="circle"></div></td>
-                    <td><div class="circle active"></div></td>
+                    <td>
+                        <form action="" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                            <?php 
+                                $conn = Database();
+                                $sql = "SELECT * FROM highlight WHERE id_berita = '$new->id'";
+                                $query = mysqli_query($conn,$sql);
+                                $row = mysqli_fetch_row($query);
+
+                                $sqlUtama = "SELECT * FROM utama WHERE id_berita = '$new->id'";
+                                $queryUtama = mysqli_query($conn,$sqlUtama);
+                                $rowUtama = mysqli_fetch_row($queryUtama);
+                                if($row > 0 ){
+                            ?>
+                            <button name="highlightDelete" type="submit" class="circle active"></button>
+                            <?php }else{ ?>
+                            <button name="highlight" class="circle" <?php if($rowUtama > 0 ){ echo 'disabled' ?> style="background-color:grey;" <?php } ?>type="submit"></button>
+                            <?php } ?>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                            <?php 
+                                $conn = Database();
+                                $sql = "SELECT * FROM utama WHERE id_berita = '$new->id'";
+                                $query = mysqli_query($conn,$sql);
+                                $row = mysqli_fetch_row($query);
+
+                                $sqlHighlight = "SELECT * FROM highlight WHERE id_berita = '$new->id'";
+                                $queryHighlight = mysqli_query($conn,$sqlHighlight);
+                                $rowHighlight = mysqli_fetch_row($queryHighlight);
+                                if($row > 0 ){
+                            ?>
+                            <button name="utamaDelete" type="submit" class="circle active"></button>
+                            <?php }else{ ?>
+                            <button name="utama" type="submit" <?php if($rowHighlight > 0 ){ echo 'disabled' ?> style="background-color:grey;" <?php } ?> class="circle"></button>
+                            <?php } ?>
+                        </form>
+                    </td>
                      <!--    -->
                     <td class="d-flex">
                         <form action="AddNews.php" method="POST">
