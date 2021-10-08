@@ -125,6 +125,7 @@
            
         </div>
     </div>
+<?php include(URL . '/Views/base/footer.php') ?>
     
 
 <script>
