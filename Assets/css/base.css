@@ -187,6 +187,8 @@
 
   footer {
     background-color: #F9E3B4;
+    width: 100%;
+    display: flex;
   }
   
   .logofooter {
@@ -202,9 +204,9 @@
     color:#0E4F6E;
   }
   
-  .atasfooter {
-    display: flex;
-    justify-content: space-between;
+  .footer-text-nav a{
+    font-size: 1.3rem;
+    color: #0E4F6E;
   }
   
   .navfooter {

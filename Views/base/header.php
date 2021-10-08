@@ -42,7 +42,7 @@ if(!isset($_SESSION['role'])){
             <?php } ?>
         </form>
     </div>
-    </div>    
+    </div>
     <div class="navbar navbar-2">
         <div class="container-fluid container collapse navbar-collapse">
             <ul class="navigation-tab navbar-nav">
