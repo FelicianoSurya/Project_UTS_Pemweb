@@ -1,6 +1,6 @@
 .mainbox {
     background-color: #daf0f2;
-    margin: 3rem 2rem 3rem 6.5rem;
+    /* margin: 3rem 2rem 3rem 6.5rem; */
     padding: 3rem;
     border-radius: 20px;
     display: flex;
@@ -12,8 +12,8 @@
 }
   
 .maincard {
-    width: 17rem;
-    height: 16rem;
+    width: 14rem;
+    height: 14rem;
     background-color: #fec97d;
     border-radius: 15px;
     border: 5px solid #fab654;
@@ -31,4 +31,8 @@
     font-size: 2rem;
     text-decoration: none;
  }
+
+.card-container a{
+    text-decoration: none!important;
+}
   
