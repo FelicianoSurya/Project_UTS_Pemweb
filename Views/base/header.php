@@ -29,12 +29,16 @@ if(!isset($_SESSION['role'])){
                 <div class="p-2 m-auto profile">
                     <img class="rounded-circle"src="./<?php echo $pengguna->image ?>" alt="profile">
                 </div>
-                <?php }else{ ?>
+                <?php }else if($_SESSION['role'] == 'admin'){ ?>
                 <p class="p-2 m-auto d-none d-lg-block">Admin</p>
                 <div class="p-2 m-auto profile">
                     <img src="./Assets/images/home/blank.png" alt="profileAdmin">
                 </div>
-                <?php } ?>
+                <p class="p-2 m-auto d-none d-lg-block"><?php }else if($_SESSION['role'] == 'karyawan'){ echo $employee->nama_depan . ' ' . $employee->nama_belakang ?></p>
+                <div class="p-2 m-auto profile">
+                    <img src="./Assets/images/home/blank.png" alt="profileAdmin">
+                </div>
+                <?php }?>
             </div>
             <?php } ?>
         </form>

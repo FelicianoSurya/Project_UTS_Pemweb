@@ -172,7 +172,10 @@ function fetchDetailBerita(){
     $detail = $_GET['detail'];
     $sql = "SELECT berita.id, judul, penulis, deskripsi, 
     CONCAT(DAYNAME(tanggal_publikasi) , ', ' , DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi', 
-    gambar, kategori.nama, subjudul , username FROM berita INNER JOIN kategori ON berita.id_kategori = kategori.id WHERE berita.id = '$detail'";
+    gambar, kategori.nama, subjudul , CONCAT(employees.nama_depan , ' ' , COALESCE(employees.nama_belakang,'')) 'Editor' 
+    FROM ((berita INNER JOIN kategori ON berita.id_kategori = kategori.id)
+    INNER JOIN employees ON berita.username = employees.username)
+    WHERE berita.id = '$detail'";
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($query);
 

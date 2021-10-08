@@ -10,10 +10,10 @@ if($_SESSION['role'] == 'karyawan'){
     $sql = "SELECT * FROM employees WHERE username = '$username'";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_array($query);
-    $employees = new Employee();
-    $employees->setData($result['username'],$result['nama_depan'],$result['nama_belakang']);
+    $employee = new Employee();
+    $employee->setData($result['username'],$result['nama_depan'],$result['nama_belakang']);
     
-    return $employees;
+    return $employee;
     
 }else if($_SESSION['role'] == 'pengguna'){
     $conn = Database();
