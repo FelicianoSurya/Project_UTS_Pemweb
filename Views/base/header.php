@@ -18,22 +18,29 @@ if(!isset($_SESSION['role'])){
     <div class="navbar navbar-light">
     <div class="container-fluid container">
         <a class="navbar-brand w-25"><img src="./Assets/images/home/logo.png" alt="" class="w-100"></a>
-        <form class="d-flex w-25 justify-content-end" method="POST" action="">
+        <form class="d-flex w-50 justify-content-end" method="POST" action="">
             <?php if(!isset($_SESSION['role'])) { ?>
             <button class="btn btnModal btn-login"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
             <?php }else{ ?>
-            <button class="m-auto btn btnModal btn-login"type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="logout">Logout</button>
+                <?php  if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'karyawan'){?>
+            <a href="Admin.php" class="my-auto mx-1 btn btnModal btn-login" type="submit">Admin</a>
+            <?php } ?>
+            <button class="mx-1 my-auto btn btnModal btn-login"type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="logout">Logout</button>
             <div class="d-flex justify-content-end ">
                 <p class="p-2 m-auto d-none d-lg-block"><?php  if($_SESSION['role'] == 'pengguna'){ echo $pengguna->name ?></p>
                 <div class="p-2 m-auto profile">
                     <img class="rounded-circle"src="./<?php echo $pengguna->image ?>" alt="profile">
                 </div>
                 <?php }else if($_SESSION['role'] == 'admin'){ ?>
+                
                 <p class="p-2 m-auto d-none d-lg-block">Admin</p>
                 <div class="p-2 m-auto profile">
                     <img src="./Assets/images/home/blank.png" alt="profileAdmin">
                 </div>
-                <p class="p-2 m-auto d-none d-lg-block"><?php }else if($_SESSION['role'] == 'karyawan'){ echo $employee->nama_depan . ' ' . $employee->nama_belakang ?></p>
+                <p class="p-2 m-auto d-none d-lg-block"><?php }else if($_SESSION['role'] == 'karyawan'){?> 
+                
+                <?php echo $employee->nama_depan . ' ' . $employee->nama_belakang ?></p>
+                
                 <div class="p-2 m-auto profile">
                     <img src="./Assets/images/home/blank.png" alt="profileAdmin">
                 </div>
