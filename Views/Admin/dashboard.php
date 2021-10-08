@@ -58,8 +58,9 @@
               </div>
             </div></a>
           </div>
+          <?php if($_SESSION['role'] == 'admin'){ ?>
           <div class="col-lg-4 col-12 p-4 d-flex justify-content-center">
-            <div class="maincard">
+          <a href="Employee.php"><div class="maincard">
               <div class="logo-card">
                 <img
                   src="https://img.icons8.com/dotty/80/000000/men-age-group-5.png"
@@ -68,9 +69,9 @@
               <div class="card-name">
                 <p>Employee</p>
               </div>
-            </div>
-          </div>
-        </div>
+            </div></a>
+          </div> <?php } ?>
+        </div> 
       </div>
     </div>
     <?php include(URL . '/Views/base/footer.php') ?>    

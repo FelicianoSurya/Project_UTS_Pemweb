@@ -20,11 +20,10 @@
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
-    include_once(URL . "/Controllers/KategoriController.php");
-    include_once(URL . "/Controllers/BeritaController.php");
-    include_once(URL . "/Controllers/KomentarController.php");
-    include_once(URL . "/Controllers/LikeController.php");
     include_once(URL . "/Controllers/RedirectController.php");
+    include_once(URL . "/Controllers/EmployeeController.php");
+
+    $employees = fetchEmployee();
     ?>
     
 </head>
@@ -41,7 +40,7 @@
                     <p>Total</p>
                 </div>
                 <div class="d-flex col-2 my-auto justify-content-end flex-column">
-                    <button class="button-add" type="submit" class="btn btn-primary">+ Add Employee</button>
+                    <a href="FormEmployee.php"><button class="button-add" type="submit" class="btn btn-primary">+ Add Employee</button></a>
                 </div>
             </div>
         
@@ -55,13 +54,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($employees as $employee){ ?>
                     <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>Javascript Developer</td>
-                        <td>Javascript Developer</td>
-
+                        <td><?php echo $employee->username ?></td>
+                        <td><?php echo $employee->nama_depan ?></td>
+                        <td><?php echo $employee->nama_belakang ?></td>
+                        <td>
+                            <form action="FormEmployee.php" method="POST">
+                                <input type="hidden" name="username" value="<?php echo $employee->username ?>">
+                                <input type="hidden" name="button" value="edit">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="" method="POST">
+                                <input type="hidden" name="username" value="<?php echo $employee->username ?>">
+                                <input type="hidden" name="button" value="delete">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

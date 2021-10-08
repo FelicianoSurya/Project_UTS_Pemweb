@@ -70,4 +70,20 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
     header("location:../index.php");
 }
 
+// function passwordStatus(){
+//     if(isset($_SESSION['role'])){
+//         $username = $_SESSION['username'];
+//         if($_SESSION['role'] == 'karyawan'){
+//             $passwordStatus = 1;
+//             $sql = "SELECT * FROM users WHERE username = '$username'";
+//             $query = mysqli_query();
+//             $result = mysqli_fetch_array($query);
+//             if($result['password'] == NULL){
+//                 $passwordStatus = 0;
+//             }
+//         }
+//         return $passwordStatus; 
+//     }
+// }
+
 ?>

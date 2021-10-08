@@ -22,9 +22,6 @@
         include_once(URL . "/Controllers/UserController.php");
     }
     include_once(URL . "/Controllers/KategoriController.php");
-    include_once(URL . "/Controllers/BeritaController.php");
-    include_once(URL . "/Controllers/KomentarController.php");
-    include_once(URL . "/Controllers/LikeController.php");
     include_once(URL . "/Controllers/RedirectController.php");
 
     $kategories = fetchKategori();
@@ -79,16 +76,16 @@
                         <tr>
                             <td><?php echo $kategori->name ?></td>
                             <td>
-                            <form action="" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
-                            <input type="hidden" name="button" value="editPageKategori">
-                            <button type="submit" name="modalEdit">Edit</button>
-                            </form>
-                            <form action="" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
-                                <input type="hidden" name="button" value="DeleteKategori">
-                                <button type="submit">Delete</button>
-                            </form>
+                                <form   form action="" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
+                                    <input type="hidden" name="button">
+                                    <button type="submit" name="modalEdit">Edit</button>
+                                </form>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
+                                    <input type="hidden" name="button" value="DeleteKategori">
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         <?php } ?>
@@ -101,19 +98,19 @@
                 <form class="d-flex flex-column px-2"action="" method="POST" enctype="multipart/form-data">
                     <div class="d-flex">
                         
-                        <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
+                        <input type="hidden" name="id" value="<?php echo $editData->id ?>">
                     </div>
                     <div class="row justify-content-between py-2">
                         <label class="col-md-2 col-12" for="nama">Nama </label>
-                        <input class="col-md-9 col-12 rounded-pill" type="text" value="<?php if(isset($_POST['button'])) echo $editData->nama ?>" name="nama" required />
+                        <input class="col-md-9 col-12 rounded-pill" type="text" value="<?php if(isset($_POST['button'])) echo $editData->name ?>" name="nama" required />
                     </div>
                     <div class="row py-2 justify-content-end">
                         <div class="p-2 col-3">
                             <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
                         </div>
                         <div class="p-2 col-3">
-                            <button class="button-add" type="submit" <?php if(isset($_POST['button'])){ ?> name="addKategori" <?php
-                         }else{ ?> name="editKategori" <?php } ?> class="btn btn-primary">Submit</button>
+                            <input class="button-add" type="submit" <?php if(!isset($_POST['button'])){ ?> name="addKategori" value="Submit" <?php
+                         }else{ ?> name="editKategori" value="Update" <?php } ?> class="btn btn-primary">
                         </div>
                     </div>
                 </form>

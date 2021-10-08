@@ -55,7 +55,7 @@
                                 <h2><?php echo $highlight->judul ?></h2>
                                 <h6><?php echo $highlight->tanggal_publikasi ?></h6>
                                 <div class="description-wrapper">
-                                    <h6 class="description"><?php echo $highlight->deskripsi ?></h6>
+                                    <h6 class="description"><?php echo $highlight->subjudul ?></h6>
                                 </div>
                             </span>
                         </div>

@@ -77,7 +77,7 @@ if(!isset($_SESSION['role'])){
             <label for="Username" class="labelModal">Username</label>
             <input class="form-control" type="text" name="Username" required />
             <label for="Password" class="labelModal">Password</label>
-            <input class="form-control" type="password" name="Password" required />
+            <input class="form-control" type="password" name="Password" />
             <?php
                 if($errorLogin == 1)
                 {

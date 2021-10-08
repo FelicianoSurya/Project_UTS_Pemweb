@@ -35,56 +35,54 @@
 
     include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
-    include_once(URL . "/Controllers/KategoriController.php");
-    include_once(URL . "/Controllers/BeritaController.php");
+    include_once(URL . "/Controllers/EmployeeController.php");
+
     include(URL . '/Views/base/includecss.php');
 
-    $kategories = fetchKategori();
-    $news = fetchBerita();
-    $highlights = fetchHighlight();
-    $beritaUtama = fetchBeritaUtama();
+    if(isset($_POST['button'])){
+        $editData = fetchEditEmployee();
+    }
 
     ?>
 </head>
 <body>
     <?php include_once(URL . '/Views/base/header.php'); ?>
-    
-    <?php if(isset($_GET['pesan']) == 'berhasil'){
-        echo "berhasil";
-    }else if(isset($_GET['pesan']) == 'highlight'){
-        echo "highlight berhasi";
-    } ?>
+ 
     <div class="container py-5">
         <div class="form-box py-4 container">
             <h1>Employee</h1>
             <hr>
-            <form class="d-flex flex-column px-2"action="" method="POST" enctype="multipart/form-data">
+            <form class="d-flex flex-column px-2" action="" method="POST" enctype="multipart/form-data">
                 <div class="d-flex">
-                    
-                    <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
+
                 </div>
                 <div class="row justify-content-between py-2">
                     <label class="col-md-2 col-12" for="firstname">First Name </label>
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="firstname" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="firstname" value="<?php if(isset($_POST['button'])) echo $editData->nama_depan ?>" required />
                 </div>
                 <div class="row justify-content-between py-2">
                     <label class="col-md-2 col-12 rounded-pill" for="lastname">Last Name </label>
 
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="lastname" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="lastname" value="<?php if(isset($_POST['button'])) echo $editData->nama_belakang ?>" required />
                 </div>
                 <div class="row justify-content-between py-2">
                 <label class="col-md-2 col-12 rounded-pill" for="username">Username</label>
-
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'disabled' ?> required />
+                    <?php if(isset($_POST['button'])){ ?>  <input class="col-md-9 col-12 rounded-pill" type="hidden" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" required /> <?php } ?>
                 </div>
-                
+                <div class="row justify-content-between py-2">
+                <label class="col-md-2 col-12 rounded-pill" for="password">Password</label>
+                <input class="col-md-9 col-12 rounded-pill" type="password" name="password" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'disabled' ?> required /> 
+                </div>
+                </div>
 
                 <div class="row py-2 justify-content-end">
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
                         <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
                     </div>
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
-                        <button class="button-add" type="submit" name="addBerita" class="btn btn-primary">Submit</button>
+                        <input class="button-add" type="submit" <?php if(!isset($_POST['button'])){ ?> name="addEmployee" value="Submit" <?php }
+                        else{ ?> name="editEmployee" value="Update" <?php } ?>class="btn btn-primary">
                     </div>
                 </div>
             </form>

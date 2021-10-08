@@ -27,8 +27,12 @@ session_start();
     if(isset($_SESSION['role'])){
         include_once(URL . "/Controllers/UserController.php");
     }
+    // include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/Controllers/KategoriController.php");
     $kategories = fetchKategori();
+
+    // $passwordStatus = passwordStatus();
+
 ?>
 
 <!-- data table  -->

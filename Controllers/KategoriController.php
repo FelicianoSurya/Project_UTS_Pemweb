@@ -61,6 +61,13 @@ if(isset($_POST['button'])){
     }
 }
 
+if(isset($_POST['editKategori'])){
+    $id = $_POST['id'];
+    $nama = $_POST['nama'];
+    $sql = "UPDATE kategori SET nama = '$nama' WHERE id = '$id'";
+    $query = mysqli_query($conn,$sql);
+}
+
 function fetchBeritaKategori(){
     $conn = Database();
 
