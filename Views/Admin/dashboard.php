@@ -36,6 +36,8 @@
     <div class="p-3">
       <div class="container mainbox">
         <div class="card-container row p-3">
+        <?php if($_SESSION['role'] == 'karyawan'){ ?>
+        
         <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
             <a href="NewsAdmin.php"><div class="maincard">
               <div class="logo-card">
@@ -56,6 +58,7 @@
               </div>
             </div></a>
           </div>
+          </div> <?php } ?>
           <?php if($_SESSION['role'] == 'admin'){ ?>
           <div class="col-lg-4 col-12 p-4 d-flex justify-content-center">
           <a href="Employee.php"><div class="maincard">
