@@ -31,7 +31,8 @@
     <title>Home Admin</title>
   </head>
   <body>
-    <?php include_once(URL . '/Views/base/header.php'); ?>
+    <?php include_once(URL . '/Views/base/adminHeader.php'); ?>
+
 
     <div class="p-3">
       <div class="container mainbox">

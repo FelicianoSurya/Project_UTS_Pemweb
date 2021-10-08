@@ -51,7 +51,8 @@
     ?>
 </head>
 <body>
-    <?php include_once(URL . '/Views/base/header.php'); ?>
+<?php include_once(URL . '/Views/base/adminHeader.php'); ?>
+
     
     <?php if(isset($_GET['pesan']) == 'berhasil'){
         echo "berhasil";

@@ -32,7 +32,7 @@
 </head>
 <body>
 
-    <?php include_once(URL . '/Views/base/header.php'); ?>
+    <?php include_once(URL . '/Views/base/adminHeader.php'); ?>
 
     <div class="py-5 mt-5 container">
         <div class="row justify-content-between">
