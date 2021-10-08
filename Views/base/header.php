@@ -13,7 +13,6 @@ if(!isset($_SESSION['role'])){
     }
 }
 
-
 ?>
 <nav class="">
     <div class="navbar navbar-light">
@@ -77,13 +76,6 @@ if(!isset($_SESSION['role'])){
     <div class="modal-dialog">
     <div class="modal-content">
         <!-- <div class="modal-header"> -->
-        <?php if(!empty($captchaError)) {?>
-        <div class="form-group col-12 text-center">
-            <div class="alert text-center <?php echo $captchaError['status']; ?>">
-            <?php echo $captchaError['message']; ?>
-            </div>
-        </div>
-        <?php }?>
         <div class="titleModal">
         <h1 class="modal-title" id="exampleModalLabel">Log In</h1>
         </div>
@@ -94,7 +86,7 @@ if(!isset($_SESSION['role'])){
             <label for="Password" class="labelModal">Password</label>
             <input class="form-control" type="password" name="Password" />
             <?php
-                if($errorLogin == 1)
+                if($errorLogin == 1 && $captchaError == 'success')
                 {
                     echo "<p style='color:red'>Username atau Password Salah!</p>";
                 }
@@ -107,7 +99,9 @@ if(!isset($_SESSION['role'])){
                 <label>Enter Captcha</label>
                 <input type="text" class="form-control" name="captcha" id="captcha">
             </div>
-            
+            <?php if($captchaError != 'success'){ ?>
+            <p style="color:red;"><?php echo $captchaError ?></p>
+            <?php } ?>
             </div>
         </div>
         
