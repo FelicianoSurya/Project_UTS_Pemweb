@@ -47,7 +47,7 @@
             </div></a>
           </div>
           <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
-            <div class="maincard">
+          <a href="CategoryTable.php"><div class="maincard">
               <div class="logo-card">
                 <img
                   src="https://img.icons8.com/dotty/50/000000/category.png"
@@ -56,7 +56,7 @@
               <div class="card-name">
                 <p>Category</p>
               </div>
-            </div>
+            </div></a>
           </div>
           <div class="col-lg-4 col-12 p-4 d-flex justify-content-center">
             <div class="maincard">

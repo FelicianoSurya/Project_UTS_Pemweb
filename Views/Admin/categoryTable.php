@@ -26,6 +26,27 @@
     include_once(URL . "/Controllers/KomentarController.php");
     include_once(URL . "/Controllers/LikeController.php");
     include_once(URL . "/Controllers/RedirectController.php");
+
+    $kategories = fetchKategori();
+    if(isset($_POST['button'])){
+        $editData = fetchKategoriEdit();
+    }
+
+    if(isset($_POST['modalEdit'])){
+        echo "
+        <script>
+        $(document).ready(function() {
+            if($('#table').hasClass('col-5')){
+                $('#table').removeClass('col-lg-5 col-12');
+                $('#addForm').removeClass('col-lg-5 col-12 d-block')
+            }
+            else{
+                $('#table').addClass('col-lg-5 col-12');
+                $('#addForm').addClass('col-lg-5 col-12 d-block')
+            }
+        });
+        </script>";
+    }
     ?>
     
 </head>
@@ -42,7 +63,7 @@
                         <p>Total</p>
                     </div>
                     <div class="col-4 my-auto text-end flex-column">
-                        <button class="button-add" type="submit" class="btn btn-primary" id="addCategory">+ Add Categoru</button>
+                        <button class="button-add" type="submit" class="btn btn-primary" id="addCategory">+ Add Category</button>
                     </div>
                 </div>
             
@@ -54,10 +75,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($kategories as $kategori){ ?>
                         <tr>
-                            <td>Colleen Hurst</td>
-                            <td>Javascript Developer</td>
+                            <td><?php echo $kategori->name ?></td>
+                            <td>
+                            <form action="" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
+                            <input type="hidden" name="button" value="editPageKategori">
+                            <button type="submit" name="modalEdit">Edit</button>
+                            </form>
+                            <form action="" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
+                                <input type="hidden" name="button" value="DeleteKategori">
+                                <button type="submit">Delete</button>
+                            </form>
+                            </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -70,15 +104,16 @@
                         <input type="hidden" name="username" value="<?php echo $_SESSION['username'] ?>">
                     </div>
                     <div class="row justify-content-between py-2">
-                        <label class="col-md-2 col-12" for="judul">Judul </label>
-                        <input class="col-md-9 col-12 rounded-pill" type="text" name="judul" required />
+                        <label class="col-md-2 col-12" for="nama">Nama </label>
+                        <input class="col-md-9 col-12 rounded-pill" type="text" value="<?php if(isset($_POST['button'])) echo $editData->nama ?>" name="nama" required />
                     </div>
                     <div class="row py-2 justify-content-end">
                         <div class="p-2 col-3">
                             <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
                         </div>
                         <div class="p-2 col-3">
-                            <button class="button-add" type="submit" name="addBerita" class="btn btn-primary">Submit</button>
+                            <button class="button-add" type="submit" <?php if(isset($_POST['button'])){ ?> name="addKategori" <?php
+                         }else{ ?> name="editKategori" <?php } ?> class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -105,7 +140,6 @@
             $('#table').addClass("col-lg-5 col-12");
             $("#addForm").addClass("col-lg-5 col-12 d-block")
         }
-        
     });
 </script>
 </html>

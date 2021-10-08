@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Okt 2021 pada 14.17
+-- Waktu pembuatan: 08 Okt 2021 pada 09.54
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -44,15 +44,15 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id`, `judul`, `subjudul`, `penulis`, `deskripsi`, `tanggal_publikasi`, `gambar`, `id_kategori`, `username`) VALUES
-(8, 'Berita 1', 'Andi menjadi pemimpin upacara untuk 17 agustusan', 'Felicanio', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2, 'admin'),
+(8, 'Berita 1', 'Andi menjadi pemimpin upacara untuk 17 agustusan', 'Feliciano', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2, 'admin'),
 (9, 'Berita 2', 'Kevin Mati diterkam harimau kemarin jam 10 pagi', 'Fernando', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-03', '/Assets/images/berita/pathum-danthanarayana-t8TOMKe6xZU-unsplash.jpg', 3, 'admin'),
 (10, 'Berita 3', 'Ekspor barang dari Sumatera Utara (Sumut) ke China mencapai US$166,18 juta pada Agustus 2021. Porsin', 'Dea', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-11', '/Assets/images/berita/damian-markutt-IsUFGqxI5Ck-unsplash.jpg', 4, 'admin'),
 (11, 'Berita 4', 'Indahnya berbagi kebahagiaan bersama semua orang yang capek sama uts', 'Lifosmin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-08-31', '/Assets/images/berita/pathum-danthanarayana-7xMpOEQWpno-unsplash.jpg', 3, 'admin'),
 (12, 'Berita 5', 'hadu kok keren banget ini dunia, banyak tugas, banyak project', 'Feliciano', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '2021-10-03', '/Assets/images/berita/damian-markutt-vaG8rOJLDHo-unsplash.jpg', 3, 'admin'),
 (13, 'Charlie Frederico mati ditelan bumi', 'hey kamu gimana sekarang kabarnya, aku lelah sama kebiasaan sekarang', 'Charlie', 'MAMPUS CHARLIE MATI DITELAN BUMI', '2021-10-05', '/Assets/images/berita/madelynn-woods-7MiYEXgnqBg-unsplash.jpg', 2, 'admin'),
-(14, 'Test Summernote', 'Feliciano', 'Test Summernote gaes', '<p>halo <u><i>gaes mau coba test summernote</i></u></p><p><br></p><p>keren banget</p>', '2021-10-01', '/Assets/images/berita/846502.jpg', 2, 'admin'),
 (15, 'lala', 'test', 'test', '<p>ffff</p>', '2021-10-01', '/Assets/images/berita/846482.jpg', 3, 'admin'),
-(16, 'highlight test', 'lla', 'laala', '<p>sss</p>', '2021-10-12', '/Assets/images/berita/846467.jpg', 2, 'admin');
+(16, 'highlight test', 'lla', 'laala', '<p>sss</p>', '2021-10-12', '/Assets/images/berita/846467.jpg', 2, 'admin'),
+(18, 'hahahahhahaha', 'hihihihi', 'anoo', '<p><u>aaaaaaa</u></p>', '2021-10-14', '/Assets/images/berita/activity diagram-Page-2.drawio.png', 1, 'admin');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,8 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 (1, 'Sport'),
 (2, 'Covid-19'),
 (3, 'Politik'),
-(4, 'Bencana Alam');
+(4, 'Bencana Alam'),
+(6, 'halo');
 
 -- --------------------------------------------------------
 
@@ -290,7 +291,7 @@ ALTER TABLE `utama`
 -- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `highlight`
@@ -302,7 +303,7 @@ ALTER TABLE `highlight`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `komentar`

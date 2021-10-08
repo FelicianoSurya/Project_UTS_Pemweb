@@ -10,7 +10,7 @@ if(!isset($_GET['kategori'])){
 function fetchKategori(){
     $kategories = array();
     $conn = Database();
-    $sql = "SELECT * FROM kategori";
+    $sql = "SELECT * FROM kategori ORDER BY 1 DESC";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);
     foreach($result as $data){
@@ -32,6 +32,32 @@ function getNameKategori(){
         $kategori = new Kategori();
         $kategori->setData($result[0],$result[1]);
         return $kategori;
+    }
+}
+
+$conn = Database();
+if(isset($_POST['addKategori'])){
+    $nama = $_POST['nama'] ;
+    $sql = "INSERT INTO kategori (nama) VALUES ('$nama')";
+    $query = mysqli_query($conn,$sql);
+}
+
+function fetchKategoriEdit(){
+    $conn = Database();
+    $id = $_POST['id'];
+    $sql = "SELECT * FROM kategori WHERE id = '$id'";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_array($query);
+    $kategori = new Kategori();
+    $kategori->setData($result[0],$result[1]);
+    return $kategori;
+}
+
+if(isset($_POST['button'])){
+    $id = $_POST['id'];
+    if($_POST['button'] == 'DeleteKategori'){
+        $sql = "DELETE FROM kategori WHERE id = '$id'";
+        $query = mysqli_query($conn,$sql);
     }
 }
 
