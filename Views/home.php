@@ -80,7 +80,14 @@
             <div class="line flex-grow-1"></div>
         </div>
         <div class="row">
-            <?php foreach($beritaUtama as $utama){ ?>
+            <?php 
+                $i = 1;
+                foreach($beritaUtama as $utama){ 
+                    if($i > 4){
+                        break;
+                    }
+                    else{
+            ?>
             <div onclick="detailBerita(<?php echo $utama->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="0" data-aos-duration="1500">
                 <div class="box ">
                     <div class="box-tag">
@@ -95,7 +102,7 @@
                     </span>
                 </div>
             </div>
-            <?php } ?>
+            <?php $i++;}} ?>
         </div>
     </div>
 </div>
@@ -109,7 +116,14 @@
         </div>
 
         <div class="row">
-            <?php foreach($beritaTerbaru as $baru){ ?>
+            <?php $i = 1;
+            foreach($beritaTerbaru as $baru){ 
+                if($i > 4){
+                    break;
+                }
+                else{
+            ?>
+            
             <div onclick="detailBerita(<?php echo $baru->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 ">
                 <div class="box py-4 news">
                     <div class="img-container" >
@@ -132,7 +146,7 @@
                     
                 </div>
             </div>     
-            <?php } ?>
+            <?php $i++;}} ?>
             
              <!-- <div class="col-lg-3  col-md-6 col-12 p-2 news">
                 <div class="box py-4 news">
