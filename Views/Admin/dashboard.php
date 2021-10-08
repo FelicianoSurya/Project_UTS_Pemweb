@@ -35,44 +35,54 @@
 
     <div class="p-3">
       <div class="container mainbox">
-        <div class="card-container row p-3">
-        <?php if($_SESSION['role'] == 'karyawan'){ ?>
-        
-        <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
-            <a href="NewsAdmin.php"><div class="maincard">
-              <div class="logo-card">
-                <img src="https://img.icons8.com/bubbles/150/000000/news.png"/>
+        <div class="card-container row p-3 justify-content-around">
+          <?php if($_SESSION['role'] == 'karyawan'){ ?>
+          
+          <div class="col-lg-4 col-md-6 col-12 p-2 d-flex justify-content-center">
+            <a href="NewsAdmin.php">
+              <div class="maincard">
+                <div class="logo-card">
+                  <img src="https://img.icons8.com/bubbles/150/000000/news.png"/>
+                </div>
+                <div class="card-name">
+                  <p>News</p>
+                </div>
               </div>
-              <div class="card-name">
-                <p>News</p>
-              </div>
-            </div></a>
+            </a>
           </div>
-          <div class="col-lg-4 col-md-6 col-12 p-4 d-flex justify-content-center">
-          <a href="CategoryTable.php"><div class="maincard">
-              <div class="logo-card">
-                <img src="https://img.icons8.com/bubbles/150/000000/transaction-list.png"/>
+
+          <div class="col-lg-4 col-md-6 col-12 p-2 d-flex justify-content-center">
+            <a href="CategoryTable.php">
+              <div class="maincard">
+                <div class="logo-card">
+                  <img src="https://img.icons8.com/bubbles/150/000000/transaction-list.png"/>
+                </div>
+                <div class="card-name">
+                  <p>Category</p>
+                </div>
               </div>
-              <div class="card-name">
-                <p>Category</p>
-              </div>
-            </div></a>
+            </a>
           </div>
-          </div> <?php } ?>
+
+          <?php } ?>
           <?php if($_SESSION['role'] == 'admin'){ ?>
-          <div class="col-lg-4 col-12 p-4 d-flex justify-content-center">
-          <a href="Employee.php"><div class="maincard">
-              <div class="logo-card">
-                <img src="https://img.icons8.com/bubbles/150/000000/crowd--v1.png"/>
+          <div class="col-12 p-2 d-flex justify-content-center">
+            <a href="Employee.php">
+              <div class="maincard">
+                <div class="logo-card">
+                  <img src="https://img.icons8.com/bubbles/150/000000/crowd--v1.png"/>
+                </div>
+                <div class="card-name">
+                  <p>Employee</p>
+                </div>
               </div>
-              <div class="card-name">
-                <p>Employee</p>
-              </div>
-            </div></a>
-          </div> <?php } ?>
+            </a>
+          </div> 
+          <?php } ?>
         </div> 
       </div>
     </div>
+          
     <?php include(URL . '/Views/base/footer.php') ?>    
 
   </body>
