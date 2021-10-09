@@ -232,27 +232,27 @@
 
 
 
-var maxHeight3 = 0;
+// var maxHeight3 = 0;
 
-var divs3 = jQuery(".section-2 img");
-jQuery.each(divs3, function(){
-    var height = jQuery(this).height();
-    if(maxHeight3<height)
-        maxHeight3 = height;
+// var divs3 = jQuery(".section-2 img");
+// jQuery.each(divs3, function(){
+//     var height = jQuery(this).height();
+//     if(maxHeight3<height)
+//         maxHeight3 = height;
 
-});
-divs3.height(maxHeight3);
+// });
+// divs3.height(maxHeight3);
 
-var maxHeight2 = 0;
+// var maxHeight2 = 0;
 
-var divs2 = jQuery(".section-3 img");
-jQuery.each(divs2, function(){
-    var height = jQuery(this).height();
-    if(maxHeight2<height)
-        maxHeight2 = height;
+// var divs2 = jQuery(".section-3 img");
+// jQuery.each(divs2, function(){
+//     var height = jQuery(this).height();
+//     if(maxHeight2<height)
+//         maxHeight2 = height;
 
-});
-divs2.height(maxHeight2);
+// });
+// divs2.height(maxHeight2);
 
 var maxHeight = 0;
 

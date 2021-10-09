@@ -176,6 +176,9 @@ span h6 {
 .section-2 .img-container img{
     overflow: hidden;
     transition: .3s ease-in-out;
+    max-height: 200px!important;
+    height: 200px;
+    object-fit: cover;
 }
 
 .section-2 .img-container:hover img {
@@ -229,7 +232,9 @@ span h6 {
 
 .section-3 .img-container img{
     position: relative;
-    max-height: 300px!important;
+    max-height: 200px!important;
+    height: 200px;
+    object-fit: cover;
 }
 
 .section-3 .description-wrapper {
