@@ -76,16 +76,16 @@
                         <?php foreach($kategories as $kategori){ ?>
                         <tr>
                             <td><?php echo $kategori->name ?></td>
-                            <td class="d-flex">
+                            <td>
                                 <form   form action="" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
                                     <input type="hidden" name="button">
-                                    <button type="submit" name="modalEdit"><i class="fas fa-wrench"></i></button>
+                                    <button type="submit" name="modalEdit">Edit</button>
                                 </form>
                                 <form action="" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $kategori->id ?>">
                                     <input type="hidden" name="button" value="DeleteKategori">
-                                    <button type="submit"><i class="fas fa-trash"></i></button>
+                                    <button type="submit">Delete</button>
                                 </form>
                             </td>
                         </tr>

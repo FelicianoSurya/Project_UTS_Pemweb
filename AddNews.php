@@ -2,8 +2,8 @@
 
 session_start();
 if(isset($_SESSION['role'])){
-    if($_SESSION['role'] == 'karyawan'){
-        include "Views/Admin/addNews.php";
+    if($_SESSION['role'] == 'karyawan' || $_SESSION['role'] == 'admin'){
+        include "Views/Admin/addnews.php";
     }else{
         header("location:index.php");
     }

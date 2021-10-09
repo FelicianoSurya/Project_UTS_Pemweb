@@ -1,9 +1,9 @@
 <?php
 
 include_once(URL . "/include_db/connection.php");
-include_once(URL . "/Model/Users.php");
-include_once(URL . "/Model/Employees.php");
-include_once(URL . "/Model/Pengguna.php");
+include_once(URL . "./Model/Users.php");
+include_once(URL . "./Model/Employees.php");
+include_once(URL . "./Model/Pengguna.php");
 
 if(isset($_POST['logout'])){
     session_start();
@@ -56,7 +56,7 @@ if($captchaError == 'success'){
     }else if($cek_login == 0){
         errorLogin();
     }
-  } 
+  }
   }else if(isset($_POST['NamaDepan']) && isset($_POST['NamaBelakang']) && isset($_POST['TanggalLahir']) && 
     isset($_POST['JenisKelamin']) && isset($_POST['Username']) && isset($_FILES['ProfilePic']) && isset($_POST['Password']) && 
     $_POST['Konfirmasi'] && isset($_POST['register'])){

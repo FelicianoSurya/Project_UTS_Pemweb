@@ -45,9 +45,8 @@
     
     <?php include_once(URL . '/Views/base/header.php'); ?>
 
-    <?php if($newskategoriHighlight->judul != ""){ ?>
     <div class="container">
-       <div class="d-flex header align-items-center py-5">
+      <div class="d-flex header align-items-center py-5">
         <div class="lineheading flex-grow-1"></div>
         <?php if(isset($_GET['kategori'])){ ?>
           <h1 class="px-5"><?php echo $namaKategori->name ?></h1>
@@ -110,11 +109,8 @@
         </div>
         <?php } ?>
       </div>
-      <?php }else{ ?>
-      <div class="container" style="height:45vh">
-        <h1 class="text-center d-flex justify-content-center align-items-center" style="height:100%;">Tidak Ada Berita</h1>
-      </div>
-    <?php } ?>
+    
+    
     <?php include_once(URL . '/Views/base/footer.php'); ?>
 
     <script>
