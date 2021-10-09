@@ -52,7 +52,7 @@
 <?php include_once(URL . '/Views/base/adminHeader.php'); ?>
 
 
-    <div class="py-5 mt-5 container">
+    <div class="py-5 container">
         <div class="row justify-content-between">
             <div id="table">
                 <div class="row justify-content-between">
