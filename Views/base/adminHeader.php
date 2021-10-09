@@ -65,19 +65,19 @@ if(!isset($_SESSION['role'])){
 <div class="collapse" id="collapseExample">
     <div class="container d-flex pt-1">
         <ul class="collapse-admin ">
-            <li class="nav-item"><a href=""></a></li>
-            <!-- yang repetitif  -->
             <li class="nav-item">
-                <a class="nav-link">lala</a>
+                <a href="Admin.php" class="nav-link">Dashboard</a>
             </li>
-              <!--  -->
+            <?php if($_SESSION['role'] == 'karyawan'){ ?>
             <li class="nav-item">
-                <a class="nav-link">lala</a>
+                <a href="NewsAdmin.php" class="nav-link">News</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">lala</a>
+                <a href="CategoryTable.php" class="nav-link">Category</a>
             </li>
-            <li class="nav-item"><a href=""></a></li>
+            <?php }else{ ?>
+            <li class="nav-item"><a href="Employee.php" class="nav-link">Employee</a></li>
+            <?php } ?>
 
         </ul>
     </div>
