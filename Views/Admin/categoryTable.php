@@ -58,7 +58,13 @@
                 <div class="row justify-content-between">
                     <div class="col-4">
                         <h1>Category</h1>
-                        <p>Total</p>
+                        <?php 
+                        $conn = Database();
+                        $sql = "SELECT * FROM kategori";
+                        $query = mysqli_query($conn,$sql);
+                        $row = mysqli_num_rows($query);
+                        ?>
+                        <p>Total <?php echo $row ?> Data</p>
                     </div>
                     <div class="col-4 my-auto text-end flex-column">
                         <button class="button-add" type="submit" class="btn btn-primary" id="addCategory">+ Add Category</button>

@@ -37,8 +37,14 @@
         <div class="col-12">
             <div class="row justify-content-between">
                 <div class="col-4">
+                    <?php 
+                    $conn = Database();
+                    $sql = "SELECT * FROM employees";
+                    $query = mysqli_query($conn,$sql);
+                    $row = mysqli_num_rows($query);
+                    ?>
                     <h1>Employee</h1>
-                    <p>Total</p>
+                    <p>Total <?php echo $row ?> Data</p>
                 </div>
                 <div class="d-flex col-2 my-auto justify-content-end flex-column">
                     <a href="FormEmployee.php"><button class="button-add" type="submit" class="btn btn-primary">+ Add Employee</button></a>

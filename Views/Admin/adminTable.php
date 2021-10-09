@@ -39,6 +39,13 @@
         <div class="row justify-content-between">
             <div class="col-4">
                 <h1>News</h1>
+                <?php 
+                    $conn = Database();
+                    $sql = "SELECT * FROM berita";
+                    $query = mysqli_query($conn,$sql);
+                    $row = mysqli_num_rows($query);
+                ?>
+                <p>Total <?php echo $row ?> data</p>
                 <p>HI = Highlight</p>
                 <p>BU = Berita Utama</p>    
                 <div class="d-flex info-color">
