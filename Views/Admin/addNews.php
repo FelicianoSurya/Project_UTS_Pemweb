@@ -115,7 +115,7 @@
                 </div>
                 <div class="row py-2 justify-content-end">
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
-                        <a href="adminTable.php"><button class="button-add" type="button" name="cancel" class="btn btn-primary">Cancel</button></a>
+                       <a href="NewsAdmin.php"> <button class="button-add" type="button" name="cancel" class="btn btn-primary">Cancel</button></a>
                     </div>
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
                         
