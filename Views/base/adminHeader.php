@@ -51,32 +51,38 @@ if(!isset($_SESSION['role'])){
     </div>
     </div>
     <div class="navbar navbar-2">
-        <div class="container-fluid container collapse navbar-collapse">
-            <ul class="navigation-tab navbar-nav">
+        <div class="container-fluid container collapse navbar-collapse ">
+            <ul class="navigation-tab navbar-nav justify-content-start">
                 <li class="nav-item">
-                    <a class="nav-link navbar-head active" aria-current="page" href="index.php">HOME</a>
+                    <a class="nav-link navbar-head active" aria-current="page" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item category ">
-                    <a class="nav-link navbar-head" href="News.php"><span class="news-header">NEWS</span></a>
-                    <div class="dropdown-container">
-                        <ul class="dropdown-category p-1">
-                            <?php foreach($kategories as $kategorie){ ?>
-                            <li class="nav-item">
-                                <a class="nav-link" onclick="redirectKategori(<?php echo $kategorie->id ?>)"><?php echo $kategorie->name ?></a>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link navbar-head" href="AboutUs.php">ABOUT US</a>
-                </li>
+                
             </ul>
+            
         </div>
     </div>
 </nav>
+<div class="collapse" id="collapseExample">
+    <div class="container d-flex pt-1">
+        <ul class="collapse-admin ">
+            <li class="nav-item"><a href=""></a></li>
+            <!-- yang repetitif  -->
+            <li class="nav-item">
+                <a class="nav-link">lala</a>
+            </li>
+              <!--  -->
+            <li class="nav-item">
+                <a class="nav-link">lala</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">lala</a>
+            </li>
+            <li class="nav-item"><a href=""></a></li>
 
+        </ul>
+    </div>
+    
+ </div>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

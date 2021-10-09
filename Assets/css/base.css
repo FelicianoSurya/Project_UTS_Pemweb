@@ -248,6 +248,37 @@
     color:#0E4F6E!important;
   }
 
+/* nav-admin  */
+.collapse-admin{
+  text-decoration: none;
+  list-style-type: none;
+  background-color: #FEC97D;
+  border: 1pt solid #FEC97D;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.collapse-admin li{
+  background-color: #FEC97D;
+  border: white 2pt solid;
+  padding: 0px 35px;
+}
+
+.collapse-admin li:first-child{
+  border-radius: 20px 20px 0 0;
+  height: 15px;
+}
+.collapse-admin li:last-child{
+  border-radius: 0 0 20px 20px;
+  height: 15px;
+
+}
+
+.show{
+  /* display: flex!important; */
+}
+
+
   /* footer  */
   @media (max-width: 900px){
     .navbar-2 .nav-link{
