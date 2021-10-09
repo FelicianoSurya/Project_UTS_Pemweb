@@ -88,7 +88,7 @@
                     }
                     else{
             ?>
-            <div onclick="detailBerita(<?php echo $utama->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-delay="0" data-aos-duration="1500">
+            <div onclick="detailBerita(<?php echo $utama->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 news" data-aos="fade-right" data-aos-duration="1000">
                 <div class="box ">
                     <div class="box-tag">
                         <h5><?php echo $utama->id_kategori ?></h5>
@@ -124,7 +124,7 @@
                 else{
             ?>
             
-            <div onclick="detailBerita(<?php echo $baru->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 ">
+            <div onclick="detailBerita(<?php echo $baru->id ?>)" class="col-lg-3  col-md-6 col-12 p-2 " data-aos="fade-left">
                 <div class="box py-4 news">
                     <div class="img-container" >
                         <div class="box-tag">

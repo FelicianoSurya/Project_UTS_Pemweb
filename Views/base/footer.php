@@ -1,8 +1,8 @@
 <footer class="text-white">
   <div class="container pt-4">
     <div class="row justify-content-between">
-      <div class="col-lg-4 col-12">
-        <img src="Assets\images\home\logo.png" alt="" width="100%"/>
+      <div class="col-lg-4 col-12 text-center">
+        <img src="Assets\images\home\logo.png" alt="" width="70%"/>
         <p>Bijak Melihat Dunia</p>
       </div>
       <div class="footer-text-nav col-lg-4 col-12 d-flex justify-content-center align-items-center ">

@@ -72,6 +72,8 @@
     font-family: RobotoBold;
     position: relative;
     overflow: hidden;
+    transition: 0.2s;
+
 }
 
 .box p {
@@ -100,6 +102,30 @@
     display:block;
     align-content: center;
     padding: 1em 1em 0em 1em;
+}
+
+.box:hover{
+    animation: disco 2s infinite ease-in-out alternate;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+@keyframes disco{
+    0% {
+        box-shadow: -5px 5px #ee6055;
+      }
+    25% {
+    box-shadow: -15px 15px #60d394;
+    }
+    50% {
+    box-shadow: -5px 5px #aaf683;
+    }
+    75% {
+    box-shadow: -15px 15px #ffd97d;
+    }
+    100% {
+    box-shadow: -5px 5px #ff9b85;
+    }
 }
 
 /* @media (max-width: 600px){

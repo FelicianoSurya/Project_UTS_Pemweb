@@ -32,7 +32,7 @@
 </head>
 <body>
     <?php include_once(URL . "/Views/base/header.php") ?>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" data-aos="zoom-out">
         <div class="history container py-4">
             <div class="history-title">History</div>
             <div class="line"></div>
@@ -52,7 +52,7 @@
             <div class="line1 flex-grow-1"></div>
         </div>
         <div class="box-container row">
-            <div class="col-lg-3 col-md-6 col-12 co p-4">
+            <div class="col-lg-3 col-md-6 col-12 co p-4" data-aos="fade-up">
                 <div class="box">
                     <div class="img-container m-auto d-flex justify-content-center w-100">
                         <img src="Assets/images/aboutUs/nando.png" alt=""></img>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-12  p-4">
+            <div class="col-lg-3 col-md-6 col-12  p-4" data-aos="fade-up">
                 <div class="box">
                 <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/lifos.png" alt=""></img> 
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-12 p-4">
+            <div class="col-lg-3 col-md-6 col-12 p-4" data-aos="fade-up">
                 <div class="box">
                 <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/ano.png" alt=""></img>
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12 p-4">
+            <div class="col-lg-3 col-md-6 col-12 p-4" data-aos="fade-up">
                 <div class="box">
                 <div class="img-container m-auto d-flex justify-content-center w-100">
                     <img src="Assets/images/aboutUs/dea.png" alt=""></img>    
@@ -116,4 +116,7 @@
     });
     divs.height(maxHeight);
 </script>
+<script>
+      AOS.init();
+    </script>
 </html>

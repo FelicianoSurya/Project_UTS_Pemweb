@@ -66,17 +66,19 @@
                         <td><?php echo $employee->username ?></td>
                         <td><?php echo $employee->nama_depan ?></td>
                         <td><?php echo $employee->nama_belakang ?></td>
-                        <td class="d-flex">
-                            <form action="FormEmployee.php" method="POST">
-                                <input type="hidden" name="username" value="<?php echo $employee->username ?>">
-                                <input type="hidden" name="button" value="edit">
-                                <button type="submit"><i class="fas fa-wrench"></i></button>
-                            </form>
-                            <form action="" method="POST">
-                                <input type="hidden" name="username" value="<?php echo $employee->username ?>">
-                                <input type="hidden" name="button" value="delete">
-                                <button type="submit"><i class="fas fa-trash"></i></button>
-                            </form>
+                        <td >
+                            <div class="d-flex">
+                                <form action="FormEmployee.php" method="POST">
+                                    <input type="hidden" name="username" value="<?php echo $employee->username ?>">
+                                    <input type="hidden" name="button" value="edit">
+                                    <button type="submit"><i class="fas fa-wrench"></i></button>
+                                </form>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="username" value="<?php echo $employee->username ?>">
+                                    <input type="hidden" name="button" value="delete">
+                                    <button type="submit"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     <?php } ?>
@@ -86,7 +88,7 @@
         
     </div>
 </div>
-<?php include(URL . '/Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/adminFooter.php') ?>
 
 </body>
 

@@ -45,9 +45,11 @@
                     $query = mysqli_query($conn,$sql);
                     $row = mysqli_num_rows($query);
                 ?>
-                <p>Total <?php echo $row ?> data</p>
-                <p>HI = Highlight</p>
-                <p>BU = Berita Utama</p>    
+                <div class="d-flex">
+                    <p class="pe-2">HI = Highlight</p> |
+                    <p class="ps-2">BU = Berita Utama</p>  
+                </div>
+                  
                 <div class="d-flex info-color">
                     <div class="d-flex">
                         <p class="active circle"></p>
@@ -61,7 +63,7 @@
             </div>
             <div class="d-flex col-2 my-auto justify-content-end flex-column">
                 <a href="AddNews.php"><button class="button-add" class="btn btn-primary">+ Add News</button></a>
-                <p class="pt-4 m-0">total news :</p>
+                <p class="pt-4 m-0">Total <?php echo $row ?></p>
             </div>
         </div>
     
@@ -133,24 +135,26 @@
                         </form>
                     </td>
                      <!--    -->
-                    <td class="d-flex">
-                        <form action="AddNews.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
-                            <input type="hidden" name="button" value="Edit">
-                            <button type="submit"><i class="fas fa-wrench"></i></button>
-                        </form>
-                        <form action="" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $new->id ?>">
-                            <input type="hidden" name="button" value="Delete">
-                            <button type="submit"><i class="fas fa-trasha"></i></button>
-                        </form>
+                    <td>
+                        <div class="d-flex">
+                            <form action="AddNews.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                                <input type="hidden" name="button" value="Edit">
+                                <button type="submit"><i class="fas fa-wrench"></i></button>
+                            </form>
+                            <form action="" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $new->id ?>">
+                                <input type="hidden" name="button" value="Delete">
+                                <button type="submit"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
     </div>
-<?php include(URL . '/Views/base/footer.php') ?>
+<?php include(URL . '/Views/base/adminFooter.php') ?>
 
 </body>
 

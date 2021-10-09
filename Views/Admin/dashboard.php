@@ -84,7 +84,7 @@
       </div>
     </div>
           
-    <?php include(URL . '/Views/base/footer.php') ?>    
+    <?php include(URL . '/Views/base/adminFooter.php') ?>    
 
   </body>
 </html>

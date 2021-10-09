@@ -89,7 +89,7 @@
            
         </div>
     </div>
-    
+    <?php include(URL . '/Views/base/adminFooter.php') ?>
 
 </body>
 </html>
