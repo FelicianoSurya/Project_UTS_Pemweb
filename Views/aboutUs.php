@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <?php
+    session_start();
     define('URL', dirname(dirname(__FILE__)));
     include_once(URL . "/Controllers/Middleware.php");
     include_once(URL . "/include_db/connection.php");
