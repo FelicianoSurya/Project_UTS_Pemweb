@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link href="Assets/css/admin/addNews.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="row justify-content-between py-2">
                 <label class="col-md-2 col-12 rounded-pill" for="username">Username</label>
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'disabled' ?> required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'readonly' ?> required />
                     <?php if(isset($_POST['button'])){ ?>  <input class="col-md-9 col-12 rounded-pill" type="hidden" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" required /> <?php } ?>
                 </div>
                 <div class="row justify-content-between py-2">
@@ -78,7 +78,7 @@
 
                 <div class="row py-2 justify-content-end">
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
-                        <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
+                        <a href="Employee.php"><button type="button" class="button-add" name="cancel" class="btn btn-primary">Cancel</button></a>
                     </div>
                     <div class="p-2 col-xxl-1 col-md-2 col-sm-3 col-5">
                         <input class="button-add" type="submit" <?php if(!isset($_POST['button'])){ ?> name="addEmployee" value="Submit" <?php }
