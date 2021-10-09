@@ -1,11 +1,10 @@
-body{
+.background{
   background-image:url('../images/Register/BackgroundRegister.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .formRegister {
-  width: 45%;
   background-color: white;
   padding: 1rem 3rem 2rem 3rem;
   border-radius: 25px;

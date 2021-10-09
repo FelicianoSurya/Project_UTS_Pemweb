@@ -14,9 +14,9 @@
 
 </head>
 <body>
-    
-        <div class="container d-flex justify-content-center align-items-center" style="height:90vh">
-            <div class="formRegister col-lg-6 col-md-10 col-11">
+    <div class="background">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <div class="formRegister col-lg-5 col-md-8 col-11">
                 <h1>Register</h1>
                 <div class="line"></div>
                 <form method="POST" action="" enctype="multipart/form-data">
@@ -49,6 +49,6 @@
                 </form>
             </div>
         </div>
-	
+    </div>
 </body>
 </html>
