@@ -97,7 +97,6 @@ body{
 
 .box {
   position: relative;
-  overflow:hidden;
 }
 
 .box-tag {
@@ -107,7 +106,6 @@ body{
   right: 0;
   background-color: #FC7F2B;
   color: white;
-  z-index:100;
 }
 
 .box span{
@@ -131,15 +129,6 @@ body{
   max-height: 200px;
   height: 300px;
   object-fit: cover;
-}
-
-.recommended-news .box:hover img {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-  cursor: pointer;
- 
 }
 
 @media(max-width:500px){

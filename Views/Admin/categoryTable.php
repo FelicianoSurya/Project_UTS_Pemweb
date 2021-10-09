@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Assets/css/admin/adminTable.css" rel="stylesheet">
     <link href="Assets/css/admin/category.css" rel="stylesheet">
-    <title>Admin</title>
     <!-- <script src="Assets/js/detailNews.js"></script> -->
     <?php
     define('URL', dirname(dirname(dirname(__FILE__))));
@@ -116,7 +115,7 @@
                     </div>
                     <div class="row py-2 justify-content-end">
                         <div class="p-2 col-3">
-                           <a href="CategoryTable.php"> <button class="button-add" type="button" name="cancel" class="btn btn-primary">Cancel</button> </a>
+                            <button class="button-add" type="submit" name="cancel" class="btn btn-primary">Cancel</button>
                         </div>
                         <div class="p-2 col-3">
                             <input class="button-add" type="submit" <?php if(!isset($_POST['button'])){ ?> name="addKategori" value="Submit" <?php

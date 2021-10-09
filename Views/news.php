@@ -37,7 +37,7 @@
     $rekomendasi = fetchRekomendasi();
     
     ?>
-    <title><?php echo $detail->judul ?></title>
+    
 </head>
 <body>
 
@@ -47,7 +47,7 @@
         <div class="navigation">
             <a href="News.php">Category</a>
             >
-            <a><?php echo  $detail->id_kategori  ?></a>
+            <a href=""><?php echo $detail->id_kategori ?></a>
         </div>
         <div class="news-title">
             <h1><?php echo $detail->judul ?></h1>
@@ -131,11 +131,11 @@
 
                     <div class="col-9">
                         <?php if($rowUser > 0){ ?>
-                            <p class="m-0 comment-text" style="color:grey;"><b><?php echo $user[0] ?></b></p>
+                            <p class="m-0 comment-text"><b><?php echo $user[0] ?></b></p>
                         <?php }else if($rowEmployee > 0){ ?>
                             <p class="m-0 comment-text" style="color:grey;"><b><?php echo $employee[0] . " " ?><i style="color:#FDBF65;" class="fas fa-check"></i></b></p>
                         <?php } ?>   
-                        <p class="m-0 comment-text text-desc"><?php echo $komentar->komentar ?></p>
+                        <p class="m-0 comment-text"><?php echo $komentar->komentar ?></p>
                         <p class="comment-desc pt-2">
                             <?php
                                 $countsql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id'";

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Assets/css/admin/adminTable.css" rel="stylesheet">
-    <title>Admin</title>
     <!-- <script src="Assets/js/detailNews.js"></script> -->
     <?php
     define('URL', dirname(dirname(dirname(__FILE__))));
