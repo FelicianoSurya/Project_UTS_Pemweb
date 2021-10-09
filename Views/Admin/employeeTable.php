@@ -60,16 +60,16 @@
                         <td><?php echo $employee->username ?></td>
                         <td><?php echo $employee->nama_depan ?></td>
                         <td><?php echo $employee->nama_belakang ?></td>
-                        <td>
+                        <td class="d-flex">
                             <form action="FormEmployee.php" method="POST">
                                 <input type="hidden" name="username" value="<?php echo $employee->username ?>">
                                 <input type="hidden" name="button" value="edit">
-                                <button type="submit">Edit</button>
+                                <button type="submit"><i class="fas fa-wrench"></i></button>
                             </form>
                             <form action="" method="POST">
                                 <input type="hidden" name="username" value="<?php echo $employee->username ?>">
                                 <input type="hidden" name="button" value="delete">
-                                <button type="submit">Delete</button>
+                                <button type="submit"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

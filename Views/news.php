@@ -42,7 +42,7 @@
 <body>
 
     <?php include_once(URL . '/Views/base/header.php'); ?>
-
+    <?php if($detail->id != ""){ ?>
     <div class="container py-5">
         <div class="navigation">
             <a href="News.php">Category</a>
@@ -193,7 +193,11 @@
         </div>
         </div>
     </div>
-
+    <?php }else{ ?>
+        <div class="container" style="height:45vh">
+        <h1 class="text-center d-flex justify-content-center align-items-center" style="height:100%;">Tidak Ada Berita</h1>
+      </div>
+    <?php } ?>
     
 <?php include(URL . '/Views/base/footer.php') ?>
 
