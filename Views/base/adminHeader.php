@@ -65,6 +65,7 @@ if(!isset($_SESSION['role'])){
 <div class="collapse" id="collapseExample">
     <div class="container d-flex pt-1">
         <ul class="collapse-admin ">
+            <li class="nav-item"></li>
             <li class="nav-item">
                 <a href="Admin.php" class="nav-link">Dashboard</a>
             </li>
@@ -78,7 +79,8 @@ if(!isset($_SESSION['role'])){
             <?php }else{ ?>
             <li class="nav-item"><a href="Employee.php" class="nav-link">Employee</a></li>
             <?php } ?>
-
+            <li class="nav-item"></li>
+            
         </ul>
     </div>
     
