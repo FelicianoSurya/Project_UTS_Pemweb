@@ -34,7 +34,7 @@
     <?php include_once(URL . '/Views/base/adminHeader.php'); ?>
 
 
-    <div class="p-3">
+    <div class="py-5">
       <div class="container mainbox">
         <div class="card-container row p-3 justify-content-around">
           <?php if($_SESSION['role'] == 'karyawan'){ ?>
