@@ -2,7 +2,14 @@ body{
     background-color: #F3FCFF;
 }
 
+.news-image{
+  overflow: hidden;
+}
 
+.news-image img{
+  max-height: 500px;
+  object-fit: cover;
+}
 
 .comment-section{
     background-color: white;
@@ -99,6 +106,29 @@ body{
   right: 0;
   background-color: #FC7F2B;
   color: white;
+}
+
+.box span{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  color: white;
+  background-color: rgba(153, 166, 172, 0.822);
+  width: 100%;
+}
+
+.box span h4{
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.recommended-news .box img{
+  max-height: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 
 @media(max-width:500px){

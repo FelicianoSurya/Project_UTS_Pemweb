@@ -7,13 +7,17 @@
 .img-container {
   position: relative;
   padding: 0;
+  overflow: hidden;
 }
 
 .headline img {
   max-height: 500px;
   object-fit: cover;
+  transition: .3s ease-in-out;
+
 }
 .headline span {
+  z-index: 999;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -21,6 +25,26 @@
   padding: 10px 20px;
   color: white;
   background-color: rgba(0, 0, 0, 0.555);
+}
+
+.headline .img-container:hover img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+ 
+}
+.beritasamping {
+  display: flex;
+  transition: .2s ease-in-out;
+
+}
+
+.beritasamping:hover{
+  transform: scale(1.02);
+  transition: .2s ease-in-out;
+  cursor: pointer;
 }
 
 .lineheading {
@@ -49,9 +73,13 @@
 
 .beritakecil {
   display: flex;
+  transition: .2s ease-in-out;
+
 }
-.beritasamping {
-  display: flex;
+.beritakecil:hover{
+  transform: scale(1.02);
+  transition: .2s ease-in-out;
+  cursor: pointer;
 }
 
 .beritakecil img {
@@ -86,6 +114,8 @@
 .section-2{
   margin-bottom:20px;
 }
+
+
 
 @media (max-width: 991px) {
   .section-swiper .swiper {

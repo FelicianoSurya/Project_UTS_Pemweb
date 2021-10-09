@@ -181,14 +181,22 @@
             </div>
             <div class="row">
             <?php foreach($rekomendasi as $rekom){  ?>
-            <div class="col-lg-3 col-6  p-2 news"  >
-                <div class="box ">
-                    <div class="box-tag">
-                        <h5><?php echo $rekom->id_kategori ?></h3>
-                    </div>
-                    <img src="./<?php echo $rekom->gambar ?>" width="100%" alt="">
+        
+                <div class="col-lg-3 col-sm-6 col-12 p-2 news"  >
+                    <a onclick="detailBerita(<?php echo $rekom->id ?>)">
+                        <div class="box ">
+                            <div class="box-tag">
+                                <h5><?php echo $rekom->id_kategori ?></h3>
+                            </div>
+                            <img src="./<?php echo $rekom->gambar ?>" width="100%" alt="">
+                            <span>
+                                <h4><?php echo $rekom->judul ?></h4>
+                                <h6><?php echo $rekom->tanggal_publikasi ?></h6>
+                            </span>
+                        </div>
+                    </a>
                 </div>
-            </div>
+            
             <?php } ?>
         </div>
         </div>

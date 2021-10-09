@@ -48,8 +48,8 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php foreach($highlights as $highlight){ ?>
-                <div onclick="detailBerita(<?php echo $highlight->id ?>)" class="swiper-slide m-auto px-3">
-                        <div class="img-container m-auto" style="background-image:url('./<?php echo $highlight->gambar ?>')">
+                <div  class="swiper-slide m-auto px-3">
+                        <div onclick="detailBerita(<?php echo $highlight->id ?>)"class="img-container m-auto" style="background-image:url('./<?php echo $highlight->gambar ?>')">
                             <div class="overlay-span"></div>
                             <span>
                                 <h2><?php echo $highlight->judul ?></h2>
@@ -232,27 +232,27 @@
 
 
 
+var maxHeight3 = 0;
+
+var divs3 = jQuery(".section-2 img");
+jQuery.each(divs3, function(){
+    var height = jQuery(this).height();
+    if(maxHeight3<height)
+        maxHeight3 = height;
+
+});
+divs3.height(maxHeight3);
+
 var maxHeight2 = 0;
 
-var divs = jQuery(".section-2 img");
-jQuery.each(divs, function(){
+var divs2 = jQuery(".section-3 img");
+jQuery.each(divs2, function(){
     var height = jQuery(this).height();
     if(maxHeight2<height)
         maxHeight2 = height;
 
 });
-divs.height(maxHeight2);
-
-var maxHeight2 = 0;
-
-var divs = jQuery(".section-3 img");
-jQuery.each(divs, function(){
-    var height = jQuery(this).height();
-    if(maxHeight2<height)
-        maxHeight2 = height;
-
-});
-divs.height(maxHeight2);
+divs2.height(maxHeight2);
 
 var maxHeight = 0;
 
@@ -278,7 +278,7 @@ divs.height(maxHeight);
 
 
 
-  AOS.init();
+ 
 
 
 const swiper = new Swiper('.swiper', {
@@ -299,6 +299,10 @@ const swiper = new Swiper('.swiper', {
 
     // And if we need scrollbar
 });
+
+
+     AOS.init();
+
 </script>
 
 

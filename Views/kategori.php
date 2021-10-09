@@ -56,7 +56,7 @@
         <div class="lineheading flex-grow-1"></div>
       </div>
       <div class="section-1 row">
-        <div onclick="detailBerita(<?php echo $newskategoriHighlight->id ?>)" class="col-lg-6 col-12 headline">
+        <div onclick="detailBerita(<?php echo $newskategoriHighlight->id ?>)" class="col-lg-6 col-12 headline" data-aos="fade-right">
           <div class="img-container">
             <span>
               <h2><?php echo $newskategoriHighlight->judul ?></h2>
@@ -70,20 +70,22 @@
           </div>
         </div>
 
-        <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0">
+        <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0" >
           <?php foreach($beritaSamping as $samping){ ?>
-          <div onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1">
-            <img
-              width="23%"
-              src="./<?php echo $samping->gambar ?>"
-              alt=""
-            />
-            <div class="isiberitasamping ps-2">
-              <h5><?php echo $samping->judul ?></h5>
-              <h6><?php echo $samping->id_kategori ?></h6>
-              <p><?php echo $samping->tanggal_publikasi ?></p>
+            <div data-aos="fade-left">
+              <div  onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1" >
+                <img
+                  width="23%"
+                  src="./<?php echo $samping->gambar ?>"
+                  alt=""
+                />
+                <div class="isiberitasamping ps-2">
+                  <h5><?php echo $samping->judul ?></h5>
+                  <h6><?php echo $samping->id_kategori ?></h6>
+                  <p><?php echo $samping->tanggal_publikasi ?></p>
+                </div>
+              </div>
             </div>
-          </div>
             <?php } ?>
         </div>    
       </div>
@@ -91,22 +93,24 @@
 
       <div class="section-2 beritabawah container pt-5">
         <?php foreach($allBerita as $all){ ?>
-        <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1">
-          <img
-            width="21%"
-            src="./<?php echo $all->gambar ?>"
-            alt=""
-          />
-          <div class="isibawah ps-2 d-flex flex-column">
-            <div class="linekecil w-100"></div>
-            <div class="isiberitakecil ps-2 py-2 flex-grow-1">
-              <h4><?php echo $all->judul ?></h4>
-              <h5 class="pb-5"><?php echo $all->id_kategori ?></h5>
-              <h6><?php echo $all->tanggal_publikasi ?></h6>
+          <div data-aos="fade-up">
+            <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1">
+              <img
+                width="21%"
+                src="./<?php echo $all->gambar ?>"
+                alt=""
+              />
+              <div class="isibawah ps-2 d-flex flex-column">
+                <div class="linekecil w-100"></div>
+                <div class="isiberitakecil ps-2 py-2 flex-grow-1">
+                  <h4><?php echo $all->judul ?></h4>
+                  <h5 class="pb-5"><?php echo $all->id_kategori ?></h5>
+                  <h6><?php echo $all->tanggal_publikasi ?></h6>
+                </div>
+                <div class="linekecil w-100"></div>
+              </div>
             </div>
-            <div class="linekecil w-100"></div>
           </div>
-        </div>
         <?php } ?>
       </div>
     
@@ -139,5 +143,8 @@
       });
       divs.height(maxHeight);
     </script>
+    <script>
+     AOS.init();
+</script>
   </body>
 </html>
