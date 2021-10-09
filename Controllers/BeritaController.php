@@ -212,7 +212,8 @@ function fetchBeritaAdmin(){
     $conn = Database();
     $sql = "SELECT id, judul, penulis, deskripsi,
             CONCAT(DAY(tanggal_publikasi), ' ', MONTHNAME(tanggal_publikasi), ' ' , YEAR(tanggal_publikasi)) 'publikasi',
-            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul , username
+            gambar, (SELECT nama FROM kategori WHERE id = berita.id_kategori) 'nama_kategori' , subjudul , 
+            (SELECT CONCAT(nama_depan , ' ' , COALESCE(nama_belakang,'')) FROM employees WHERE username = berita.username) 'Editor' 
             FROM berita";
     $query = mysqli_query($conn,$sql);
     $result = mysqli_fetch_all($query);

@@ -136,6 +136,7 @@
                             <p class="m-0 comment-text" style="color:grey;"><b><?php echo $employee[0] . " " ?><i style="color:#FDBF65;" class="fas fa-check"></i></b></p>
                         <?php } ?>   
                         <p class="m-0 comment-text text-desc"><?php echo $komentar->komentar ?></p>
+                        <div class="d-flex">
                         <p class="comment-desc pt-2">
                             <?php
                                 $countsql = "SELECT * FROM likes WHERE id_komentar = '$komentar->id'";
@@ -144,6 +145,8 @@
                                 echo $count;
                             ?> like
                         </p>
+                        <p style="color:black;" class="comment-desc pt-2 ps-2"><?php echo $komentar->tanggal_komentar ?></p>
+                        </div>
                     </div>
 
                     <div class="col-2 justify-content-around align-items-center d-flex">

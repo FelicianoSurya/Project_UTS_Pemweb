@@ -116,7 +116,7 @@ if(!isset($_SESSION['role'])){
             <button class="btn btnModal" type="submit" name="login">Sign In</button>
         </div>
         </form>
-        <p class="TanyaRegis">Belum memiliki akun? <a href="./Views/Register.php">Register</a></p>
+        <p class="TanyaRegis">Belum memiliki akun? <a href="Register.php">Register</a></p>
     </div>
 </div>
 </div>

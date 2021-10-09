@@ -20,7 +20,7 @@ table.dataTable{
   }
   
   table { border-collapse: separate; }
-  td { border: solid 1px #000; }
+  td { border: solid 1px #000; font-size: 12px;}
   tr th:first-child { border-top-left-radius: 10px;  }
   tr th:last-child { border-top-right-radius: 10px; }
   tr th:first-child { border-bottom-left-radius: 10px; }

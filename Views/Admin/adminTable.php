@@ -71,11 +71,14 @@
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
+                <th>No</th>
                 <th>Title</th>
+                <th>SubTitle</th>
                 <th>Writer</th>
                 <th>Editor</th>
                 <th>Date</th>
                 <th>Category</th>
+                <th>Image</th>
                 <th>
                 HI
                 <?php if(isset($_POST['highlight'])){ if($errorHighlight == 1){ echo "<p style='color:red;margin:0;font-size:10px;'>Sudah mencapai Maximum</p>"; } } ?>
@@ -87,13 +90,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($news as $new){ ?>
+            <?php $no = 1; foreach($news as $new){ ?>
                 <tr>
+                    <td><?php echo $no ?></td>
                     <td><?php echo $new->judul ?></td>
+                    <td><?php echo $new->subjudul ?></td>
                     <td><?php echo $new->penulis ?></td>
-                    <td><?php echo $new->username ?></td>
+                    <td><?php echo $new->editor ?></td>
                     <td><?php echo $new->tanggal_publikasi ?></td>
                     <td><?php echo $new->id_kategori ?></td>
+                    <td><img width="40" height="40" src="./<?php echo $new->gambar ?>"> </td>
 
                     <td>
                         <form action="" method="POST">
@@ -151,7 +157,7 @@
                         </div>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php $no++; } ?>
         </tbody>
     </table>
     </div>
