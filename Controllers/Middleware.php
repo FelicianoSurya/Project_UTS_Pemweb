@@ -25,7 +25,7 @@ function errorLogin(){
 
 if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login']) && isset($_POST['captcha'])){
     session_start();
-    $captcha = $_POST["captcha"];
+    $captcha = htmlspecialchars($_POST["captcha"]);
     $captchaUser = filter_var($_POST["captcha"], FILTER_SANITIZE_STRING);
     if(empty($captchaUser)) {
       $captchaError = "Please enter the captcha.";
@@ -40,8 +40,8 @@ if(isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['login
     }
 
 if($captchaError == 'success'){
-    $username = $_POST['Username'];
-    $pass = md5($_POST['Password']);
+    $username = htmlspecialchars($_POST['Username']);
+    $pass = htmlspecialchars(md5($_POST['Password']));
     $conn = Database();
     $user = new Users();
     $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$pass'";
