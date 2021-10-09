@@ -51,7 +51,7 @@ if(isset($_POST['editEmployee'])){
     $firstName = $_POST['firstname'];
     $lastname = $_POST['lastname'];
 
-    $sql = "UPDATE employees SET nama_depan = '$firstName' , nama_belakang = '$lastname'WHERE username = $username";
+    $sql = "UPDATE employees SET nama_depan = '$firstName' , nama_belakang = '$lastname'";
     $query = mysqli_query($conn,$sql);
     header("location:Employee.php");
 }

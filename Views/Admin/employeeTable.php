@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Assets/css/admin/adminTable.css" rel="stylesheet">
-    <title>Admin</title>
     <!-- <script src="Assets/js/detailNews.js"></script> -->
     <?php
     define('URL', dirname(dirname(dirname(__FILE__))));
@@ -64,9 +63,9 @@
                 <tbody>
                     <?php foreach($employees as $employee){ ?>
                     <tr>
+                        <td><?php echo $employee->username ?></td>
                         <td><?php echo $employee->nama_depan ?></td>
                         <td><?php echo $employee->nama_belakang ?></td>
-                        <td><?php echo $employee->username ?></td>
                         <td >
                             <div class="d-flex">
                                 <form action="FormEmployee.php" method="POST">

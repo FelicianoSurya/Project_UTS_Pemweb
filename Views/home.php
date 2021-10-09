@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Assets/css/home.css" rel="stylesheet">
+    <link href="./Assets/js/home.js" rel="stylesheet">
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <title>Newspapers</title>
+    <title>Document</title>
 
     <?php
     define('URL', dirname(dirname(__FILE__)));
@@ -28,6 +29,12 @@
     $login = redirectLogin();
     
 ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Assets/css/home.css" rel="stylesheet">
+    <script src="./Assets/js/home.js"></script>
+    <title>Document</title>
 </head>
 <body>
 
@@ -140,6 +147,58 @@
                 </div>
             </div>     
             <?php $i++;}} ?>
+            
+             <!-- <div class="col-lg-3  col-md-6 col-12 p-2 news">
+                <div class="box py-4 news">
+                    <div class="img-container m-auto">
+                        <div class="box-tag">
+                            <h5>Politics</h3>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1633377933392-46d4911bea9a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=388&q=80" width="100%" alt="">
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-start">Cristiano Ronaldo Pensiun</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi qui ipsam inventore, rem suscipit repellat quisquam assumenda sunt accusamus distinctio repellendus deserunt pariatur quidem numquam fuga molestias, dolorum magni. Itaque.</p>
+                        <h6 class="text-end">1996-09-12</h6>
+                    </div>
+                    
+                </div> 
+            </div>
+            <div class="col-lg-3  col-md-6 col-12 p-2 news">
+                <div class="box py-4">
+                    <div class="img-container">
+                        <div class="box-tag">
+                            <h5>Politics</h3>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-start">Cristiano Ronaldo Pensiun</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi qui ipsam inventore, rem suscipit repellat quisquam assumenda sunt accusamus distinctio repellendus deserunt pariatur quidem numquam fuga molestias, dolorum magni. Itaque.</p>
+                        <h6 class="text-end">1996-09-12</h6>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-6 col-12 p-2 news">
+                <div class="box py-4">
+                    <div class="img-container">
+                        <div class="box-tag">
+                            <h5>Politics</h3>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1504600770771-fb03a6961d33?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80" width="100%" alt="">
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-start">Cristiano Ronaldo Pensiun</h3>
+                        <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi qui ipsam inventore, rem suscipit repellat quisquam assumenda sunt accusamus distinctio repellendus deserunt pariatur quidem numquam fuga molestias, dolorum magni. Itaque.</p>
+                        <h6 class="text-end">1996-09-12</h6>
+                    </div>
+                    
+                </div>
+            </div> -->
 
         </div>
     </div>
@@ -154,8 +213,10 @@
             <div class="line flex-grow-1"></div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-            <div class="elfsight-app-fb7c1fdb-7d53-4845-b5ac-b08e95ab4fd1"></div>
+            <iframe src="https://covid-19.dataflowkit.com/assets/widget/c19-widget-light.html" 
+            frameborder="0" scrolling="no"
+            width="450" height="250">
+            </iframe>
         </div>
         
     </div>
