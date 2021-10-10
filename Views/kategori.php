@@ -74,7 +74,7 @@
         <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0" >
           <?php foreach($beritaSamping as $samping){ ?>
             <div data-aos="fade-left">
-              <div  onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1  row" >
+              <div  onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1 row ps-1" >
                 <img
                   class="p-0 col-lg-2 col-md-3 col-sm-4 col-5"
                   src="./<?php echo $samping->gambar ?>"
@@ -95,7 +95,7 @@
       <div class="section-2 beritabawah container pt-5">
         <?php foreach($allBerita as $all){ ?>
           <div data-aos="fade-up">
-            <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1 row">
+            <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1 row ps-1">
               <img
                 class="p-0 col-lg-2 col-md-3 col-sm-4 col-5"
                 src="./<?php echo $all->gambar ?>"
