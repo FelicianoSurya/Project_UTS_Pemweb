@@ -101,7 +101,7 @@
                     <label class="col-md-2 col-12 rounded-pill" for="category">Category </label>
 
                     <select class="col-md-9 col-12 rounded-pill" name="id_kategori" required>
-                        <option value="">Catogory</option>
+                        <option value="">Category</option>
                         <?php 
                         foreach($kategories as $kategori){ ?>
                         <option id="<?php echo $kategori->id ?>" value="<?php echo $kategori->id ?>" <?php if($detailEdit->id_kategori == $kategori->id) echo 'selected' ?>><?php echo $kategori->name ?></option>
