@@ -97,7 +97,7 @@
           <div data-aos="fade-up">
             <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1">
               <img
-                width="21%"
+                width="25%"
                 src="./<?php echo $all->gambar ?>"
                 alt=""
               />
