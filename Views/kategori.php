@@ -74,13 +74,13 @@
         <div class="sampingswiper m-auto col-lg-6 col-12 py-4 py-lg-0" >
           <?php foreach($beritaSamping as $samping){ ?>
             <div data-aos="fade-left">
-              <div  onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1" >
+              <div  onclick="detailBerita(<?php echo $samping->id ?>)" class="beritasamping pb-3 py-1  row" >
                 <img
-                  width="23%"
+                  class="p-0 col-lg-2 col-md-3 col-sm-4 col-5"
                   src="./<?php echo $samping->gambar ?>"
                   alt=""
                 />
-                <div class="isiberitasamping ps-2">
+                <div class="isiberitasamping ps-2 col-lg-10 col-md-9 col-sm-8 col-7">
                   <h5><?php echo $samping->judul ?></h5>
                   <h6><?php echo $samping->id_kategori ?></h6>
                   <p><?php echo $samping->tanggal_publikasi ?></p>
@@ -95,13 +95,13 @@
       <div class="section-2 beritabawah container pt-5">
         <?php foreach($allBerita as $all){ ?>
           <div data-aos="fade-up">
-            <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1">
+            <div onclick="detailBerita(<?php echo $all->id ?>)" class="beritakecil py-1 row">
               <img
-                width="25%"
+                class="p-0 col-lg-2 col-md-3 col-sm-4 col-5"
                 src="./<?php echo $all->gambar ?>"
                 alt=""
               />
-              <div class="isibawah ps-2 d-flex flex-column">
+              <div class="isibawah ps-2 d-flex flex-column col-lg-10 col-md-9 col-sm-8 col-7">
                 <div class="linekecil w-100"></div>
                 <div class="isiberitakecil ps-2 py-2 flex-grow-1">
                   <h4><?php echo $all->judul ?></h4>
@@ -148,7 +148,7 @@
       divs.height(maxHeight);
     </script>
     <script>
-     AOS.init();
-</script>
+      AOS.init();
+    </script>
   </body>
 </html>
