@@ -47,6 +47,7 @@ if(isset($_POST['button'])){
 }
 
 if(isset($_POST['editEmployee'])){
+    $conn = Database();
     $username = $_POST['username'];
     $firstName = $_POST['firstname'];
     $lastname = $_POST['lastname'];

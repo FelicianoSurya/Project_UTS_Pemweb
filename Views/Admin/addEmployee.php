@@ -67,7 +67,7 @@
                 </div>
                 <div class="row justify-content-between py-2">
                 <label class="col-md-2 col-12 rounded-pill" for="username">Username</label>
-                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'readonly' ?> required />
+                    <input class="col-md-9 col-12 rounded-pill" type="text" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" <?php if(isset($_POST['button'])) echo 'disabled' ?> required />
                     <?php if(isset($_POST['button'])){ ?>  <input class="col-md-9 col-12 rounded-pill" type="hidden" name="username" value="<?php if(isset($_POST['button'])) echo $editData->username ?>" required /> <?php } ?>
                 </div>
                 <div class="row justify-content-between py-2">
