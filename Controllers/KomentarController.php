@@ -10,6 +10,7 @@ if(isset($_POST['username']) && isset($_POST['id_berita']) && isset($_POST['kome
     $date = date('Y-m-d');
     $sql = "INSERT INTO komentar (username,id_berita,tanggal_komentar, komentar) VALUES ('$username', '$berita', '$date' ,'$komentar')";
     $query = mysqli_query($conn,$sql);
+    header("location:DetailNews.php?detail=".$berita);
 }
 
 function fetchKomentar(){
